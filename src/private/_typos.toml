@@ -1,0 +1,8 @@
+[default.extend-identifiers]
+DecodeParms="DecodeParms"
+ParseLoca="ParseLoca"
+shsInfo="shsInfo"
+
+[default.extend-words]
+FLATE = "FLATE"
+loca = "loca"
