@@ -1,6 +1,6 @@
 #include "brst_conf.h"
 #include "brst_utils.h"
-#include "hpdf.h"
+#include "brst.h"
 #include "brst_u3d.h"
 
 #include "internal/brst_objects_internal.h"

@@ -49,7 +49,7 @@ If this parameter set to non-zero value, memory management will be done as follo
 - If the size of requested memory is larger than the
   remaining memory, a new memory block is allocated.
 - Unused memory is not released immediately. It is released
-  all together when HPDF_Free() is invoked.
+  all together when BRST_Free() is invoked.
   \\endparblock"
 			   (:тип "RAW_POINTER"
 			    :имя "user_data"
@@ -86,7 +86,7 @@ If this parameter set to non-zero value, memory management will be done as follo
 	      "Free()"))
 
 	;; === Doc_Init
-	(:название "HPDF_Doc_Initialize"
+	(:название "BRST_Doc_Initialize"
 	 :группа "doc"
 	 :ru "Настраивает документ. Если документ \\c doc уже настроен, он предварительно очищается"
 	 :en "Create a new document. If \\c doc object already has a document, the current document is revoked."

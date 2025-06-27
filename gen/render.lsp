@@ -16,7 +16,7 @@
     ((":param_image"   . :en) . "Image object handle.")
     ((":param_dst"     . :en) . "Destination object handle.")
     ((":param_embedded_file" . :en) . "Embedded file object handle.")
-    ((":return_ok"     . :en) . "\\ref HPDF_OK on success, otherwise returns error code and calls error handler.")
+    ((":return_ok"     . :en) . "\\ref BRST_OK on success, otherwise returns error code and calls error handler.")
     ((":error-codes"   . :en) . "\\par Error codes")
 
     ((":param_pdf"     . :ru) . "Описатель объекта документа.")
@@ -28,7 +28,7 @@
     ((":param_image"   . :ru) . "Описатель объекта изображения.")
     ((":param_dst"     . :ru) . "Описатель объекта места назначения.")
     ((":param_embedded_file" . :ru) . "Описатель объекта вложенного файла.")
-    ((":return_ok"     . :ru) . "\\ref HPDF_OK при успешном выполнении, иначе возвращает код ошибки и вызывает обработчик ошибок.")
+    ((":return_ok"     . :ru) . "\\ref BRST_OK при успешном выполнении, иначе возвращает код ошибки и вызывает обработчик ошибок.")
     ((":error-codes"   . :ru) . "\\par Коды ошибок")))
 
 (defparameter +заданные-подстановки+

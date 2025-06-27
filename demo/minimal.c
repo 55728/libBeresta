@@ -1,5 +1,5 @@
 /**
-  \par Minimal HPDF program demo
+  \par Minimal BRST program demo
 
   This is bare minimum program, creating PDF document.
   It creates \ref BRST_Doc object, adds \ref BRST_Page object into it,
