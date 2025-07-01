@@ -1,15 +1,10 @@
 /*
- * << Haru Free PDF Library 2.0.0 >> -- line_demo.c
+ * line_demo.c - Примеры создания линий
+ * ===========
  *
- * Copyright (c) 1999-2006 Takeshi Kanno <takeshi_kanno@est.hi-ho.ne.jp>
+ * Copyright (c) 2025 Dmitry Solomennikov
  *
- * Permission to use, copy, modify, distribute and sell this software
- * and its documentation for any purpose is hereby granted without fee,
- * provided that the above copyright notice appear in all copies and
- * that both that copyright notice and this permission notice appear
- * in supporting documentation.
- * It is provided "as is" without express or implied warranty.
- *
+ * Текст лиценции смотри в файле `ЛИЦЕНЗИЯ`
  */
 
 #include <stdlib.h>
@@ -19,54 +14,54 @@
 #include "handler.h"
 
 void
-draw_line  (BRST_Page    page,
-            float        x,
-            float        y,
-            const char  *label)
+draw_line(BRST_Page page,
+          float     x,
+          float     y,
+          BRST_CSTR label)
 {
-    BRST_Page_BeginText (page);
-    BRST_Page_MoveTextPos (page, x, y - 10);
-    BRST_Page_ShowText (page, label);
-    BRST_Page_EndText (page);
+    BRST_Page_BeginText(page);
+    BRST_Page_MoveTextPos(page, x, y - 10);
+    BRST_Page_ShowText(page, label);
+    BRST_Page_EndText(page);
 
-    BRST_Page_MoveTo (page, x, y - 15);
-    BRST_Page_LineTo (page, x + 220, y - 15);
-    BRST_Page_Stroke (page);
+    BRST_Page_MoveTo(page, x, y - 15);
+    BRST_Page_LineTo(page, x + 220, y - 15);
+    BRST_Page_Stroke(page);
 }
 
 void
-draw_line2  (BRST_Page    page,
-             float       x,
-             float       y,
-             const char  *label)
+draw_line2(BRST_Page page,
+           float     x,
+           float     y,
+           BRST_CSTR label)
 {
-    BRST_Page_BeginText (page);
-    BRST_Page_MoveTextPos (page, x, y);
-    BRST_Page_ShowText (page, label);
-    BRST_Page_EndText (page);
+    BRST_Page_BeginText(page);
+    BRST_Page_MoveTextPos(page, x, y);
+    BRST_Page_ShowText(page, label);
+    BRST_Page_EndText(page);
 
-    BRST_Page_MoveTo (page, x + 30, y - 25);
-    BRST_Page_LineTo (page, x + 160, y - 25);
-    BRST_Page_Stroke (page);
+    BRST_Page_MoveTo(page, x + 30, y - 25);
+    BRST_Page_LineTo(page, x + 160, y - 25);
+    BRST_Page_Stroke(page);
 }
 
 void
-draw_rect (BRST_Page     page,
-           double        x,
-           double        y,
-           const char   *label)
+draw_rect(BRST_Page page,
+          double    x,
+          double    y,
+          BRST_CSTR label)
 {
-    BRST_Page_BeginText (page);
-    BRST_Page_MoveTextPos (page, x, y - 10);
-    BRST_Page_ShowText (page, label);
-    BRST_Page_EndText (page);
+    BRST_Page_BeginText(page);
+    BRST_Page_MoveTextPos(page, x, y - 10);
+    BRST_Page_ShowText(page, label);
+    BRST_Page_EndText(page);
 
     BRST_Page_Rectangle(page, x, y - 40, 220, 25);
 }
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
-    const char* page_title = "Line Example";
+    BRST_CSTR page_title = "Line Example";
 
     BRST_Doc  pdf;
     BRST_Font font;
@@ -91,10 +86,10 @@ int main (int argc, char **argv)
     strcpy (fname, argv[0]);
     strcat (fname, ".pdf");
 
-    pdf = BRST_New (demo_error_handler, NULL);
+    /* Создание объекта документа */
     pdf = BRST_Doc_New (demo_error_handler, NULL);
     if (!pdf) {
-        printf ("error: cannot create PdfDoc object\n");
+        printf ("error: cannot create Doc object\n");
         return 1;
     }
 
@@ -103,19 +98,19 @@ int main (int argc, char **argv)
         return 1;
     }
 
-    /* create default-font */
-    font = BRST_Doc_Font (pdf, "Helvetica", NULL);
+    /* Запрос шрифта в документе */
+    font = BRST_Doc_Font(pdf, "Helvetica", NULL);
 
-    /* add a new page object. */
+    /* Добавление страницы */
     page = BRST_Doc_Page_Add(pdf);
 
-    /* print the lines of the page. */
+    /* Прямоугольник с границами страницы */
     BRST_Page_SetLineWidth(page, 1);
     BRST_Page_Rectangle(page, 50, 50, BRST_Page_Width(page) - 100,
                 BRST_Page_Height(page) - 110);
     BRST_Page_Stroke(page);
 
-    /* print the title of the page (with positioning center). */
+    /* Заголовок страницы с центровкой */
     BRST_Page_SetFontAndSize(page, font, 24);
     tw = BRST_Page_TextWidth(page, page_title);
     BRST_Page_BeginText(page);
@@ -126,7 +121,7 @@ int main (int argc, char **argv)
 
     BRST_Page_SetFontAndSize(page, font, 10);
 
-    /* Draw various widths of lines. */
+    /* Отрисовка линий разной толщины */
     BRST_Page_SetLineWidth(page, 0);
     draw_line(page, 60, 770, "line width = 0");
 
@@ -136,7 +131,7 @@ int main (int argc, char **argv)
     BRST_Page_SetLineWidth(page, 2.0);
     draw_line(page, 60, 710, "line width = 2.0");
 
-    /* Line dash pattern */
+    /* Штриховка */
     BRST_Page_SetLineWidth(page, 1.0);
 
     BRST_Page_SetDash(page, DASH_MODE1, 1, 1.0);
@@ -155,7 +150,7 @@ int main (int argc, char **argv)
     BRST_Page_SetLineWidth(page, 30);
     BRST_Page_SetRGBStroke(page, 0.0, 0.5, 0.0);
 
-    /* Line Cap Style */
+    /* Стиль окончания линий */
     BRST_Page_SetLineCap(page, BRST_BUTT_END);
     draw_line2(page, 60, 570, "PDF_BUTT_END");
 
@@ -165,7 +160,7 @@ int main (int argc, char **argv)
     BRST_Page_SetLineCap(page, BRST_PROJECTING_SQUARE_END);
     draw_line2(page, 60, 440, "PDF_PROJECTING_SCUARE_END");
 
-    /* Line Join Style */
+    /* Стиль соединения линий */
     BRST_Page_SetLineWidth(page, 30);
     BRST_Page_SetRGBStroke(page, 0.0, 0.0, 0.5);
 
@@ -202,7 +197,7 @@ int main (int argc, char **argv)
     BRST_Page_ShowText(page, "PDF_BEVEL_JOIN");
     BRST_Page_EndText(page);
 
-    /* Draw Rectangle */
+    /* Отрисовка прямоугольника */
     BRST_Page_SetLineWidth(page, 2);
     BRST_Page_SetRGBStroke(page, 0, 0, 0);
     BRST_Page_SetRGBFill(page, 0.75, 0.0, 0.0);
@@ -216,8 +211,10 @@ int main (int argc, char **argv)
     draw_rect(page, 300, 670, "Fill then Stroke");
     BRST_Page_FillStroke(page);
 
-    /* Clip Rect */
-    BRST_Page_GSave(page);  /* Save the current graphic state */
+    /* Отсекающий прямоугольник */
+
+    /* Сохранение графического состояния */
+    BRST_Page_GSave(page);
     draw_rect(page, 300, 620, "Clip Rectangle");
     BRST_Page_Clip(page);
     BRST_Page_Stroke(page);
@@ -233,9 +230,11 @@ int main (int argc, char **argv)
     BRST_Page_ShowTextNextLine(page,
                 "Clip Clip Clip Clip Clip Clip Clip Clip Clip");
     BRST_Page_EndText(page);
+
+    /* Восстановление графического состояния */
     BRST_Page_GRestore(page);
 
-    /* Curve Example(CurveTo2) */
+    /* Пример создания кривой (CurveTo2) */
     x = 330;
     y = 440;
     x1 = 430;
@@ -276,7 +275,7 @@ int main (int argc, char **argv)
     BRST_Page_CurveTo2(page, x1, y1, x2, y2);
     BRST_Page_Stroke(page);
 
-    /* Curve Example(CurveTo3) */
+    /* Пример создания кривой (CurveTo3) */
     y -= 150;
     y1 -= 150;
     y2 -= 150;
@@ -309,7 +308,7 @@ int main (int argc, char **argv)
     BRST_Page_CurveTo3(page, x1, y1, x2, y2);
     BRST_Page_Stroke(page);
 
-    /* Curve Example(CurveTo) */
+    /* Пример создания кривой (CurveTo) */
     y -= 150;
     y1 -= 160;
     y2 -= 130;
@@ -348,10 +347,10 @@ int main (int argc, char **argv)
     BRST_Page_CurveTo(page, x1, y1, x2, y2, x3, y3);
     BRST_Page_Stroke(page);
 
-    /* save the document to a file */
-    BRST_Doc_SaveToFile (pdf, fname);
+    /* Сохранение документа в файл */
+    BRST_Doc_SaveToFile(pdf, fname);
 
-    /* clean up */
+    /* Очистка */
     BRST_Doc_Free(pdf);
 
     return 0;

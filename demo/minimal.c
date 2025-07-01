@@ -1,4 +1,13 @@
-/**
+/*
+ * minimal.c - Минимально возможный пример
+ * =========
+ *
+ * Copyright (c) 2025 Dmitry Solomennikov
+ *
+ * Текст лиценции смотри в файле `ЛИЦЕНЗИЯ`
+ */
+
+/** en
   \par Minimal BRST program demo
 
   This is bare minimum program, creating PDF document.
@@ -22,8 +31,7 @@ int main(int argc, char** argv)
     strcpy(fname, argv[0]);
     strcat(fname, ".pdf");
 
-    /* create document object*/
-    pdf = BRST_New(demo_error_handler, NULL);
+    /* Создание объекта документа */
     pdf = BRST_Doc_New(demo_error_handler, NULL);
     if (!pdf) {
         printf("error: cannot create PdfDoc object\n");
@@ -35,16 +43,16 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    /* add a new page object. */
+    /* Добавление страницы */
     page = BRST_Doc_Page_Add(pdf);
 
-    /* set up added page */
+    /* Настройка размера и ориентации страницы */
     BRST_Page_SetSize(page, BRST_PAGE_SIZE_A4, BRST_PAGE_LANDSCAPE);
 
-    /* save document to a file */
+    /* Сохранение документа в файл */
     BRST_Doc_SaveToFile(pdf, fname);
 
-    /* clean up */
+    /* Очистка */
     BRST_Doc_Free(pdf);
 
     return 0;
