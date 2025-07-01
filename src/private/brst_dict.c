@@ -473,7 +473,7 @@ BRST_Dict_KeyByObj(BRST_Dict dict,
 BRST_Stream
 BRST_Dict_Stream(BRST_Dict dict)
 {
-    if (dict)
+    if (!dict)
         return NULL;
 
     return dict->stream;
