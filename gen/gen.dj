@@ -23,9 +23,9 @@ typedef enum _{{пер.имя | pre}} { {% for эл in пер.элементы %
   \ingroup {{ фн.группа }}
   \brief {{ фн | docf | safe | escape }}
 {%if фн.параметры %}{% for парам in фн.параметры %}
-  \param {{парам.имя}} {{ парам | docf }}{% endfor %}
+  \param {{парам.имя}} {{ парам | docf | safe | escape }}{% endfor %}
 {%endif%}
-  \return {{ фн.результат | docf }}
+  \return {{ фн.результат | docf | safe | escape }}
 {% if фн.см %}
   \see {% for см in фн.см %}
     {{см | pre}}{% endfor %}
