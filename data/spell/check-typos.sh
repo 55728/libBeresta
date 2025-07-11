@@ -15,3 +15,4 @@
 rg -I "//" ../../src | rg -v http | hunspell -d ru_RU,en_US -p hunspell.dict -l
 rg -I "//" ../../include | rg -v http | hunspell -d ru_RU,en_US -p hunspell.dict -l
 rg -I "//" ../../demo | hunspell -d ru_RU,en_US -p hunspell.dict -l
+cat ../../gen/*.lsp | hunspell -d ru_RU,en_US -p hunspell.dict -l

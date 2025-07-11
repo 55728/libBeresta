@@ -368,7 +368,7 @@
          :результат (:тип "STATUS"
                      :ru "\\ref BRST_OK при успешном выполнении. Может вернуть \\ref BRST_PAGE_INSUFFICIENT_SPACE при успешном выполнении, 
              но если текст не вместился в заданное пространство. В противном случае возвращает код ошибки и вызывает обработчик ошибок."
-                     :en "\\ref BRST_OK on success. May return \\ref BRST_PAGE_INSUFFICIENT_SPACE on success but whole text doesn't fit into declared space.
+                     :en "\\ref BRST_OK on success. May return \\ref BRST_PAGE_INSUFFICIENT_SPACE on success but whole text does not fit into declared space.
   Otherwise, returns error code and calls error handler.")
          :ru "Отображает текст с выравниванием внутри заданного прямоугольника."
          :en "Put text inside the specified rectangle."
@@ -404,7 +404,7 @@
   | --------                 | --------                                                                  |
   | \\ref BRST_TALIGN_LEFT    | Текст выравнивается влево.                                                |
   | \\ref BRST_TALIGN_RIGHT   | Текст выравнивается вправо.                                               |
-  | \\ref BRST_TALIGN_CENTER  | Текст центруется.                                                         |
+  | \\ref BRST_TALIGN_CENTER  | Текст выравнивается по центру.                                            |
   | \\ref BRST_TALIGN_JUSTIFY | Добавляются пробелы между словами для выравнивания правой и левой границ. |
   \\endparblock"
                       :en "\\parblock Text alignment (one of the following).

@@ -2,7 +2,7 @@
  :функции
        ((:название "UnicodeToGlyphName"
 	 :группа "text"
-	 :ru "Для символа, заданного кодом фукнция возвращает строку с названием глифа Unicode.
+	 :ru "Для символа, заданного кодом функция возвращает строку с названием глифа Unicode.
   Если коду не сопоставлен глиф Unicode (в библиотеке), возвращается значение \\c .notdef"
 	 :en "For given symbol code return Unicode glyph name.
   If no glyph name found (in library) value \\c .notdef is returned."

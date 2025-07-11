@@ -20,11 +20,11 @@
 		      :en "User-defined memory allocation function. If \\c NULL is specified, `malloc()` is used.")
 		     (:тип "Free_Func"
 		      :имя "user_free_fn"
-		      :ru "Пользовательская функция высвобождения памяти. Елси указано \\c NULL, используется функция `free()`."
+		      :ru "Пользовательская функция высвобождения памяти. Если указано \\c NULL, используется функция `free()`."
 		      :en "User-defined memory freeing function. If \\c NULL is specified, `free()` is used.")
 		     (:тип "UINT"
 		      :имя "mem_pool_buf_size"
-		      :ru "\\parblock \\c libBeresto по умолчанию не использует пул памяти.
+		      :ru "\\parblock \\c libBeresta по умолчанию не использует пул памяти.
 
 Функция выделения памяти по требованию вызывается из приложения.
 

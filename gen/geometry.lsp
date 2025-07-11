@@ -226,8 +226,8 @@
 		     :en ":return_ok")
          :ru "Конкатенация матрицы масштабирования и матрицы преобразования страницы.
 
-  Система координат масштабируется так, что одна единица по горизонтали равна \\c sx единицам,
-  а одна единица по вертикали равна \\c sy единицам в новой системе координат."
+  Масштаб системы координат изменяется так, что одна единица по горизонтали равна \\c sx единицам
+  и одна единица по вертикали равна \\c sy единицам в новой системе координат."
          :en "Concatenate the page's transformation matrix with scale matrix.
 
   The coordinate system is scaled such that 1 unit horizontally equals \\с sx units
@@ -690,7 +690,7 @@
   Функции BRST_Page_GSave() и BRST_Page_GRestore() позволяют сохранять и восстанавливать
   текущее графическое состояние, включая область отсечения."
 
-        :en "Modifes the current clipping path by intersecting it with the current path, using
+        :en "Modifies the current clipping path by intersecting it with the current path, using
   the nonzero winding number rule to determine which regions lie inside the clipping path.
 
   The clipping path is only modified after the succeeding painting operator.
