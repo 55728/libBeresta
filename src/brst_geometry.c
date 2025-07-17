@@ -668,7 +668,7 @@ BRST_Page_SetGrayFill(BRST_Page page,
 
     attr = (BRST_PageAttr)page->attr;
 
-    if (BRST_Stream_SetGrayFill(attr->stream, gray) != BRST_OK){
+    if (BRST_Stream_SetGrayFill(attr->stream, gray) != BRST_OK) {
         BRST_Error_Copy(page->error, attr->stream->error);
         return BRST_Error_Check(page->error);
     }
@@ -713,7 +713,7 @@ BRST_Page_SetRGBFill(BRST_Page page,
     BRST_REAL b)
 {
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_TEXT_OBJECT | BRST_GMODE_PAGE_DESCRIPTION);
-    
+
     BRST_PTRACE((" BRST_Page_SetRGBFill\n"));
 
     if (ret != BRST_OK)
