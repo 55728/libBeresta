@@ -18,7 +18,6 @@
 #include "private/brst_c.h"
 #include "private/brst_defines.h"
 
-
 /* q */
 BRST_EXPORT(BRST_STATUS)
 BRST_Stream_GSave(BRST_Stream stream)
@@ -74,7 +73,6 @@ BRST_Stream_Concat(BRST_Stream stream,
 
     if (ret != BRST_OK)
         return ret;
-
 
     BRST_MemSet(buf, 0, BRST_TMP_BUF_SIZE);
 
@@ -143,7 +141,7 @@ BRST_Stream_Skew(BRST_Stream stream,
     return BRST_Stream_Concat(stream, 1, tan(a), tan(b), 1, 0, 0);
 }
 
-/* 
+/*
 TODO Эти функции нужно переработать, слишком завязаны на содержимое Page
 BRST_EXPORT(BRST_STATUS)
 BRST_Stream_Circle(BRST_Stream stream,
