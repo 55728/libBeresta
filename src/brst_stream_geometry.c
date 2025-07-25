@@ -63,7 +63,6 @@ BRST_Stream_Concat(BRST_Stream stream,
     BRST_REAL y)
 {
     BRST_STATUS ret = BRST_Stream_Validate(stream) ? BRST_OK : BRST_INVALID_STREAM;
-    printf("HIA: 0 %ld\n", ret);
 
     char buf[BRST_TMP_BUF_SIZE];
     char* pbuf = buf;
@@ -93,7 +92,6 @@ BRST_Stream_Concat(BRST_Stream stream,
         return BRST_Error_Check(stream->error);
     }
 
-    printf("HIA: 2\n");
     return ret;
 }
 
