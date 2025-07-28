@@ -68,6 +68,14 @@
 (djula:def-filter :err (arg fn)
   (format nil "Поле ~A '~A' не задано" arg fn))
 
+(djula:def-filter :under (arg)
+  (map 'string #'(lambda (c) (if (char= c #\_) #\- c)) arg))
+
+(djula:def-filter :hex0 (arg)
+   (if (string= (subseq arg 0 2) "0x")
+	       (concatenate 'string "#" (subseq arg 1))
+	       arg))
+
 (defun do-render (template-file
 		  data-file
 		  &optional &key
@@ -89,7 +97,7 @@
 			    (cons nil
 				  data)))))
 
-      (princ djula:*default-template-arguments*)
+      ;;(princ djula:*default-template-arguments*)
       (if (eq output :нет)
 	  (princ res)
 	  (alexandria:write-string-into-file
