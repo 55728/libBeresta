@@ -101,7 +101,7 @@ BRST_Page_SetBoundary(BRST_Page page,
 BRST_EXPORT(BRST_STATUS)
 BRST_Page_SetSize(BRST_Page page,
     BRST_PageSizes size,
-    BRST_PageDirection direction)
+    BRST_PageOrientation orientation)
 {
     BRST_STATUS ret = BRST_OK;
 
@@ -113,19 +113,19 @@ BRST_Page_SetSize(BRST_Page page,
     if (size < 0 || size > BRST_PAGE_SIZE_EOF)
         return BRST_Error_Raise(page->error, BRST_PAGE_INVALID_SIZE, (BRST_STATUS)size);
 
-    if (direction == BRST_PAGE_LANDSCAPE) {
+    if (orientation == BRST_PAGE_ORIENTATION_LANDSCAPE) {
         ret += BRST_Page_SetHeight(page,
             BRST_PREDEFINED_PAGE_SIZES[(BRST_UINT)size].x);
         ret += BRST_Page_SetWidth(page,
             BRST_PREDEFINED_PAGE_SIZES[(BRST_UINT)size].y);
-    } else if (direction == BRST_PAGE_PORTRAIT) {
+    } else if (orientation == BRST_PAGE_ORIENTATION_PORTRAIT) {
         ret += BRST_Page_SetHeight(page,
             BRST_PREDEFINED_PAGE_SIZES[(BRST_UINT)size].y);
         ret += BRST_Page_SetWidth(page,
             BRST_PREDEFINED_PAGE_SIZES[(BRST_UINT)size].x);
     } else
-        ret = BRST_Error_Set(page->error, BRST_PAGE_INVALID_DIRECTION,
-            (BRST_STATUS)direction);
+        ret = BRST_Error_Set(page->error, BRST_PAGE_INVALID_ORIENTATION,
+            (BRST_STATUS)orientation);
 
     if (ret != BRST_OK)
         return BRST_Error_Check(page->error);
@@ -196,74 +196,74 @@ BRST_Page_SetSlideShow(BRST_Page page,
         goto Fail;
 
     switch (type) {
-    case BRST_TS_WIPE_RIGHT:
+    case BRST_PAGE_TRANSITION_WIPE_RIGHT:
         ret += BRST_Dict_AddName(dict, "S", "Wipe");
         ret += BRST_Dict_AddNumber(dict, "Di", 0);
         break;
-    case BRST_TS_WIPE_UP:
+    case BRST_PAGE_TRANSITION_WIPE_UP:
         ret += BRST_Dict_AddName(dict, "S", "Wipe");
         ret += BRST_Dict_AddNumber(dict, "Di", 90);
         break;
-    case BRST_TS_WIPE_LEFT:
+    case BRST_PAGE_TRANSITION_WIPE_LEFT:
         ret += BRST_Dict_AddName(dict, "S", "Wipe");
         ret += BRST_Dict_AddNumber(dict, "Di", 180);
         break;
-    case BRST_TS_WIPE_DOWN:
+    case BRST_PAGE_TRANSITION_WIPE_DOWN:
         ret += BRST_Dict_AddName(dict, "S", "Wipe");
         ret += BRST_Dict_AddNumber(dict, "Di", 270);
         break;
-    case BRST_TS_BARN_DOORS_HORIZONTAL_OUT:
+    case BRST_PAGE_TRANSITION_BARN_DOORS_HORIZONTAL_OUT:
         ret += BRST_Dict_AddName(dict, "S", "Split");
         ret += BRST_Dict_AddName(dict, "Dm", "H");
         ret += BRST_Dict_AddName(dict, "M", "O");
         break;
-    case BRST_TS_BARN_DOORS_HORIZONTAL_IN:
+    case BRST_PAGE_TRANSITION_BARN_DOORS_HORIZONTAL_IN:
         ret += BRST_Dict_AddName(dict, "S", "Split");
         ret += BRST_Dict_AddName(dict, "Dm", "H");
         ret += BRST_Dict_AddName(dict, "M", "I");
         break;
-    case BRST_TS_BARN_DOORS_VERTICAL_OUT:
+    case BRST_PAGE_TRANSITION_BARN_DOORS_VERTICAL_OUT:
         ret += BRST_Dict_AddName(dict, "S", "Split");
         ret += BRST_Dict_AddName(dict, "Dm", "V");
         ret += BRST_Dict_AddName(dict, "M", "O");
         break;
-    case BRST_TS_BARN_DOORS_VERTICAL_IN:
+    case BRST_PAGE_TRANSITION_BARN_DOORS_VERTICAL_IN:
         ret += BRST_Dict_AddName(dict, "S", "Split");
         ret += BRST_Dict_AddName(dict, "Dm", "V");
         ret += BRST_Dict_AddName(dict, "M", "I");
         break;
-    case BRST_TS_BOX_OUT:
+    case BRST_PAGE_TRANSITION_BOX_OUT:
         ret += BRST_Dict_AddName(dict, "S", "Box");
         ret += BRST_Dict_AddName(dict, "M", "O");
         break;
-    case BRST_TS_BOX_IN:
+    case BRST_PAGE_TRANSITION_BOX_IN:
         ret += BRST_Dict_AddName(dict, "S", "Box");
         ret += BRST_Dict_AddName(dict, "M", "I");
         break;
-    case BRST_TS_BLINDS_HORIZONTAL:
+    case BRST_PAGE_TRANSITION_BLINDS_HORIZONTAL:
         ret += BRST_Dict_AddName(dict, "S", "Blinds");
         ret += BRST_Dict_AddName(dict, "Dm", "H");
         break;
-    case BRST_TS_BLINDS_VERTICAL:
+    case BRST_PAGE_TRANSITION_BLINDS_VERTICAL:
         ret += BRST_Dict_AddName(dict, "S", "Blinds");
         ret += BRST_Dict_AddName(dict, "Dm", "V");
         break;
-    case BRST_TS_DISSOLVE:
+    case BRST_PAGE_TRANSITION_DISSOLVE:
         ret += BRST_Dict_AddName(dict, "S", "Dissolve");
         break;
-    case BRST_TS_GLITTER_RIGHT:
+    case BRST_PAGE_TRANSITION_GLITTER_RIGHT:
         ret += BRST_Dict_AddName(dict, "S", "Glitter");
         ret += BRST_Dict_AddNumber(dict, "Di", 0);
         break;
-    case BRST_TS_GLITTER_DOWN:
+    case BRST_PAGE_TRANSITION_GLITTER_DOWN:
         ret += BRST_Dict_AddName(dict, "S", "Glitter");
         ret += BRST_Dict_AddNumber(dict, "Di", 270);
         break;
-    case BRST_TS_GLITTER_TOP_LEFT_TO_BOTTOM_RIGHT:
+    case BRST_PAGE_TRANSITION_GLITTER_TOP_LEFT_TO_BOTTOM_RIGHT:
         ret += BRST_Dict_AddName(dict, "S", "Glitter");
         ret += BRST_Dict_AddNumber(dict, "Di", 315);
         break;
-    case BRST_TS_REPLACE:
+    case BRST_PAGE_TRANSITION_REPLACE:
         ret += BRST_Dict_AddName(dict, "S", "R");
         break;
     default:

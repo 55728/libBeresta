@@ -85,9 +85,9 @@ BRST_Page_SetBoundary(
 */
 BRST_EXPORT(BRST_STATUS)
 BRST_Page_SetSize(
-    BRST_Page          page,
-    BRST_PageSizes     size,
-    BRST_PageDirection direction
+    BRST_Page            page,
+    BRST_PageSizes       size,
+    BRST_PageOrientation orientation
 );
 
 /**
