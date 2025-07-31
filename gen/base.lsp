@@ -149,26 +149,26 @@ If this parameter set to non-zero value, memory management will be done as follo
 	      "Doc_Destroy()"))
 
 	;; === Doc_Contents
-	(:название "Doc_Contents"
-	 :группа "doc"
-	 :ru "Копирует содержимое документа в предоставленный буфер"
-	 :en "Copy document data to given buffer"
-	 :параметры ((:тип "Doc"
-		      :имя "pdf"
-		      :ru ":param_pdf"
-		      :en ":param_pdf")
-		     (:тип "BYTE*"
-		      :имя "buf"
-		      :ru "Указатель на подготовленный буфер"
-		      :en "Output buffer pointer")
-		     (:тип "UINT32*"
-		      :имя "size"
-		      :ru "Размер данных в выходном буфере"
-		      :en "Output buffer size"))
-	 :результат (:тип "STATUS"
-		     :ru "\\ref BRST_OK если удалось записать содержимое документа в буфер, иначе возвращает код ошибки."
-		     :en "\\ref BRST_OK on success copying. Otherwise returns error code.")
-	 :ошибки ("INVALID_DOCUMENT"))
+;;	(:название "Doc_Contents"
+;;	 :группа "doc"
+;;	 :ru "Копирует содержимое документа в предоставленный буфер"
+;;	 :en "Copy document data to given buffer"
+;;	 :параметры ((:тип "Doc"
+;;		      :имя "pdf"
+;;		      :ru ":param_pdf"
+;;		      :en ":param_pdf")
+;;		     (:тип "BYTE*"
+;;		      :имя "buf"
+;;		      :ru "Указатель на подготовленный буфер"
+;;		      :en "Output buffer pointer")
+;;		     (:тип "UINT32*"
+;;		      :имя "size"
+;;		      :ru "Размер данных в выходном буфере"
+;;		      :en "Output buffer size"))
+;;	 :результат (:тип "STATUS"
+;;		     :ru "\\ref BRST_OK если удалось записать содержимое документа в буфер, иначе возвращает код ошибки."
+;;		     :en "\\ref BRST_OK on success copying. Otherwise returns error code.")
+;;	 :ошибки ("INVALID_DOCUMENT"))
 	
 	;; === Doc_MMgr
 	(:название "Doc_MMgr"
