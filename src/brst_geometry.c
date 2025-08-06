@@ -1586,7 +1586,7 @@ BRST_Page_SetMiterLimit(BRST_Page page,
 /* d */
 BRST_EXPORT(BRST_STATUS)
 BRST_Page_SetDash(BRST_Page page,
-    const BRST_REAL* dash_ptn,
+    BRST_DASH_PATTERN dash_ptn,
     BRST_UINT num_param,
     BRST_REAL phase)
 {
@@ -1594,7 +1594,7 @@ BRST_Page_SetDash(BRST_Page page,
     char buf[BRST_TMP_BUF_SIZE];
     char* pbuf                 = buf;
     char* eptr                 = buf + BRST_TMP_BUF_SIZE - 1;
-    const BRST_REAL* pdash_ptn = dash_ptn;
+    BRST_DASH_PATTERN pdash_ptn = dash_ptn;
     BRST_PageAttr attr;
     BRST_UINT i;
 

@@ -1235,10 +1235,10 @@ BRST_Page_SetMiterLimit(
 */
 BRST_EXPORT(BRST_STATUS)
 BRST_Page_SetDash(
-    BRST_Page        page,
-    const BRST_REAL* dash_pattern,
-    BRST_UINT        num_elem,
-    BRST_REAL        phase
+    BRST_Page         page,
+    BRST_DASH_PATTERN dash_pattern,
+    BRST_UINT         num_elem,
+    BRST_REAL         phase
 );
 
 
