@@ -576,6 +576,8 @@
                       :имя "page"
                       :ru ":param_page"
                       :en ":param_page")
+                   (:тип "UINT8"
+                    :имя "r"
                      :ru "Уровень красного цвета от \\c 0 до \\c 255."
                      :en "Red level between \\c 0 and \\c 255.")
                    (:тип "UINT8"
