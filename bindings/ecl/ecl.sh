@@ -7,32 +7,41 @@ SCRIPT_DIR=$( cd "$( dirname "$0" )" && pwd -P )
 RENDER_DIR=$SCRIPT_DIR/../../gen/
 PREFIX=../bindings/ecl
 
-mkdir $SCRIPT_DIR/res > /dev/null
+mkdir $SCRIPT_DIR/src > /dev/null
 
 pushd $RENDER_DIR > /dev/null
 
-./render.sh $PREFIX/ecl-page-sizes.dj page_sizes.lsp ru $PREFIX/res/page_sizes.lisp
-./render.sh $PREFIX/ecl-types.dj types.lsp ru $PREFIX/res/types.lisp
-./render.sh $PREFIX/ecl.dj error.lsp ru $PREFIX/res/error.lisp
-./render.sh $PREFIX/ecl.dj base.lsp ru $PREFIX/res/base.lisp
-./render.sh $PREFIX/ecl.dj mmgr.lsp ru $PREFIX/res/mmgr.lisp
-./render.sh $PREFIX/ecl.dj page.lsp ru $PREFIX/res/page.lisp
-./render.sh $PREFIX/ecl.dj page_routines.lsp ru $PREFIX/res/page_routines.lisp
-./render.sh $PREFIX/ecl.dj text.lsp ru $PREFIX/res/text.lisp
-./render.sh $PREFIX/ecl.dj geometry.lsp ru $PREFIX/res/geometry.lisp
+./render.sh $PREFIX/ecl-page-sizes.dj page_sizes.lsp ru $PREFIX/src/page_sizes.lisp
+./render.sh $PREFIX/ecl-types.dj types.lsp ru $PREFIX/src/types.lisp
+./render.sh $PREFIX/ecl.dj error.lsp ru $PREFIX/src/error.lisp
+./render.sh $PREFIX/ecl.dj base.lsp ru $PREFIX/src/base.lisp
+./render.sh $PREFIX/ecl.dj mmgr.lsp ru $PREFIX/src/mmgr.lisp
+./render.sh $PREFIX/ecl.dj dict.lsp ru $PREFIX/src/dict.lisp
+./render.sh $PREFIX/ecl.dj page.lsp ru $PREFIX/src/page.lisp
+./render.sh $PREFIX/ecl.dj page_routines.lsp ru $PREFIX/src/page_routines.lisp
+./render.sh $PREFIX/ecl.dj text.lsp ru $PREFIX/src/text.lisp
+./render.sh $PREFIX/ecl.dj geometry.lsp ru $PREFIX/src/geometry.lisp
+./render.sh $PREFIX/ecl.dj doc.lsp ru $PREFIX/src/doc.lisp
+./render.sh $PREFIX/ecl.dj mmgr.lsp ru $PREFIX/src/mmgr.lisp
 
-./render.sh $PREFIX/exp-ecl-page-sizes.dj page_sizes.lsp ru $PREFIX/res/exp-page_sizes.lisp
-./render.sh $PREFIX/exp-ecl-types.dj types.lsp ru $PREFIX/res/exp-types.lisp
-./render.sh $PREFIX/exp-ecl.dj error.lsp ru $PREFIX/res/exp-error.lisp
-./render.sh $PREFIX/exp-ecl.dj base.lsp ru $PREFIX/res/exp-base.lisp
-./render.sh $PREFIX/exp-ecl.dj mmgr.lsp ru $PREFIX/res/exp-mmgr.lisp
-./render.sh $PREFIX/exp-ecl.dj page.lsp ru $PREFIX/res/exp-page.lisp
-./render.sh $PREFIX/exp-ecl.dj page_routines.lsp ru $PREFIX/res/exp-page_routines.lisp
-./render.sh $PREFIX/exp-ecl.dj text.lsp ru $PREFIX/res/exp-text.lisp
-./render.sh $PREFIX/exp-ecl.dj geometry.lsp ru $PREFIX/res/exp-geometry.lisp
+./render.sh $PREFIX/exp-ecl-page-sizes.dj page_sizes.lsp ru $PREFIX/src/exp-page_sizes.lisp
+./render.sh $PREFIX/exp-ecl-types.dj types.lsp ru $PREFIX/src/exp-types.lisp
+./render.sh $PREFIX/exp-ecl.dj error.lsp ru $PREFIX/src/exp-error.lisp
+./render.sh $PREFIX/exp-ecl.dj base.lsp ru $PREFIX/src/exp-base.lisp
+./render.sh $PREFIX/exp-ecl.dj mmgr.lsp ru $PREFIX/src/exp-mmgr.lisp
+./render.sh $PREFIX/exp-ecl.dj page.lsp ru $PREFIX/src/exp-page.lisp
+./render.sh $PREFIX/exp-ecl.dj dict.lsp ru $PREFIX/src/exp-dict.lisp
+./render.sh $PREFIX/exp-ecl.dj page_routines.lsp ru $PREFIX/src/exp-page_routines.lisp
+./render.sh $PREFIX/exp-ecl.dj text.lsp ru $PREFIX/src/exp-text.lisp
+./render.sh $PREFIX/exp-ecl.dj geometry.lsp ru $PREFIX/src/exp-geometry.lisp
+./render.sh $PREFIX/exp-ecl.dj doc.lsp ru $PREFIX/src/exp-doc.lisp
+./render.sh $PREFIX/exp-ecl.dj mmgr.lsp ru $PREFIX/src/exp-mmgr.lisp
 
-cat $PREFIX/res/exp-*.lisp > $PREFIX/res/exports.lisp
-rm  $PREFIX/res/exp-*.lisp
+cat $PREFIX/ЛИЦЕНЗИЯ.txt    > $PREFIX/src/package.lisp
+cat $PREFIX/package.head   >> $PREFIX/src/package.lisp
+cat $PREFIX/src/exp-*.lisp >> $PREFIX/src/package.lisp
+rm  $PREFIX/src/exp-*.lisp
+cat $PREFIX/package.tail   >> $PREFIX/src/package.lisp
 
 
 popd > /dev/null
