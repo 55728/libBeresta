@@ -1277,7 +1277,7 @@ and \\c height in user space."
                      :имя "page"
                      :ru ":param_page"
                      :en ":param_page")
-                    (:тип "const REAL*"
+                    (:тип "DASH_PATTERN"
                      :имя "dash_pattern"
                      :ru ""
                      :en "Pattern of dashes and gaps used to stroke paths.")

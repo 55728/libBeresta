@@ -19,6 +19,7 @@
         (:внутренний "void"          :внешний    "void")
         (:внутренний "UNICODE"       :внешний  "uint16")
         (:внутренний "RAW-POINTER"   :внешний "pointer")
+        (:внутренний "DASH-PATTERN"  :внешний "pointer")
         (:внутренний "Error-Handler" :внешний "pointer")
         (:внутренний "Alloc-Func"    :внешний "pointer")
         (:внутренний "Free-Func"     :внешний "pointer")))
