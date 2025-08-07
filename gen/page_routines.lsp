@@ -263,23 +263,23 @@
                          :ru ":param_page"
                          :en ":param_page")))
 
-           (:название "Page_CurrentPos2"
-            :группа "page"
-            :ошибки ()
-            :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
-            :ru ""
-            :en ""
-            :команда ""
-            :параметры ((:тип "Page"
-                         :имя "page"
-                         :ru ":param_page"
-                         :en ":param_page")
-                        (:тип "Point*"
-                         :имя "pos"
-                         :ru ""
-                         :en "")))
+;;           (:название "Page_CurrentPos2"
+;;            :группа "page"
+;;            :ошибки ()
+;;            :результат (:тип "STATUS"
+;;                        :ru ""
+;;                        :en "")
+;;            :ru ""
+;;            :en ""
+;;            :команда ""
+;;            :параметры ((:тип "Page"
+;;                         :имя "page"
+;;                         :ru ":param_page"
+;;                         :en ":param_page")
+;;                        (:тип "Point*"
+;;                         :имя "pos"
+;;                         :ru ""
+;;                         :en "")))
 
            (:название "Page_MMgr"
             :группа "page"
@@ -295,23 +295,23 @@
                          :ru ":param_page"
                          :en ":param_page")))
 
-           (:название "Page_New_Content_Stream"
-            :группа "page"
-            :ошибки ()
-            :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
-            :ru ""
-            :en ""
-            :команда ""
-            :параметры ((:тип "Page"
-                         :имя "page"
-                         :ru ":param_page"
-                         :en ":param_page")
-                        (:тип "Dict*"
-                         :имя "new_stream"
-                         :ru ""
-                         :en "")))
+;;           (:название "Page_New_Content_Stream"
+;;            :группа "page"
+;;            :ошибки ()
+;;            :результат (:тип "STATUS"
+;;                        :ru ""
+;;                        :en "")
+;;            :ru ""
+;;            :en ""
+;;            :команда ""
+;;            :параметры ((:тип "Page"
+;;                         :имя "page"
+;;                         :ru ":param_page"
+;;                         :en ":param_page")
+;;                        (:тип "Dict*"
+;;                         :имя "new_stream"
+;;                         :ru ""
+;;                         :en "")))
 
            (:название "Page_Insert_Shared_Content_Stream"
             :группа "page"
@@ -344,7 +344,7 @@
                          :имя "page"
                          :ru ":param_page"
                          :en ":param_page")
-                        (:тип "char*"
+                        (:тип "CSTR"
                          :имя "data"
                          :ru ""
                          :en "")))
