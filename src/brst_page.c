@@ -514,7 +514,7 @@ BRST_Page_Insert_Shared_Content_Stream(BRST_Page page,
 
 BRST_EXPORT(BRST_STATUS)
 BRST_Page_RawWrite(BRST_Page page,
-    char* data)
+    BRST_CSTR data)
 {
     if (!BRST_Page_Validate(page))
         return BRST_INVALID_PAGE;
