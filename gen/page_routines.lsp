@@ -249,19 +249,19 @@
                          :ru ":param_page"
                          :en ":param_page")))
 
-           (:название "Page_CurrentPos"
-            :группа "page"
-            :ошибки ("INVALID_PAGE")
-            :результат (:тип "Point"
-                        :ru ""
-                        :en "")
-            :ru ""
-            :en ""
-            :команда ""
-            :параметры ((:тип "Page"
-                         :имя "page"
-                         :ru ":param_page"
-                         :en ":param_page")))
+;;           (:название "Page_CurrentPos"
+;;            :группа "page"
+;;            :ошибки ("INVALID_PAGE")
+;;            :результат (:тип "Point"
+;;                        :ru ""
+;;                        :en "")
+;;            :ru ""
+;;            :en ""
+;;            :команда ""
+;;            :параметры ((:тип "Page"
+;;                         :имя "page"
+;;                         :ru ":param_page"
+;;                         :en ":param_page")))
 
 ;;           (:название "Page_CurrentPos2"
 ;;            :группа "page"

@@ -464,19 +464,19 @@
          :режимы-графики '("Before" . "BRST_GMODE_PAGE_DESCRIPTION") ("After" . "BRST_GMODE_PAGE_DESCRIPTION"))
 
 
-        ;; BRST_Page_TextMatrix
-        (:название "Page_TextMatrix"
-         :группа "page"
-         :ошибки ()
-         :результат (:тип "TransMatrix"
-                     :ru "Матрица трансформации текста \\ref BRST_TransMatrix при успешном выполнении, иначе возвращается `BRST_TransMatrix{1, 0, 0, 1, 0, 0}`."
-                     :en "Page current \\ref BRST_TransMatrix on success, otherwise it returns `BRST_TransMatrix{1, 0, 0, 1, 0, 0}`.")
-         :ru "Получение текущей матрицы преобразования текста страницы."
-         :en "Get page's current text transformation matrix."
-         :параметры ((:тип "Page"
-                      :имя "page"
-                      :ru ":param_page"
-                      :en ":param_page")))
+;;        ;; BRST_Page_TextMatrix
+;;        (:название "Page_TextMatrix"
+;;         :группа "page"
+;;         :ошибки ()
+;;         :результат (:тип "TransMatrix"
+;;                     :ru "Матрица трансформации текста \\ref BRST_TransMatrix при успешном выполнении, иначе возвращается `BRST_TransMatrix{1, 0, 0, 1, 0, 0}`."
+;;                     :en "Page current \\ref BRST_TransMatrix on success, otherwise it returns `BRST_TransMatrix{1, 0, 0, 1, 0, 0}`.")
+;;         :ru "Получение текущей матрицы преобразования текста страницы."
+;;         :en "Get page's current text transformation matrix."
+;;         :параметры ((:тип "Page"
+;;                      :имя "page"
+;;                      :ru ":param_page"
+;;                      :en ":param_page")))
 
         ;; BRST_Page_TextLeading
         (:название "Page_TextLeading"
@@ -551,18 +551,18 @@
                       :en ":param_page")))
 
         ;; BRST_Page_CurrentTextPos
-        (:название "Page_CurrentTextPos"
-         :группа "page"
-         :ошибки ()
-         :результат (:тип "Point"
-                     :ru "Текущие координаты отображения текста в \\ref BRST_Point при успешном выполнении, иначе возвращается `BRST_Point{0, 0}`."
-                     :en "\\ref BRST_Point struct with current position for text showing of the page. Otherwise it returns `BRST_Point{0, 0}`.")
-         :ru "Получение текущих координат отображения текста."
-         :en "Get page's current text position."
-         :параметры ((:тип "Page"
-                      :имя "page"
-                      :ru ":param_page"
-                      :en ":param_page")))
+;;        (:название "Page_CurrentTextPos"
+;;         :группа "page"
+;;         :ошибки ()
+;;         :результат (:тип "Point"
+;;                     :ru "Текущие координаты отображения текста в \\ref BRST_Point при успешном выполнении, иначе возвращается `BRST_Point{0, 0}`."
+;;                     :en "\\ref BRST_Point struct with current position for text showing of the page. Otherwise it returns `BRST_Point{0, 0}`.")
+;;         :ru "Получение текущих координат отображения текста."
+;;         :en "Get page's current text position."
+;;         :параметры ((:тип "Page"
+;;                      :имя "page"
+;;                      :ru ":param_page"
+;;                      :en ":param_page")))
 
         ;; BRST_Page_CurrentTextPos2
         (:название "Page_CurrentTextPos2"
