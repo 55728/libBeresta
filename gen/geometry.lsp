@@ -1309,69 +1309,70 @@ and \\c height in user space."
                      :ru ""
                      :en "")))
 
-       ;; BRST_Page_RGBFill
-       (:название "Page_RGBFill"
-        :группа "page"
-        :ошибки ()
-        :результат (:тип "RGBColor"
-                    :ru "Текущее значение цвета заливки (RGB) при успешном выполнении, в противном случае возвращается `BRST_RGBColor{0, 0, 0}`."
-                    :en "Page current fill color value (RGB) on success, otherwise it returns `BRST_RGBColor{0, 0, 0}`.")
-        :ru "Текущее значение цвета заливки (RGB).
-  BRST_Page_RGBFill() действительна только в случае использования цветового пространства \\ref BRST_CS_DEVICE_RGB."
-        :en "Get page current fill color value (RGB).
-  BRST_Page_RGBFill() is valid only when the page's fill color space is \\ref BRST_CS_DEVICE_RGB."
-        :параметры ((:тип "Page"
-                     :имя "page"
-                     :ru ":param_page"
-                     :en ":param_page")))
+;;; TODO Заменить функции группами функций, возвращающей отдельные компоненты цвета
+;;;       ;; BRST_Page_RGBFill
+;;;       (:название "Page_RGBFill"
+;;;        :группа "page"
+;;;        :ошибки ()
+;;;        :результат (:тип "RGBColor"
+;;;                    :ru "Текущее значение цвета заливки (RGB) при успешном выполнении, в противном случае возвращается `BRST_RGBColor{0, 0, 0}`."
+;;;                    :en "Page current fill color value (RGB) on success, otherwise it returns `BRST_RGBColor{0, 0, 0}`.")
+;;;        :ru "Текущее значение цвета заливки (RGB).
+;;;  BRST_Page_RGBFill() действительна только в случае использования цветового пространства \\ref BRST_CS_DEVICE_RGB."
+;;;        :en "Get page current fill color value (RGB).
+;;;  BRST_Page_RGBFill() is valid only when the page's fill color space is \\ref BRST_CS_DEVICE_RGB."
+;;;        :параметры ((:тип "Page"
+;;;                     :имя "page"
+;;;                     :ru ":param_page"
+;;;                     :en ":param_page")))
 
-       ;; BRST_Page_RGBStroke
-       (:название "Page_RGBStroke"
-        :группа "page"
-        :ошибки ()
-        :результат (:тип "RGBColor"
-                    :ru "Текущее значение цвета линии (RGB) при успешном выполнении, в противном случае возвращается `BRST_RGBColor{0, 0, 0}`."
-                    :en "Page current stroke color value (RGB) on success, otherwise it returns `BRST_RGBColor{0, 0, 0}`.")
-        :ru "Текущее значение цвета линии (RGB).
-  BRST_Page_RGBStroke() действительна только в случае использования цветового пространства \\ref BRST_CS_DEVICE_RGB."
-        :en "Get page current stroke color value (RGB).
-  BRST_Page_RGBStroke() is valid only when the page's stroke color space is \\ref BRST_CS_DEVICE_RGB."
-        :параметры ((:тип "Page"
-                     :имя "page"
-                     :ru ":param_page"
-                     :en ":param_page")))
+;;;       ;; BRST_Page_RGBStroke
+;;;       (:название "Page_RGBStroke"
+;;;        :группа "page"
+;;;        :ошибки ()
+;;;        :результат (:тип "RGBColor"
+;;;                    :ru "Текущее значение цвета линии (RGB) при успешном выполнении, в противном случае возвращается `BRST_RGBColor{0, 0, 0}`."
+;;;                    :en "Page current stroke color value (RGB) on success, otherwise it returns `BRST_RGBColor{0, 0, 0}`.")
+;;;        :ru "Текущее значение цвета линии (RGB).
+;;;  BRST_Page_RGBStroke() действительна только в случае использования цветового пространства \\ref BRST_CS_DEVICE_RGB."
+;;;        :en "Get page current stroke color value (RGB).
+;;;  BRST_Page_RGBStroke() is valid only when the page's stroke color space is \\ref BRST_CS_DEVICE_RGB."
+;;;        :параметры ((:тип "Page"
+;;;                     :имя "page"
+;;;                     :ru ":param_page"
+;;;                     :en ":param_page")))
 
-       ;; BRST_Page_CMYKFill
-       (:название "Page_CMYKFill"
-        :группа "page"
-        :ошибки ()
-        :результат (:тип "CMYKColor"
-                    :ru "Текущее значение цвета заливки (CMYK) при успешном выполнении, в противном случае возвращается `BRST_CMYKColor{0, 0, 0, 0}`."
-                    :en "Page current fill color value (CMYK) on success, otherwise it returns `BRST_CMYKColor{0, 0, 0, 0}`.")
-        :ru "Текущее значение цвета заливки (CMYK).
-  BRST_Page_CMYKFill() действительна только в случае использования цветового пространства \\ref BRST_CS_DEVICE_CMYK."
-        :en "Get page current fill color value (CMYK).
-  BRST_Page_CMYKFill() is valid only when the page's fill color space is \\ref BRST_CS_DEVICE_CMYK."
-        :параметры ((:тип "Page"
-                     :имя "page"
-                     :ru ":param_page"
-                     :en ":param_page")))
+;;;       ;; BRST_Page_CMYKFill
+;;;       (:название "Page_CMYKFill"
+;;;        :группа "page"
+;;;        :ошибки ()
+;;;        :результат (:тип "CMYKColor"
+;;;                    :ru "Текущее значение цвета заливки (CMYK) при успешном выполнении, в противном случае возвращается `BRST_CMYKColor{0, 0, 0, 0}`."
+;;;                    :en "Page current fill color value (CMYK) on success, otherwise it returns `BRST_CMYKColor{0, 0, 0, 0}`.")
+;;;        :ru "Текущее значение цвета заливки (CMYK).
+;;;  BRST_Page_CMYKFill() действительна только в случае использования цветового пространства \\ref BRST_CS_DEVICE_CMYK."
+;;;        :en "Get page current fill color value (CMYK).
+;;;  BRST_Page_CMYKFill() is valid only when the page's fill color space is \\ref BRST_CS_DEVICE_CMYK."
+;;;        :параметры ((:тип "Page"
+;;;                     :имя "page"
+;;;                     :ru ":param_page"
+;;;                     :en ":param_page")))
 
-       ;; BRST_Page_CMYKStroke
-       (:название "Page_CMYKStroke"
-        :группа "page"
-        :ошибки ()
-        :результат (:тип "CMYKColor"
-                    :ru "Текущее значение цвета линии (CMYK) при успешном выполнении, в противном случае возвращается `BRST_CMYKColor{0, 0, 0, 0}`."
-                    :en "Page current stroke color value (CMYK) on success, otherwise it returns `BRST_CMYKColor{0, 0, 0, 0}`.")
-        :ru "Текущее значение цвета линии (CMYK).
-  BRST_Page_CMYKFill() действительна только в случае использования цветового пространства \\ref BRST_CS_DEVICE_CMYK."
-        :en "Get page current stroke color value (CMYK).
-  BRST_Page_CMYKFill() is valid only when the page's stroke color space is \\ref BRST_CS_DEVICE_CMYK."
-        :параметры ((:тип "Page"
-                     :имя "page"
-                     :ru ":param_page"
-                     :en ":param_page")))
+;;;       ;; BRST_Page_CMYKStroke
+;;;       (:название "Page_CMYKStroke"
+;;;        :группа "page"
+;;;        :ошибки ()
+;;;        :результат (:тип "CMYKColor"
+;;;                    :ru "Текущее значение цвета линии (CMYK) при успешном выполнении, в противном случае возвращается `BRST_CMYKColor{0, 0, 0, 0}`."
+;;;                    :en "Page current stroke color value (CMYK) on success, otherwise it returns `BRST_CMYKColor{0, 0, 0, 0}`.")
+;;;        :ru "Текущее значение цвета линии (CMYK).
+;;;  BRST_Page_CMYKFill() действительна только в случае использования цветового пространства \\ref BRST_CS_DEVICE_CMYK."
+;;;        :en "Get page current stroke color value (CMYK).
+;;;  BRST_Page_CMYKFill() is valid only when the page's stroke color space is \\ref BRST_CS_DEVICE_CMYK."
+;;;        :параметры ((:тип "Page"
+;;;                     :имя "page"
+;;;                     :ru ":param_page"
+;;;                     :en ":param_page")))
 
        ;; BRST_Page_GrayFill
        (:название "Page_GrayFill"
@@ -1489,21 +1490,21 @@ and \\c height in user space."
                      :ru ":param_page"
                      :en ":param_page")))
 
-       ;; BRST_Page_Dash
-       (:название "Page_Dash"
-        :группа "page"
-        :ошибки ()
-        :результат (:тип "DashMode"
-                    :ru "Текущее значение шаблона пунктира \\ref BRST_DashMode для отображения линий при успешном выполнении,
-  в противном случае возвращается `BRST_DashMode{{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f}, 0.0f, 0.0f}`."
-                    :en "Page current line dash pattern \\ref BRST_DashMode for path painting on success,
-  otherwise it returns `BRST_DashMode{{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f}, 0.0f, 0.0f}`.")
-        :ru "Текущий шаблон пунктира (line dash pattern)."
-        :en "Get page current line dash pattern."
-        :параметры ((:тип "Page"
-                     :имя "page"
-                     :ru ":param_page"
-                     :en ":param_page")))
+;;;       ;; BRST_Page_Dash
+;;;       (:название "Page_Dash"
+;;;        :группа "page"
+;;;        :ошибки ()
+;;;        :результат (:тип "DashMode"
+;;;                    :ru "Текущее значение шаблона пунктира \\ref BRST_DashMode для отображения линий при успешном выполнении,
+;;;  в противном случае возвращается `BRST_DashMode{{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f}, 0.0f, 0.0f}`."
+;;;                    :en "Page current line dash pattern \\ref BRST_DashMode for path painting on success,
+;;;  otherwise it returns `BRST_DashMode{{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f}, 0.0f, 0.0f}`.")
+;;;        :ru "Текущий шаблон пунктира (line dash pattern)."
+;;;        :en "Get page current line dash pattern."
+;;;        :параметры ((:тип "Page"
+;;;                     :имя "page"
+;;;                     :ru ":param_page"
+;;;                     :en ":param_page")))
 
        ;; BRST_Page_Flat
        (:название "Page_Flat"
@@ -1519,16 +1520,18 @@ and \\c height in user space."
                      :ru ":param_page"
                      :en ":param_page")))
 
-       ;; BRST_Page_TransMatrix
-       (:название "Page_TransMatrix"
-        :группа "page"
-        :ошибки ()
-        :результат (:тип "TransMatrix"
-                    :ru "Матрица преобразований \\ref BRST_TransMatrix при успешном выполнении, в противном случае возвращается `BRST_TransMatrix{1, 0, 0, 1, 0, 0}` (тождественная матрица преобразований)."
-                    :en "Page current transformation matrix \\ref BRST_TransMatrix on success, otherwise it returns `BRST_TransMatrix{1, 0, 0, 1, 0, 0}` (identity transformation matrix).")
-        :ru "Текущая матрица преобразований."
-        :en "Get page current transformation matrix."
-        :параметры ((:тип "Page"
-                     :имя "page"
-                     :ru ":param_page"
-                     :en ":param_page")))))
+;;;       ;; BRST_Page_TransMatrix
+;;;       (:название "Page_TransMatrix"
+;;;        :группа "page"
+;;;        :ошибки ()
+;;;        :результат (:тип "TransMatrix"
+;;;                    :ru "Матрица преобразований \\ref BRST_TransMatrix при успешном выполнении, в противном случае возвращается `BRST_TransMatrix{1, 0, 0, 1, 0, 0}` (тождественная матрица преобразований)."
+;;;                    :en "Page current transformation matrix \\ref BRST_TransMatrix on success, otherwise it returns `BRST_TransMatrix{1, 0, 0, 1, 0, 0}` (identity transformation matrix).")
+;;;        :ru "Текущая матрица преобразований."
+;;;        :en "Get page current transformation matrix."
+;;;        :параметры ((:тип "Page"
+;;;                     :имя "page"
+;;;                     :ru ":param_page"
+;;;                     :en ":param_page"))
+))
+
