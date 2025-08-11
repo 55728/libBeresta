@@ -3,17 +3,25 @@
 {% if определения %}{% for оп in определения %}
 (defctype {{ оп.имя | under }} {{ оп.оригинал | under }})
 {% endfor %}{% endif %}{% if указатели %}{% for ук in указатели %}
-(defctype {{ ук.имя | under }} :pointer)
+(ffi:def-foreign-type {{ ук.имя | under }} :pointer-void)
 {% endfor %}{% endif %}{% if перечисления %}{% for пер in перечисления %}
-(defcenum {{пер.имя | under }} {% for эл in пер.элементы %}
-  {% if эл.значение%} (:{{ эл.элемент | under }} {{эл.значение | hex0 }}){% else %}:{{ эл.элемент | under }}{% endif %}{% endfor %}
-)
+(ffi:def-enum {{пер.имя | under }} ({% for эл in пер.элементы %}
+  {% if эл.значение%} ({{ эл.элемент | under }} {{эл.значение | hex0 }}){% else %}{{ эл.элемент | under }}{% endif %}{% endfor %})
+:separator-string "-")
 {% endfor %}{% endif %}{% if структуры %}{% for ст in структуры %}
 (defcstruct {{ ст.имя }}
   "{{ ст | docf }}"{%if ст.поля %}{% for пл in ст.поля %}
   ({{ пл.поле }} {{пл.тип}}{% if пл.размер %} :count {{пл.размер}}{% endif %}){% endfor %}{% endif %}
 )
 {% endfor %}{% endif %}{% if функции %}{% for фн in функции %}
-(defcfun ("{{фн.название | pre}}" {{фн.название | under}}) {{ фн.результат.тип | under }}{%if фн.параметры %}{% for парам in фн.параметры %}
-  ({{парам.имя | under}} {{парам.тип | under}}){% endfor %}{% endif %})
+(defun {{фн.название | under}} 
+                {%if фн.параметры %}({% for парам in фн.параметры %}{% if not forloop.first %}
+                 {% endif %}{{парам.имя | under}}{% endfor %}){% else %}(){% endif %}
+  (ffi:c-inline {%if фн.параметры %}({% for парам in фн.параметры %}{% if not forloop.first %}
+                 {% endif %}{{парам.имя | under}}{% endfor %})
+                ({% for парам in фн.параметры %}{% if not forloop.first %}
+                 {% endif %}{{парам.тип | under}}{% endfor %}){% else %}() (){% endif %}
+                {{ фн.результат.тип | under }}
+    "@(return) = {{фн.название | pre}}{%if фн.параметры %}({% for парам in фн.параметры %}{% if not forloop.first %}, {% endif %}#{{ forloop.counter0 }}{% endfor %}){% else %}(){% endif %};"
+    :side-effects nil))
 {% endfor %}{% endif %}

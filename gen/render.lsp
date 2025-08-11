@@ -35,14 +35,29 @@
     ((":return_ok"     . :ru) . "\\ref BRST_OK при успешном выполнении, иначе возвращает код ошибки и вызывает обработчик ошибок.")
     ((":error-codes"   . :ru) . "\\par Коды ошибок")))
 
+(defparameter +ecl-типы+
+  '(( "string" . ":cstring"      )
+    (   "int8" . ":byte"         )
+    (  "uint8" . ":unsigned-byte")
+    (  "int16" . ":int16-t"      )
+    ( "uint16" . ":uint16-t"     )
+    (  "int32" . ":int32-t"      )
+    ( "uint32" . ":uint32-t"     )
+    (  "int64" . ":int64-t"      )
+    ( "uint64" . ":uint64-t"     )
+    ("pointer" . ":pointer-void" )
+    (  "float" . ":float"        )
+    ( "double" . ":double"       )
+    (   "void" . ":void"         )))
+
 (defparameter +заданные-подстановки+
   '(error-codes)
   "Набор переменных, используемых в шаблонах.
 Этим переменным должны соответствовать значения в +подстановки+")
 
-(defvar *типы-без-префикса*
+(defvar *ecl-типы*
   (let* ((hash (make-hash-table :test #'equal)))
-    (mapcar #'(lambda (x) (setf (gethash x hash) t)) +типы-без-префикса+)
+    (mapcar #'(lambda (x) (setf (gethash (car x) hash) (cdr x))) +ecl-типы+)
     hash))
 
 (defvar *подстановки*
@@ -69,6 +84,10 @@
 
 (djula:def-filter :err (arg fn)
   (format nil "Поле ~A '~A' не задано" arg fn))
+
+(djula:def-filter :ecltype (arg)
+  (let ((tp (gethash arg *ecl-типы*)))
+    (or tp arg)))
 
 (djula:def-filter :under (arg)
   (map 'string #'(lambda (c) (if (char= c #\_) #\- c)) arg))

@@ -1,6 +1,7 @@
 {% include "ЛИЦЕНЗИЯ.txt" %}
 (in-package #:cl-beresta)
 {% if размеры %}
-(ffi:def-enum PAGE-SIZE ({% for размер in размеры %}
+(defcenum PageSizes{% for размер in размеры %}
   ;; Размер страницы "{{ размер.откуда}} {{размер.название}}" ({{размер.ширина}}мм x {{размер.высота}}мм)
-  ({{ размер.ид | under }} {{ forloop.counter0 }}){% endfor %}) :separator-string "-"){% endif %}
+  (:PAGE-SIZE-{{ размер.ид | under }} {{ forloop.counter0 }})
+{% endfor %}){% endif %}
