@@ -100,7 +100,7 @@ If this parameter set to non-zero value, memory management will be done as follo
 	      "Doc_Free()"))
 
 	;; === Doc_Init
-	(:название "BRST_Doc_Initialize"
+	(:название "Doc_Initialize"
 	 :группа "doc"
 	 :ru "Настраивает документ. Если документ \\c doc уже настроен, он предварительно очищается"
 	 :en "Create a new document. If \\c doc object already has a document, the current document is revoked."

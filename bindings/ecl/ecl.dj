@@ -1,27 +1,21 @@
 {% include "ЛИЦЕНЗИЯ.txt" %}
 (in-package #:cl-beresta)
 {% if определения %}{% for оп in определения %}
-(defctype {{ оп.имя | under }} {{ оп.оригинал | under }})
+(synonym {{ оп.имя | under }} {{ оп.оригинал | under }})
 {% endfor %}{% endif %}{% if указатели %}{% for ук in указатели %}
-(ffi:def-foreign-type {{ ук.имя | under }} :pointer-void)
+(pointer {{ ук.имя | under }})
 {% endfor %}{% endif %}{% if перечисления %}{% for пер in перечисления %}
-(ffi:def-enum {{пер.имя | under }} ({% for эл in пер.элементы %}
-  {% if эл.значение%} ({{ эл.элемент | under }} {{эл.значение | hex0 }}){% else %}{{ эл.элемент | under }}{% endif %}{% endfor %})
-:separator-string "-")
+(enum {{пер.имя | under }} (
+  {% for эл in пер.элементы %}{% if эл.значение%} ({{ эл.элемент | under }} {{эл.значение | hex0 }}){% else %}{{ эл.элемент | under }}{% endif %}{% endfor %}))
 {% endfor %}{% endif %}{% if структуры %}{% for ст in структуры %}
-(defcstruct {{ ст.имя }}
+(struct {{ ст.имя }}
   "{{ ст | docf }}"{%if ст.поля %}{% for пл in ст.поля %}
   ({{ пл.поле }} {{пл.тип}}{% if пл.размер %} :count {{пл.размер}}{% endif %}){% endfor %}{% endif %}
 )
 {% endfor %}{% endif %}{% if функции %}{% for фн in функции %}
-(defun {{фн.название | under}} 
-                {%if фн.параметры %}({% for парам in фн.параметры %}{% if not forloop.first %}
-                 {% endif %}{{парам.имя | under}}{% endfor %}){% else %}(){% endif %}
-  (ffi:c-inline {%if фн.параметры %}({% for парам in фн.параметры %}{% if not forloop.first %}
-                 {% endif %}{{парам.имя | under}}{% endfor %})
-                ({% for парам in фн.параметры %}{% if not forloop.first %}
-                 {% endif %}{{парам.тип | under}}{% endfor %}){% else %}() (){% endif %}
-                {{ фн.результат.тип | under }}
-    "@(return) = {{фн.название | pre}}{%if фн.параметры %}({% for парам in фн.параметры %}{% if not forloop.first %}, {% endif %}#{{ forloop.counter0 }}{% endfor %}){% else %}(){% endif %};"
-    :side-effects nil))
+(func {{фн.название | under}} 
+     "{{фн.название | pre}}" 
+      {{ фн.результат.тип | under }} 
+  {%if фн.параметры %}({% for парам in фн.параметры %}{% if not forloop.first %}
+   {% endif %}({{парам.имя | under}} {{парам.тип | under }}){% endfor %}){% else %}(){% endif %})
 {% endfor %}{% endif %}
