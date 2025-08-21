@@ -114,7 +114,7 @@
   // Показываем текст на с учетом изменения разрешения
   BRST_Page_BeginText(page);
   BRST_Page_MoveTextPos(page, 50, 100);
-  BRST_Page_ShowText(page, "Текст на трансформированных координатах");
+  BRST_Page_ShowText(page, \"Текст на трансформированных координатах\");
   BRST_Page_EndText(page);
 
   // Восстанавливаем предыдущее состояние графики
@@ -150,7 +150,7 @@
   // Show text on translated coordinates
   BRST_Page_BeginText(page);
   BRST_Page_MoveTextPos(page, 50, 100);
-  BRST_Page_ShowText(page, "Text on the translated coordinates");
+  BRST_Page_ShowText(page, \"Text on the translated coordinates\");
   BRST_Page_EndText(page);
 
   // Restore the graphics states
