@@ -536,7 +536,7 @@ BRST_Page_TextRenderingMode(
 
 */
 BRST_EXPORT(BRST_REAL)
-BRST_Page_TextRise(
+BRST_Page_TextRaise(
     BRST_Page page
 );
 
