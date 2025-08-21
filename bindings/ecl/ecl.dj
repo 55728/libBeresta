@@ -1,12 +1,16 @@
 {% include "ЛИЦЕНЗИЯ.txt" %}
 (in-package #:cl-beresta)
+
+(include-header)
 {% if определения %}{% for оп in определения %}
 (synonym {{ оп.имя | under }} {{ оп.оригинал | under }})
 {% endfor %}{% endif %}{% if указатели %}{% for ук in указатели %}
 (pointer {{ ук.имя | under }})
 {% endfor %}{% endif %}{% if перечисления %}{% for пер in перечисления %}
 (enum {{пер.имя | under }} (
-  {% for эл in пер.элементы %}{% if эл.значение%} ({{ эл.элемент | under }} {{эл.значение | hex0 }}){% else %}{{ эл.элемент | under }}{% endif %}{% endfor %}))
+  {% for эл in пер.элементы %}{% if эл.значение%} 
+  ({{ эл.элемент | under }} {{эл.значение | hex0 }}){% else %}
+  {{ эл.элемент | under }}{% endif %}{% endfor %}))
 {% endfor %}{% endif %}{% if структуры %}{% for ст in структуры %}
 (struct {{ ст.имя }}
   "{{ ст | docf }}"{%if ст.поля %}{% for пл in ст.поля %}

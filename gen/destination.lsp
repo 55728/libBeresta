@@ -82,8 +82,8 @@
 			 :ru "Левая координата на странице для позиционирования окна"
 			 :en "Left coordinate of the page to position window")))
 
-	   ;; === Destination_SetR
-	   (:название "Destination_SetR"
+	   ;; === Destination_SetFitR
+	   (:название "Destination_SetFitR"
 	    :группа "link"
 	    :ru "Демонстрация страницы, указываемой \\c dst, таким образом, чтобы вписать прямоугольник, задаваемый \\c left, \\c top, \\c right, \\c bottom, в окно."
 	    :en "Define page appearance with three parameters which are \\c left, \\c top, \\c right, \\c bottom"

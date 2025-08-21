@@ -3,9 +3,25 @@
 (defparameter +ecl-type-substitution+
   '((          PDF .  :pointer-void)     
     (          DOC .  :pointer-void)     
+    (         FONT .  :pointer-void)     
     (         MMGR .  :pointer-void)     
     (         PAGE .  :pointer-void)     
-    (         DICT .  :pointer-void)     
+    (         DICT .  :pointer-void)
+    (  Destination .  :pointer-void)
+    (    ExtGState .  :pointer-void)
+    (   PageLayout .       :int32-t)
+    (     PageMode .       :int32-t)
+    (      PageNum .       :int32-t)
+    (      LineCap .       :int32-t)
+    (     LineJoin .       :int32-t)
+    (    BlendMode .       :int32-t)
+    (TextAlignment .       :int32-t)
+    (TextRenderingMode .   :int32-t)
+    ( PageOrientation .    :int32-t)
+    (  PageTransition .    :int32-t)
+    ( PageSizes    .       :int32-t)
+    ( PageNumStyle .       :int32-t)
+    ( PageBoundary .       :int32-t)
     (         CSTR .       :cstring)
     (          INT .       :int32-t)
     (         UINT .      :uint32-t)
@@ -43,9 +59,12 @@
 	   (types-list (mapcar #'second parameters))
 	   (types-list-mapped (mapcar #'get-type types-list))
 	   (c-params (format nil "~{#~A~^, ~}" (loop for n upto (1- param-count) collect n)))
-	   (call (format nil "~A(~A)" c-name c-params)))
+	   (call (if (eq return-type 'void) 
+		     (format nil "~A(~A)" c-name c-params)
+		     (format nil "@(return)=~A(~A);" c-name c-params)))
+	   (one-liner (eq return-type 'void)))
       `(defun ,function-name ,param-list
-	 (ffi:c-inline ,param-list ,types-list-mapped ,(get-type return-type) ,call :one-liner t)))))
+	 (ffi:c-inline ,param-list ,types-list-mapped ,(get-type return-type) ,call :one-liner ,one-liner :side-effects nil)))))
 
 (defmacro enum (name elements-list &key (prefix ""))
   (let ((value -1)
@@ -91,3 +110,24 @@
       (dolist (item slots)
 	(push (list (first item) (get-type (second item))) slots-types))
       `(ffi:def-struct ,name ,@slots-types))))
+
+
+(defmacro synonym (name origin)
+  #-ecl
+  `(defctype ,name ,origin)
+  #+ecl
+  `(declare (ignore ,origin))
+  #+ecl
+  `(ffi:def-foreign-type ,name :pointer-void))
+
+(defmacro with-pdf-document ((pdf-var filename) &body body)
+  `(let ((,pdf-var (doc-new-empty)))
+     (unwind-protect
+	  (progn
+	    ,@body
+	    (doc-savetofile ,pdf-var ,filename))
+       (doc-free ,pdf-var))))
+
+(defmacro include-header ()
+  #+ecl
+  `(ffi:clines "#include \"brst.h\""))

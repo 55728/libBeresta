@@ -197,4 +197,18 @@ If this parameter set to non-zero value, memory management will be done as follo
 	 :результат (:тип "MMgr"
 		     :ru "Менеджер памяти документа, если он установлен."
 		     :en "Document's memory manager"))
+
+	;; === Doc_Free
+	(:название "Doc_Free"
+	 :группа "doc"
+	 :ru "Высвобождает данные документа"
+	 :en "Frees document data"
+	 :параметры ((:тип "Doc"
+		      :имя "pdf"
+		      :ru ":param_pdf"
+		      :en ":param_pdf")
+		     )
+	 :результат (:тип "void"
+		     :ru "Нет"
+		     :en "No"))
 	))
