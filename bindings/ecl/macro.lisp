@@ -18,9 +18,9 @@
     (TextAlignment .       :int32-t)
     (   ColorSpace .       :int32-t)
     (TextRenderingMode .   :int32-t)
-    ( PageOrientation .    :int32-t)
-    (  PageTransition .    :int32-t)
-    ( PageSizes    .       :int32-t)
+    (  PageOrientation .   :int32-t)
+    (   PageTransition .   :int32-t)
+    (    PageSizes .       :int32-t)
     ( PageNumStyle .       :int32-t)
     ( PageBoundary .       :int32-t)
     (         CSTR .       :cstring)
@@ -59,13 +59,21 @@
 	   (param-list (mapcar #'first parameters))
 	   (types-list (mapcar #'second parameters))
 	   (types-list-mapped (mapcar #'get-type types-list))
-	   (c-params (format nil "~{#~A~^, ~}" (loop for n upto (1- param-count) collect n)))
+	   (c-params (format nil
+			     "~{#~A~^, ~}"
+			     (loop for n upto (1- param-count)
+				   collect n)))
 	   (call (if (eq return-type 'void) 
 		     (format nil "~A(~A)" c-name c-params)
 		     (format nil "@(return)=~A(~A);" c-name c-params)))
 	   (one-liner (eq return-type 'void)))
       `(defun ,function-name ,param-list
-	 (ffi:c-inline ,param-list ,types-list-mapped ,(get-type return-type) ,call :one-liner ,one-liner :side-effects nil)))))
+	 (ffi:c-inline ,param-list
+		       ,types-list-mapped
+		       ,(get-type return-type)
+		       ,call
+		       :one-liner ,one-liner
+		       :side-effects nil)))))
 
 (defmacro enum (name elements-list &key (prefix ""))
   (let ((value -1)
