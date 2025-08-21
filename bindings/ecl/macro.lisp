@@ -16,6 +16,7 @@
     (     LineJoin .       :int32-t)
     (    BlendMode .       :int32-t)
     (TextAlignment .       :int32-t)
+    (   ColorSpace .       :int32-t)
     (TextRenderingMode .   :int32-t)
     ( PageOrientation .    :int32-t)
     (  PageTransition .    :int32-t)
