@@ -395,7 +395,7 @@ void* BRST_Dict_Item(BRST_Dict dict,
 
         if ((header->obj_class & BRST_OCLASS_ANY) != obj_class) {
             BRST_PTRACE(" BRST_Dict_Item dict=%p key=%s obj_class=0x%08X\n",
-                dict, key, (BRST_UINT)header->obj_class);
+                (void*)dict, key, (BRST_UINT)header->obj_class);
             BRST_Error_Set(dict->error, BRST_DICT_ITEM_UNEXPECTED_TYPE, 0);
 
             return NULL;

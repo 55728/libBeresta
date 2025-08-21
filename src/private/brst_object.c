@@ -42,9 +42,9 @@ void BRST_Obj_ForceFree(BRST_MMgr mmgr,
 
     header = (BRST_Obj_Header*)obj;
 
-    BRST_PTRACE(" BRST_Obj_ForceFree obj=0x%08X obj_id=0x%08X "
+    BRST_PTRACE(" BRST_Obj_ForceFree obj=0x%p obj_id=0x%08X "
                  "obj_class=0x%08X\n",
-        (BRST_UINT)obj, (BRST_UINT)(header->obj_id),
+        (void*)obj, (BRST_UINT)(header->obj_id),
         (BRST_UINT)(header->obj_class));
 
     switch (header->obj_class & BRST_OCLASS_ANY) {
