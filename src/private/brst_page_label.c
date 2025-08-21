@@ -29,7 +29,7 @@ BRST_PageLabel_New(BRST_Doc pdf,
 {
     BRST_Dict obj = BRST_Dict_New(pdf->mmgr);
 
-    BRST_PTRACE((" BRST_PageLabel_New\n"));
+    BRST_PTRACE(" BRST_PageLabel_New\n");
 
     if (!obj)
         return NULL;

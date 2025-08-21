@@ -28,7 +28,7 @@
 BRST_EXPORT(BRST_MMgr)
 BRST_Page_MMgr(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_MMgr\n"));
+    BRST_PTRACE(" BRST_Page_MMgr\n");
 
     return page->mmgr;
 }
@@ -37,7 +37,7 @@ BRST_EXPORT(BRST_STATUS)
 BRST_Page_SetWidth(BRST_Page page,
     BRST_REAL value)
 {
-    BRST_PTRACE((" BRST_Page_SetWidth\n"));
+    BRST_PTRACE(" BRST_Page_SetWidth\n");
 
     if (value < BRST_MIN_PAGE_MEASURE || value > BRST_MAX_PAGE_MEASURE)
         return BRST_Error_Raise(page->error, BRST_PAGE_INVALID_SIZE, value);
@@ -52,7 +52,7 @@ BRST_EXPORT(BRST_STATUS)
 BRST_Page_SetHeight(BRST_Page page,
     BRST_REAL value)
 {
-    BRST_PTRACE((" BRST_Page_SetWidth\n"));
+    BRST_PTRACE(" BRST_Page_SetWidth\n");
 
     if (value < BRST_MIN_PAGE_MEASURE || value > BRST_MAX_PAGE_MEASURE)
         return BRST_Error_Raise(page->error, BRST_PAGE_INVALID_SIZE, value);
@@ -105,7 +105,7 @@ BRST_Page_SetSize(BRST_Page page,
 {
     BRST_STATUS ret = BRST_OK;
 
-    BRST_PTRACE((" BRST_Page_SetSize\n"));
+    BRST_PTRACE(" BRST_Page_SetSize\n");
 
     if (!BRST_Page_Validate(page))
         return BRST_INVALID_PAGE;
@@ -140,7 +140,7 @@ BRST_Page_SetRotate(BRST_Page page,
     BRST_Number n;
     BRST_STATUS ret = BRST_OK;
 
-    BRST_PTRACE((" BRST_Page_SetRotate\n"));
+    BRST_PTRACE(" BRST_Page_SetRotate\n");
 
     if (!BRST_Page_Validate(page))
         return BRST_INVALID_PAGE;
@@ -171,7 +171,7 @@ BRST_Page_SetSlideShow(BRST_Page page,
     BRST_STATUS ret = BRST_OK;
     BRST_Dict dict;
 
-    BRST_PTRACE((" BRST_Page_SetSlideShow\n"));
+    BRST_PTRACE(" BRST_Page_SetSlideShow\n");
 
     if (!BRST_Page_Validate(page))
         return BRST_INVALID_PAGE;
@@ -294,7 +294,7 @@ BRST_Page_SetHorizontalScaling(BRST_Page page,
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_TEXT_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetHorizontalScaling\n"));
+    BRST_PTRACE(" BRST_Page_SetHorizontalScaling\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -318,7 +318,7 @@ BRST_Page_SetHorizontalScaling(BRST_Page page,
 BRST_EXPORT(BRST_REAL)
 BRST_Page_HorizontalScaling(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_HorizontalScaling\n"));
+    BRST_PTRACE(" BRST_Page_HorizontalScaling\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -331,7 +331,7 @@ BRST_Page_HorizontalScaling(BRST_Page page)
 BRST_EXPORT(BRST_UINT)
 BRST_Page_GStateDepth(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_GStateDepth\n"));
+    BRST_PTRACE(" BRST_Page_GStateDepth\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -347,7 +347,7 @@ BRST_Page_SetZoom(BRST_Page page,
 {
     BRST_STATUS ret = BRST_OK;
 
-    BRST_PTRACE((" BRST_Page_SetZoom\n"));
+    BRST_PTRACE(" BRST_Page_SetZoom\n");
 
     if (!BRST_Page_Validate(page)) {
         return BRST_INVALID_PAGE;
@@ -387,7 +387,7 @@ BRST_Page_CurrentPos(BRST_Page page)
 {
     BRST_Point pos = { 0, 0 };
 
-    BRST_PTRACE((" BRST_Page_CurrentPos\n"));
+    BRST_PTRACE(" BRST_Page_CurrentPos\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -404,7 +404,7 @@ BRST_Page_CurrentPos2(BRST_Page page,
     BRST_Point* pos)
 {
     BRST_PageAttr attr;
-    BRST_PTRACE((" BRST_Page_CurrentPos2\n"));
+    BRST_PTRACE(" BRST_Page_CurrentPos2\n");
 
     pos->x = 0;
     pos->y = 0;
@@ -437,7 +437,7 @@ BRST_Page_New_Content_Stream(BRST_Page page,
     BRST_UINT filter;
     BRST_Array contents_array;
 
-    BRST_PTRACE((" BRST_Page_New_Content_Stream\n"));
+    BRST_PTRACE(" BRST_Page_New_Content_Stream\n");
 
     attr   = (BRST_PageAttr)page->attr;
     filter = attr->contents->filter;
@@ -487,7 +487,7 @@ BRST_Page_Insert_Shared_Content_Stream(BRST_Page page,
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_TEXT_OBJECT);
     BRST_Array contents_array;
 
-    BRST_PTRACE((" BRST_Page_Insert_Shared_Content_Stream\n"));
+    BRST_PTRACE(" BRST_Page_Insert_Shared_Content_Stream\n");
 
     /* check if there is already an array of contents */
     contents_array = (BRST_Array)BRST_Dict_Item(page, "Contents", BRST_OCLASS_ARRAY);
@@ -519,7 +519,7 @@ BRST_Page_RawWrite(BRST_Page page,
     if (!BRST_Page_Validate(page))
         return BRST_INVALID_PAGE;
 
-    BRST_PTRACE((" BRST_Page_RawWrite\n"));
+    BRST_PTRACE(" BRST_Page_RawWrite\n");
 
     BRST_PageAttr attr = (BRST_PageAttr)page->attr;
     BRST_Stream_WriteStr(attr->stream, data);
@@ -536,7 +536,7 @@ BRST_Page_SetExtGState(BRST_Page page,
     BRST_PageAttr attr;
     const char* local_name;
 
-    BRST_PTRACE((" BRST_Page_SetExtGState\n"));
+    BRST_PTRACE(" BRST_Page_SetExtGState\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -571,7 +571,7 @@ BRST_Page_CreateDestination(BRST_Page page)
     BRST_PageAttr attr;
     BRST_Destination dst;
 
-    BRST_PTRACE((" BRST_Page_CreateDestination\n"));
+    BRST_PTRACE(" BRST_Page_CreateDestination\n");
 
     if (!BRST_Page_Validate(page))
         return NULL;

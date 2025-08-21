@@ -245,7 +245,7 @@ InternalArc(BRST_Page page,
     BRST_DOUBLE delta_angle;
     BRST_DOUBLE new_angle;
 
-    BRST_PTRACE((" BRST_Page_InternalArc\n"));
+    BRST_PTRACE(" BRST_Page_InternalArc\n");
 
     attr = (BRST_PageAttr)page->attr;
 
@@ -379,7 +379,7 @@ BRST_Page_GSave(BRST_Page page)
     BRST_PageAttr attr;
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION);
 
-    BRST_PTRACE((" BRST_Page_GSave\n"));
+    BRST_PTRACE(" BRST_Page_GSave\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -406,7 +406,7 @@ BRST_Page_GRestore(BRST_Page page)
     BRST_PageAttr attr;
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION);
 
-    BRST_PTRACE((" BRST_Page_GRestore\n"));
+    BRST_PTRACE(" BRST_Page_GRestore\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -444,7 +444,7 @@ BRST_Page_Concat(BRST_Page page,
     BRST_PageAttr attr;
     BRST_TransMatrix tm;
 
-    BRST_PTRACE((" BRST_Page_Concat\n"));
+    BRST_PTRACE(" BRST_Page_Concat\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -490,7 +490,7 @@ BRST_Page_Translate(BRST_Page page,
     BRST_REAL dx,
     BRST_REAL dy)
 {
-    BRST_PTRACE((" BRST_Page_Translate\n"));
+    BRST_PTRACE(" BRST_Page_Translate\n");
     return BRST_Page_Concat(page, 1, 0, 0, 1, dx, dy);
 }
 
@@ -499,7 +499,7 @@ BRST_Page_Scale(BRST_Page page,
     BRST_REAL sx,
     BRST_REAL sy)
 {
-    BRST_PTRACE((" BRST_Page_Scale\n"));
+    BRST_PTRACE(" BRST_Page_Scale\n");
     return BRST_Page_Concat(page, sx, 0, 0, sy, 0, 0);
 }
 
@@ -507,7 +507,7 @@ BRST_EXPORT(BRST_STATUS)
 BRST_Page_Rotate(BRST_Page page,
     BRST_REAL a)
 {
-    BRST_PTRACE((" BRST_Page_Rotate\n"));
+    BRST_PTRACE(" BRST_Page_Rotate\n");
     return BRST_Page_Concat(page, cos(a), sin(a), -sin(a), cos(a), 0, 0);
 }
 
@@ -515,7 +515,7 @@ BRST_EXPORT(BRST_STATUS)
 BRST_Page_RotateDeg(BRST_Page page,
     BRST_REAL degrees)
 {
-    BRST_PTRACE((" BRST_Page_RotateDeg\n"));
+    BRST_PTRACE(" BRST_Page_RotateDeg\n");
     BRST_REAL a = degrees * BRST_PI / 180.0;
     return BRST_Page_Concat(page, cos(a), sin(a), -sin(a), cos(a), 0, 0);
 }
@@ -525,7 +525,7 @@ BRST_Page_Skew(BRST_Page page,
     BRST_REAL a,
     BRST_REAL b)
 {
-    BRST_PTRACE((" BRST_Page_Skew\n"));
+    BRST_PTRACE(" BRST_Page_Skew\n");
     return BRST_Page_Concat(page, 1, tan(a), tan(b), 1, 0, 0);
 }
 
@@ -541,7 +541,7 @@ BRST_Page_Circle(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_Circle\n"));
+    BRST_PTRACE(" BRST_Page_Circle\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -584,7 +584,7 @@ BRST_Page_Ellipse(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_Ellipse\n"));
+    BRST_PTRACE(" BRST_Page_Ellipse\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -632,7 +632,7 @@ BRST_Page_Arc(BRST_Page page,
 
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_PATH_OBJECT);
 
-    BRST_PTRACE((" BRST_Page_Arc\n"));
+    BRST_PTRACE(" BRST_Page_Arc\n");
 
     if (fabs(ang2 - ang1) >= 360)
         BRST_Error_Raise(page->error, BRST_PAGE_OUT_OF_RANGE, 0);
@@ -675,7 +675,7 @@ BRST_Page_SetGrayFill(BRST_Page page,
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_TEXT_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetGrayFill\n"));
+    BRST_PTRACE(" BRST_Page_SetGrayFill\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -705,7 +705,7 @@ BRST_Page_SetGrayStroke(BRST_Page page,
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_TEXT_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetGrayStroke\n"));
+    BRST_PTRACE(" BRST_Page_SetGrayStroke\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -740,7 +740,7 @@ BRST_Page_SetRGBFill(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetRGBFill\n"));
+    BRST_PTRACE(" BRST_Page_SetRGBFill\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -783,7 +783,7 @@ BRST_Page_SetRGBStroke(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetRGBStroke\n"));
+    BRST_PTRACE(" BRST_Page_SetRGBStroke\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -865,7 +865,7 @@ BRST_Page_SetCMYKFill(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetCMYKFill\n"));
+    BRST_PTRACE(" BRST_Page_SetCMYKFill\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -912,7 +912,7 @@ BRST_Page_SetCMYKStroke(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetCMYKStroke\n"));
+    BRST_PTRACE(" BRST_Page_SetCMYKStroke\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -952,7 +952,7 @@ BRST_Page_Clip(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_Clip\n"));
+    BRST_PTRACE(" BRST_Page_Clip\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -974,7 +974,7 @@ BRST_Page_Eoclip(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_Eoclip\n"));
+    BRST_PTRACE(" BRST_Page_Eoclip\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -996,7 +996,7 @@ BRST_Page_Stroke(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT | BRST_GMODE_CLIPPING_PATH);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_Stroke\n"));
+    BRST_PTRACE(" BRST_Page_Stroke\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1019,7 +1019,7 @@ BRST_Page_ClosePathStroke(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT | BRST_GMODE_CLIPPING_PATH);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_ClosePathStroke\n"));
+    BRST_PTRACE(" BRST_Page_ClosePathStroke\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1042,7 +1042,7 @@ BRST_Page_Fill(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT | BRST_GMODE_CLIPPING_PATH);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_Fill\n"));
+    BRST_PTRACE(" BRST_Page_Fill\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1065,7 +1065,7 @@ BRST_Page_Eofill(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT | BRST_GMODE_CLIPPING_PATH);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_Eofill\n"));
+    BRST_PTRACE(" BRST_Page_Eofill\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1088,7 +1088,7 @@ BRST_Page_FillStroke(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT | BRST_GMODE_CLIPPING_PATH);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_FillStroke\n"));
+    BRST_PTRACE(" BRST_Page_FillStroke\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1111,7 +1111,7 @@ BRST_Page_EofillStroke(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT | BRST_GMODE_CLIPPING_PATH);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_EofillStroke\n"));
+    BRST_PTRACE(" BRST_Page_EofillStroke\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1133,7 +1133,7 @@ BRST_Page_ClosePathFillStroke(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT | BRST_GMODE_CLIPPING_PATH);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_ClosePathFillStroke\n"));
+    BRST_PTRACE(" BRST_Page_ClosePathFillStroke\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1156,7 +1156,7 @@ BRST_Page_ClosePathEofillStroke(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT | BRST_GMODE_CLIPPING_PATH);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_ClosePathEofillStroke\n"));
+    BRST_PTRACE(" BRST_Page_ClosePathEofillStroke\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1179,7 +1179,7 @@ BRST_Page_EndPath(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT | BRST_GMODE_CLIPPING_PATH);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_PageEndPath\n"));
+    BRST_PTRACE(" BRST_PageEndPath\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1207,7 +1207,7 @@ BRST_Page_MoveTo(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_MoveTo\n"));
+    BRST_PTRACE(" BRST_Page_MoveTo\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1244,7 +1244,7 @@ BRST_Page_LineTo(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_LineTo\n"));
+    BRST_PTRACE(" BRST_Page_LineTo\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1283,7 +1283,7 @@ BRST_Page_CurveTo(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_CurveTo\n"));
+    BRST_PTRACE(" BRST_Page_CurveTo\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1328,7 +1328,7 @@ BRST_Page_CurveTo2(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_CurveTo2\n"));
+    BRST_PTRACE(" BRST_Page_CurveTo2\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1369,7 +1369,7 @@ BRST_Page_CurveTo3(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_CurveTo3\n"));
+    BRST_PTRACE(" BRST_Page_CurveTo3\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1403,7 +1403,7 @@ BRST_Page_ClosePath(BRST_Page page)
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PATH_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_ClosePath\n"));
+    BRST_PTRACE(" BRST_Page_ClosePath\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1432,7 +1432,7 @@ BRST_Page_Rectangle(BRST_Page page,
     char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_Rectangle\n"));
+    BRST_PTRACE(" BRST_Page_Rectangle\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1469,7 +1469,7 @@ BRST_Page_SetLineWidth(BRST_Page page,
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_TEXT_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetLineWidth\n"));
+    BRST_PTRACE(" BRST_Page_SetLineWidth\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1498,7 +1498,7 @@ BRST_Page_SetLineCap(BRST_Page page,
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_TEXT_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetLineCap\n"));
+    BRST_PTRACE(" BRST_Page_SetLineCap\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1532,7 +1532,7 @@ BRST_Page_SetLineJoin(BRST_Page page,
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_TEXT_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetLineJoin\n"));
+    BRST_PTRACE(" BRST_Page_SetLineJoin\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1562,7 +1562,7 @@ BRST_Page_SetMiterLimit(BRST_Page page,
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_TEXT_OBJECT);
     BRST_PageAttr attr;
 
-    BRST_PTRACE((" BRST_Page_SetMitterLimit\n"));
+    BRST_PTRACE(" BRST_Page_SetMitterLimit\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1598,7 +1598,7 @@ BRST_Page_SetDash(BRST_Page page,
     BRST_PageAttr attr;
     BRST_UINT i;
 
-    BRST_PTRACE((" BRST_Page_SetDash\n"));
+    BRST_PTRACE(" BRST_Page_SetDash\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1653,7 +1653,7 @@ BRST_Page_SetFlat(BRST_Page page,
     BRST_PageAttr attr;
     BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_TEXT_OBJECT);
 
-    BRST_PTRACE((" BRST_Page_SetFlat\n"));
+    BRST_PTRACE(" BRST_Page_SetFlat\n");
 
     if (ret != BRST_OK)
         return ret;
@@ -1677,7 +1677,7 @@ BRST_Page_SetFlat(BRST_Page page,
 BRST_EXPORT(BRST_RGBColor)
 BRST_Page_RGBFill(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_RGBFill\n"));
+    BRST_PTRACE(" BRST_Page_RGBFill\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1692,7 +1692,7 @@ BRST_Page_RGBFill(BRST_Page page)
 BRST_EXPORT(BRST_RGBColor)
 BRST_Page_RGBStroke(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_RGBStroke\n"));
+    BRST_PTRACE(" BRST_Page_RGBStroke\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1707,7 +1707,7 @@ BRST_Page_RGBStroke(BRST_Page page)
 BRST_EXPORT(BRST_CMYKColor)
 BRST_Page_CMYKFill(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_CMYKFill\n"));
+    BRST_PTRACE(" BRST_Page_CMYKFill\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1722,7 +1722,7 @@ BRST_Page_CMYKFill(BRST_Page page)
 BRST_EXPORT(BRST_CMYKColor)
 BRST_Page_CMYKStroke(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_CMYKStroke\n"));
+    BRST_PTRACE(" BRST_Page_CMYKStroke\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1737,7 +1737,7 @@ BRST_Page_CMYKStroke(BRST_Page page)
 BRST_EXPORT(BRST_REAL)
 BRST_Page_GrayFill(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_GrayFill\n"));
+    BRST_PTRACE(" BRST_Page_GrayFill\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1752,7 +1752,7 @@ BRST_Page_GrayFill(BRST_Page page)
 BRST_EXPORT(BRST_REAL)
 BRST_Page_GrayStroke(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_GrayStroke\n"));
+    BRST_PTRACE(" BRST_Page_GrayStroke\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1767,7 +1767,7 @@ BRST_Page_GrayStroke(BRST_Page page)
 BRST_EXPORT(BRST_ColorSpace)
 BRST_Page_StrokeColorSpace_Value(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_StrokeColorSpace\n"));
+    BRST_PTRACE(" BRST_Page_StrokeColorSpace\n");
 
     if (BRST_Page_Validate(page))
         return ((BRST_PageAttr)page->attr)->gstate->cs_stroke;
@@ -1778,7 +1778,7 @@ BRST_Page_StrokeColorSpace_Value(BRST_Page page)
 BRST_EXPORT(BRST_ColorSpace)
 BRST_Page_FillColorSpace(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_FillColorSpace\n"));
+    BRST_PTRACE(" BRST_Page_FillColorSpace\n");
 
     if (BRST_Page_Validate(page))
         return ((BRST_PageAttr)page->attr)->gstate->cs_fill;
@@ -1789,7 +1789,7 @@ BRST_Page_FillColorSpace(BRST_Page page)
 BRST_EXPORT(BRST_REAL)
 BRST_Page_LineWidth(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_LineWidth\n"));
+    BRST_PTRACE(" BRST_Page_LineWidth\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1802,7 +1802,7 @@ BRST_Page_LineWidth(BRST_Page page)
 BRST_EXPORT(BRST_LineCap)
 BRST_Page_LineCap(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_LineCap\n"));
+    BRST_PTRACE(" BRST_Page_LineCap\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1815,7 +1815,7 @@ BRST_Page_LineCap(BRST_Page page)
 BRST_EXPORT(BRST_LineJoin)
 BRST_Page_LineJoin(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_LineJoin\n"));
+    BRST_PTRACE(" BRST_Page_LineJoin\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1828,7 +1828,7 @@ BRST_Page_LineJoin(BRST_Page page)
 BRST_EXPORT(BRST_REAL)
 BRST_Page_MiterLimit(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_MiterLimit\n"));
+    BRST_PTRACE(" BRST_Page_MiterLimit\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1843,7 +1843,7 @@ BRST_Page_Dash(BRST_Page page)
 {
     BRST_DashMode mode = { { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f }, 0, 0.0f };
 
-    BRST_PTRACE((" BRST_Page_Dash\n"));
+    BRST_PTRACE(" BRST_Page_Dash\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1857,7 +1857,7 @@ BRST_Page_Dash(BRST_Page page)
 BRST_EXPORT(BRST_REAL)
 BRST_Page_Flat(BRST_Page page)
 {
-    BRST_PTRACE((" BRST_Page_Flat\n"));
+    BRST_PTRACE(" BRST_Page_Flat\n");
 
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
@@ -1872,7 +1872,7 @@ BRST_Page_TransMatrix(BRST_Page page)
 {
     BRST_TransMatrix DEF_MATRIX = { 1, 0, 0, 1, 0, 0 };
 
-    BRST_PTRACE((" BRST_Page_GetTransMatrix\n"));
+    BRST_PTRACE(" BRST_Page_GetTransMatrix\n");
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
 
@@ -1890,7 +1890,7 @@ BRST_Page_SetShading(BRST_Page page,
     BRST_PageAttr attr;
     const char* local_name;
 
-    BRST_PTRACE((" BRST_Page_SetShading\n"));
+    BRST_PTRACE(" BRST_Page_SetShading\n");
 
     if (ret != BRST_OK)
         return ret;
