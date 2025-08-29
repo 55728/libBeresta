@@ -9,12 +9,12 @@
     (Doc-UseUTFEncodings pdf)
     (Doc-Encoder-SetCurrent pdf "UTF-8")
 
-    (Doc-SetInfoAttr pdf INFO-AUTHOR "Author")
-    (Doc-SetInfoAttr pdf INFO-CREATOR "Creator")
-    (Doc-SetInfoAttr pdf INFO-PRODUCER "Producer")
-    (Doc-SetInfoAttr pdf INFO-TITLE "Title")
-    (Doc-SetInfoAttr pdf INFO-SUBJECT "Subject")
-    (Doc-SetInfoAttr pdf INFO-KEYWORDS "Keywords")
+    (Doc-SetInfoAttr pdf INFO-AUTHOR   (string-to-cstring "Автор / Author / Autor"))
+    (Doc-SetInfoAttr pdf INFO-CREATOR  (string-to-cstring "Разработчик / Creator / Creador"))
+    (Doc-SetInfoAttr pdf INFO-PRODUCER (string-to-cstring "Продюсер / Producer / Productor"))
+    (Doc-SetInfoAttr pdf INFO-TITLE    (string-to-cstring "Заголовок / Title / Título"))
+    (Doc-SetInfoAttr pdf INFO-SUBJECT  (string-to-cstring "Тема / Subject / Asunto"))
+    (Doc-SetInfoAttr pdf INFO-KEYWORDS (string-to-cstring "Ключевые слова, Keywords, Palabras clave"))
 
     (let ((date (Date-Now pdf)))
       (Doc-SetInfoDateAttr pdf INFO-CREATION-DATE date)

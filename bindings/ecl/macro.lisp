@@ -143,3 +143,9 @@
 (defmacro include-header ()
   #+ecl
   `(ffi:clines "#include \"brst.h\""))
+
+(defun string-to-cstring (str)
+  #+ecl
+  (ext:octets-to-string
+   (ext:string-to-octets str :external-format :utf-8)
+   :external-format :latin-1))
