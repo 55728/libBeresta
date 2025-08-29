@@ -1,7 +1,7 @@
 /*
  * `libBeresta`
  *
- * minimal.c - Минимально возможный пример
+ * dates.c - Метаданные документа (дата/время)
  * =========
  *
  * Copyright (c) 2025 Dmitry Solomennikov
@@ -10,26 +10,24 @@
  */
 
 /** en
-  \par Minimal BRST program demo
+  \par Document date/time metadata setup
 
-  This is bare minimum program, creating PDF document.
-  It creates \ref BRST_Doc object, adds \ref BRST_Page object into it,
-  sets added page size and orientation and saves document to a file.
-
-  Last action is to clean up everything.
+  In this example metadata fields are set:
+  - Creation date
+  - Modification date
 */
 
 /** ru
-  \par Минимальная демонстрационная программа библиотеки libBeresta.
+  \par Настройка метаданных даты/времени документа
 
-  Минимально возможная программа для создания PDF-документа.
-  Создается \ref BRST_Doc, в него добавляется объект \ref BRST_Page,
-  устанавливаются размер и ориентация страницы и документ сохраняется.
-
-  Последним действием все очищается.
+  В примере устанавливаются метаданные PDF-документа:
+  - Дата создания
+  - Дата изменения
 */
 
 #include "brst.h"
+#include "handler.h"
+#include <setjmp.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -43,9 +41,14 @@ int main(int argc, char** argv)
     strcat(fname, ".pdf");
 
     // Создание объекта документа
-    pdf = BRST_Doc_New_Empty();
+    pdf = BRST_Doc_New(demo_error_handler, NULL);
     if (!pdf) {
         printf("Error: cannot create Doc object\n");
+        return 1;
+    }
+
+    if (setjmp(env)) {
+        BRST_Doc_Free(pdf);
         return 1;
     }
 
@@ -54,6 +57,12 @@ int main(int argc, char** argv)
 
     // Настройка размера и ориентации страницы
     BRST_Page_SetSize(page, BRST_PAGE_SIZE_A4, BRST_PAGE_ORIENTATION_LANDSCAPE);
+
+    // Создание даты (создания и модификации)
+    BRST_Date date = BRST_Date_Now(pdf);
+
+    BRST_Doc_SetInfoDateAttr(pdf, BRST_INFO_CREATION_DATE, date);
+    BRST_Doc_SetInfoDateAttr(pdf, BRST_INFO_MOD_DATE, date);
 
     // Сохранение документа в файл
     BRST_Doc_SaveToFile(pdf, fname);
