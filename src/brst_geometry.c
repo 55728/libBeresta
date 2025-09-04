@@ -1596,7 +1596,7 @@ BRST_Page_Flat(BRST_Page page)
 BRST_EXPORT(BRST_Matrix)
 BRST_Page_Matrix(BRST_Page page)
 {
-    BRST_PTRACE(" BRST_Page_GetMatrix\n");
+    BRST_PTRACE(" BRST_Page_Matrix\n");
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
 
