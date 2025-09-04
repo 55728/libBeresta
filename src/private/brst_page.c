@@ -25,6 +25,7 @@
 #include "brst_error.h"
 #include "private/brst_utils.h"
 #include "private/brst_page_attr.h"
+#include "brst_pattern.h"
 
 static BRST_STATUS
 Page_BeforeWrite(BRST_Dict obj);
@@ -374,7 +375,7 @@ BRST_Page_XObjectName(BRST_Page page,
 
     return key;
 }
-/*
+
 BRST_CSTR
 BRST_Page_PatternName(BRST_Page page,
     BRST_Pattern pat)
@@ -403,12 +404,12 @@ BRST_Page_PatternName(BRST_Page page,
         attr->patterns = patterns;
     }
 
-//    / * search pattern-object from pattern-resource * /
+    /* search pattern-object from pattern-resource */
     key = BRST_Dict_KeyByObj(attr->patterns, pat);
     if (!key) {
-        / * if the pattern is not registered in pattern-resource, register
+        /* if the pattern is not registered in pattern-resource, register
          * pattern to pattern-resource.
-         * /
+         */
         char pattern_name[BRST_LIMIT_MAX_NAME_LEN + 1];
         char* ptr;
         char* end_ptr = pattern_name + BRST_LIMIT_MAX_NAME_LEN;
@@ -424,9 +425,8 @@ BRST_Page_PatternName(BRST_Page page,
 
     return key;
 }
-*/
 
-const char*
+BRST_CSTR
 BRST_Page_ExtGStateName(BRST_Page page,
     BRST_ExtGState state)
 {

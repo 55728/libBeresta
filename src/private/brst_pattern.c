@@ -8,6 +8,7 @@
 #include "private/brst_dict.h"
 #include "private/brst_name.h"
 #include "brst_xobject.h"
+#include "brst_pattern.h"
 #include "brst_types.h"
 #include "private/brst_utils.h"
 #include "private/brst_geometry.h"
