@@ -35,8 +35,8 @@ BRST_Box_Array_New(
 
 BRST_Array
 BRST_Matrix_Array_New(
-    BRST_MMgr        mmgr,
-    BRST_TransMatrix matrix
+    BRST_MMgr   mmgr,
+    BRST_Matrix matrix
 );
 
 void

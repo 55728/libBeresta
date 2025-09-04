@@ -34,7 +34,7 @@ BRST_Pattern_Tiling_New(
     ret += BRST_Dict_AddName(xobj, "Subtype", "Form");
     ret += BRST_Dict_Add(xobj, "BBox", BRST_Box_Array_New(mmgr, BRST_ToRect(0, 0, width, height)));
 
-    BRST_TransMatrix sm = BRST_Matrix_Scale(IDENTITY_MATRIX, scalex, scaley);
+    BRST_Matrix sm = BRST_Matrix_Scale(IDENTITY_MATRIX, scalex, scaley);
     ret += BRST_Dict_Add(xobj, "Matrix", BRST_Matrix_Array_New(mmgr, sm));
 
     /* В стандарте написано, что элемент Resources не является обязательным,

@@ -32,7 +32,7 @@
  * Absolute values are passed in xAbs and yAbs, relative values are returned
  * to xRel and yRel. The latter two must not be NULL.
  */
-void TextPos_AbsToRel(BRST_TransMatrix text_matrix,
+void TextPos_AbsToRel(BRST_Matrix text_matrix,
     BRST_REAL xAbs,
     BRST_REAL yAbs,
     BRST_REAL* xRel,

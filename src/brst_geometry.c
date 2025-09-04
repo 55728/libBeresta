@@ -393,10 +393,10 @@ BRST_Page_Concat(BRST_Page page,
         return BRST_Error_Check(page->error);
     }
 
-    BRST_TransMatrix tm = attr->gstate->trans_matrix;
-    BRST_TransMatrix m = BRST_TransMatrix_New(BRST_Page_MMgr(page), a, b, c, d, x, y);
-    attr->gstate->trans_matrix = BRST_TransMatrix_Multiply(BRST_Page_MMgr(page), tm, m);
-    BRST_TransMatrix_Free(tm);
+    BRST_Matrix tm = attr->gstate->trans_matrix;
+    BRST_Matrix m = BRST_Matrix_New(BRST_Page_MMgr(page), a, b, c, d, x, y);
+    attr->gstate->trans_matrix = BRST_Matrix_Multiply(BRST_Page_MMgr(page), tm, m);
+    BRST_Matrix_Free(tm);
 
     return ret;
 }
@@ -1593,16 +1593,16 @@ BRST_Page_Flat(BRST_Page page)
         return BRST_DEF_FLATNESS;
 }
 
-BRST_EXPORT(BRST_TransMatrix)
-BRST_Page_TransMatrix(BRST_Page page)
+BRST_EXPORT(BRST_Matrix)
+BRST_Page_Matrix(BRST_Page page)
 {
-    BRST_PTRACE(" BRST_Page_GetTransMatrix\n");
+    BRST_PTRACE(" BRST_Page_GetMatrix\n");
     if (BRST_Page_Validate(page)) {
         BRST_PageAttr attr = (BRST_PageAttr)page->attr;
 
         return attr->gstate->trans_matrix;
     } else
-        return NULL;
+        return BRST_Matrix_Identity(BRST_Page_MMgr(page));
 }
 
 /* sh */

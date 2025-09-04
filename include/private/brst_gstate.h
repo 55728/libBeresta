@@ -5,7 +5,7 @@ struct _BRST_GState_Rec;
 typedef struct _BRST_GState_Rec* BRST_GState;
 
 typedef struct _BRST_GState_Rec {
-    BRST_TransMatrix        trans_matrix;
+    BRST_Matrix             trans_matrix;
     BRST_REAL               line_width;
     BRST_LineCap            line_cap;
     BRST_LineJoin           line_join;

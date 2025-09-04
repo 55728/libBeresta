@@ -1,7 +1,7 @@
-#ifndef BRST_TRANSMATRIX_H
-#define BRST_TRANSMATRIX_H
+#ifndef BRST_MATRIX_H
+#define BRST_MATRIX_H
 
-struct _BRST_TransMatrix_Rec;
-typedef struct _BRST_TransMatrix_Rec* BRST_TransMatrix;
+struct _BRST_Matrix_Rec;
+typedef struct _BRST_Matrix_Rec* BRST_Matrix;
 
-#endif /* BRST_TRANSMATRIX_H */
+#endif /* BRST_MATRIX_H */

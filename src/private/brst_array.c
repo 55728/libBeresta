@@ -70,7 +70,7 @@ BRST_Box_Array_New(BRST_MMgr mmgr,
 
 BRST_Array
 BRST_Matrix_Array_New(BRST_MMgr mmgr,
-    BRST_TransMatrix matrix)
+    BRST_Matrix matrix)
 {
     BRST_Array obj;
     BRST_STATUS ret = BRST_OK;

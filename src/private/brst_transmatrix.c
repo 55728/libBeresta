@@ -6,8 +6,8 @@
 #include "private/brst_transmatrix.h"
 #include "private/brst_utils.h"
 
-BRST_TransMatrix
-BRST_TransMatrix_New(
+BRST_Matrix
+BRST_Matrix_New(
     BRST_MMgr mmgr,
     BRST_REAL a,
     BRST_REAL b,
@@ -16,15 +16,15 @@ BRST_TransMatrix_New(
     BRST_REAL x,
     BRST_REAL y
 ) {
-    BRST_PTRACE(" BRST_TransMatrix_New\n");
+    BRST_PTRACE(" BRST_Matrix_New\n");
 
-    BRST_TransMatrix matrix = BRST_GetMem(mmgr, sizeof(BRST_TransMatrix_Rec));
+    BRST_Matrix matrix = BRST_GetMem(mmgr, sizeof(BRST_Matrix_Rec));
 
     if (!matrix) {
         return matrix;
     }
 
-    BRST_MemSet(matrix, 0, sizeof(BRST_TransMatrix_Rec));
+    BRST_MemSet(matrix, 0, sizeof(BRST_Matrix_Rec));
     matrix->mmgr = mmgr;
 
     matrix->a = a;
@@ -37,19 +37,19 @@ BRST_TransMatrix_New(
     return matrix;
 }
 
-BRST_TransMatrix
-BRST_TransMatrix_Identity(
+BRST_Matrix
+BRST_Matrix_Identity(
     BRST_MMgr mmgr
 ) {
-    return BRST_TransMatrix_New(mmgr, 1, 0, 0, 1, 0, 0);
+    return BRST_Matrix_New(mmgr, 1, 0, 0, 1, 0, 0);
 }
 
-BRST_TransMatrix
-BRST_TransMatrix_Multiply(BRST_MMgr mmgr, BRST_TransMatrix m, BRST_TransMatrix n)
+BRST_Matrix
+BRST_Matrix_Multiply(BRST_MMgr mmgr, BRST_Matrix m, BRST_Matrix n)
 {
     // Такая матрица не имеет геометрического смысла, 
     // мы ее инициализируем в процессе расчетов.
-    BRST_TransMatrix r = BRST_TransMatrix_New(mmgr, 0, 0, 0, 0, 0, 0);
+    BRST_Matrix r = BRST_Matrix_New(mmgr, 0, 0, 0, 0, 0, 0);
 
     /*
 
@@ -73,56 +73,56 @@ BRST_TransMatrix_Multiply(BRST_MMgr mmgr, BRST_TransMatrix m, BRST_TransMatrix n
     return r;
 }
 
-BRST_TransMatrix
-BRST_TransMatrix_Translate(BRST_MMgr mmgr, BRST_TransMatrix m, BRST_REAL dx, BRST_REAL dy)
+BRST_Matrix
+BRST_Matrix_Translate(BRST_MMgr mmgr, BRST_Matrix m, BRST_REAL dx, BRST_REAL dy)
 {
-    BRST_TransMatrix translate =  BRST_TransMatrix_New(mmgr, 1, 0, 0, 1, dx, dy);
-    BRST_TransMatrix res = BRST_TransMatrix_Multiply(mmgr, m, translate);
-    BRST_TransMatrix_Free(translate);
+    BRST_Matrix translate =  BRST_Matrix_New(mmgr, 1, 0, 0, 1, dx, dy);
+    BRST_Matrix res = BRST_Matrix_Multiply(mmgr, m, translate);
+    BRST_Matrix_Free(translate);
     return res;
 }
 
-BRST_TransMatrix
-BRST_TransMatrix_Scale(BRST_MMgr mmgr, BRST_TransMatrix m, BRST_REAL sx, BRST_REAL sy)
+BRST_Matrix
+BRST_Matrix_Scale(BRST_MMgr mmgr, BRST_Matrix m, BRST_REAL sx, BRST_REAL sy)
 {
-    BRST_TransMatrix scale =  BRST_TransMatrix_New(mmgr, sx, 0, 0, sy, 0, 0);
-    BRST_TransMatrix res = BRST_TransMatrix_Multiply(mmgr, m, scale);
-    BRST_TransMatrix_Free(scale);
+    BRST_Matrix scale =  BRST_Matrix_New(mmgr, sx, 0, 0, sy, 0, 0);
+    BRST_Matrix res = BRST_Matrix_Multiply(mmgr, m, scale);
+    BRST_Matrix_Free(scale);
     return res;
 }
 
-BRST_TransMatrix
-BRST_TransMatrix_Rotate(BRST_MMgr mmgr, BRST_TransMatrix m, BRST_REAL angle)
+BRST_Matrix
+BRST_Matrix_Rotate(BRST_MMgr mmgr, BRST_Matrix m, BRST_REAL angle)
 {
-    BRST_TransMatrix rotate = BRST_TransMatrix_New(mmgr, BRST_COS(angle), BRST_SIN(angle), -BRST_SIN(angle), BRST_COS(angle), 0, 0);
-    BRST_TransMatrix res = BRST_TransMatrix_Multiply(mmgr, rotate, m);
-    BRST_TransMatrix_Free(rotate);
+    BRST_Matrix rotate = BRST_Matrix_New(mmgr, BRST_COS(angle), BRST_SIN(angle), -BRST_SIN(angle), BRST_COS(angle), 0, 0);
+    BRST_Matrix res = BRST_Matrix_Multiply(mmgr, rotate, m);
+    BRST_Matrix_Free(rotate);
     return res;
 }
 
-BRST_TransMatrix
-BRST_TransMatrix_RotateDeg(BRST_MMgr mmgr, BRST_TransMatrix m, BRST_REAL degrees)
+BRST_Matrix
+BRST_Matrix_RotateDeg(BRST_MMgr mmgr, BRST_Matrix m, BRST_REAL degrees)
 {
     BRST_REAL angle = degrees * BRST_PI / 180.0;
 
-    BRST_TransMatrix rotate =  BRST_TransMatrix_New(mmgr, BRST_COS(angle), BRST_SIN(angle), -BRST_SIN(angle), BRST_COS(angle), 0, 0);
-    BRST_TransMatrix res = BRST_TransMatrix_Multiply(mmgr, m, rotate);
-    BRST_TransMatrix_Free(rotate);
+    BRST_Matrix rotate =  BRST_Matrix_New(mmgr, BRST_COS(angle), BRST_SIN(angle), -BRST_SIN(angle), BRST_COS(angle), 0, 0);
+    BRST_Matrix res = BRST_Matrix_Multiply(mmgr, m, rotate);
+    BRST_Matrix_Free(rotate);
     return res;
 }
 
-BRST_TransMatrix
-BRST_TransMatrix_Skew(BRST_MMgr mmgr, BRST_TransMatrix m, BRST_REAL a, BRST_REAL b)
+BRST_Matrix
+BRST_Matrix_Skew(BRST_MMgr mmgr, BRST_Matrix m, BRST_REAL a, BRST_REAL b)
 {
-    BRST_TransMatrix skew =  BRST_TransMatrix_New(mmgr, 1, BRST_TAN(a), BRST_TAN(b), 1, 0, 0);
-    BRST_TransMatrix res = BRST_TransMatrix_Multiply(mmgr, m, skew);
-    BRST_TransMatrix_Free(skew);
+    BRST_Matrix skew =  BRST_Matrix_New(mmgr, 1, BRST_TAN(a), BRST_TAN(b), 1, 0, 0);
+    BRST_Matrix res = BRST_Matrix_Multiply(mmgr, m, skew);
+    BRST_Matrix_Free(skew);
     return res;
 }
 
-void BRST_TransMatrix_Free(BRST_TransMatrix matrix)
+void BRST_Matrix_Free(BRST_Matrix matrix)
 {
-    BRST_PTRACE(" BRST_TransMatrix_Free\n");
+    BRST_PTRACE(" BRST_Matrix_Free\n");
     if (!matrix) {
         return;
     }

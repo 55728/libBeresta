@@ -1481,13 +1481,13 @@ BRST_Page_Flat(
 
   \copydoc dox_param_page
 
-  \return Page current transformation matrix \ref BRST_TransMatrix on success, otherwise it returns default transformation matrix `BRST_TransMatrix{1, 0, 0, 1, 0, 0}`.
+  \return Page current transformation matrix \ref BRST_Matrix on success, otherwise it returns default transformation matrix `{1, 0, 0, 1, 0, 0}`.
 
   \see BRST_Page_Concat()
 
 */
-BRST_EXPORT(BRST_TransMatrix)
-BRST_Page_TransMatrix(
+BRST_EXPORT(BRST_Matrix)
+BRST_Page_Matrix(
     BRST_Page page
 );
 

@@ -48,7 +48,7 @@ BRST_Page_BeginText(BRST_Page page)
 
     attr->gmode       = BRST_GMODE_TEXT_OBJECT;
     attr->text_pos    = INIT_POS;
-    attr->text_matrix = BRST_TransMatrix_Identity(BRST_Page_MMgr(page));
+    attr->text_matrix = BRST_Matrix_Identity(BRST_Page_MMgr(page));
 
     return ret;
 }
@@ -328,7 +328,7 @@ BRST_Page_SetTextMatrix(BRST_Page page,
     if (BRST_Stream_WriteStr(attr->stream, buf) != BRST_OK)
         return BRST_Error_Check(page->error);
 
-    attr->text_matrix = BRST_TransMatrix_New(BRST_Page_MMgr(page), a, b, c, d, x, y);
+    attr->text_matrix = BRST_Matrix_New(BRST_Page_MMgr(page), a, b, c, d, x, y);
     attr->text_pos.x    = attr->text_matrix->x;
     attr->text_pos.y    = attr->text_matrix->y;
 
@@ -785,7 +785,7 @@ BRST_Page_SetWordSpace(BRST_Page page,
     return ret;
 }
 
-BRST_EXPORT(BRST_TransMatrix)
+BRST_EXPORT(BRST_Matrix)
 BRST_Page_TextMatrix(BRST_Page page)
 {
     BRST_PTRACE(" BRST_Page_TextMatrix\n");
@@ -794,7 +794,7 @@ BRST_Page_TextMatrix(BRST_Page page)
 
         return attr->text_matrix;
     } else
-        return NULL;
+        return BRST_Matrix_Identity(BRST_Page_MMgr(page));
 }
 
 BRST_EXPORT(BRST_REAL)
