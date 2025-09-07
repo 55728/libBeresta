@@ -17,6 +17,7 @@
 #include "brst_shading.h"
 #include "brst_font.h"
 #include "brst_ext_gstate.h"
+#include "brst_pattern.h"
 #include "private/brst_page.h"
 
 const char* const BRST_DESTINATION_TYPE_NAMES[] = {

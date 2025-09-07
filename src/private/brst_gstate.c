@@ -66,6 +66,8 @@ BRST_GState_New(BRST_MMgr mmgr,
 
         gstate->prev  = current;
         gstate->depth = current->depth + 1;
+
+        gstate->pattern  = current->pattern;
     } else {
         gstate->trans_matrix = BRST_Matrix_Identity(mmgr);
         gstate->line_width   = BRST_DEF_LINEWIDTH;
@@ -97,6 +99,8 @@ BRST_GState_New(BRST_MMgr mmgr,
 
         gstate->prev  = NULL;
         gstate->depth = 1;
+
+        gstate->pattern  = NULL;
     }
 
     return gstate;

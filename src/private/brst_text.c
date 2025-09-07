@@ -22,6 +22,7 @@
 #include "brst_page.h"
 #include "brst_text.h"
 #include "private/brst_text.h"
+#include "brst_pattern.h"
 #include "private/brst_page.h"
 #include "private/brst_defines.h"
 #include "private/brst_utils.h"

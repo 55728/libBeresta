@@ -17,6 +17,7 @@
 #include "private/brst_gstate.h"
 #include "private/brst_destination.h"
 #include "brst_image.h"
+#include "brst_pattern.h"
 #include "brst_geometry.h"
 #include "brst_page_xobject.h"
 #include "private/brst_utils.h"

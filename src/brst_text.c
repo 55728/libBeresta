@@ -16,6 +16,7 @@
 #include "brst_base.h"
 #include "brst_page.h"
 #include "brst_page_routines.h"
+#include "brst_pattern.h"
 #include "private/brst_page.h"
 #include "brst_font.h"
 #include "private/brst_font.h"

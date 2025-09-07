@@ -23,6 +23,7 @@
 #include "private/brst_info.h"
 #include "brst_ext_gstate.h"
 #include "brst_page.h"
+#include "brst_pattern.h"
 #include "private/brst_page.h"
 #include "private/brst_pages.h"
 #include "private/brst_gstate.h"

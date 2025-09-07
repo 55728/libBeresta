@@ -404,6 +404,15 @@ BRST_Page_SetGrayStroke(
     BRST_REAL value
 );
 
+BRST_EXPORT(BRST_STATUS)
+BRST_Page_SetRGBPatternFill(
+    BRST_Page page,
+    BRST_REAL r,
+    BRST_REAL g,
+    BRST_REAL b,
+    BRST_Pattern pattern
+);
+
 /**
 
   \ingroup graphics

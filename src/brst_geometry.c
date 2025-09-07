@@ -13,6 +13,7 @@
 #include "brst_font.h"
 #include "brst_shading.h"
 #include "brst_page.h"
+#include "brst_pattern.h"
 #include "private/brst_page.h"
 #include "brst_page_routines.h"
 #include "brst_geometry_defines.h"
@@ -26,6 +27,7 @@
 #include "private/brst_catalog.h"
 #include "private/brst_c.h"
 #include "brst_stream_geometry.h"
+#include "brst_pattern.h"
 
 static BRST_STATUS
 InternalArc(BRST_Page page,
@@ -631,6 +633,42 @@ BRST_Page_SetGrayStroke(BRST_Page page,
 
     attr->gstate->gray_stroke = gray;
     attr->gstate->cs_stroke   = BRST_CS_DEVICE_GRAY;
+
+    return ret;
+}
+
+/* scn */
+BRST_EXPORT(BRST_STATUS)
+BRST_Page_SetRGBPatternFill(BRST_Page page,
+    BRST_REAL r,
+    BRST_REAL g,
+    BRST_REAL b,
+    BRST_Pattern pattern)
+{
+    BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_TEXT_OBJECT | BRST_GMODE_PAGE_DESCRIPTION);
+
+    BRST_PTRACE(" BRST_Page_SetRGBPatternFill\n");
+
+    if (ret != BRST_OK)
+        return ret;
+
+    BRST_PageAttr attr = (BRST_PageAttr)page->attr;
+
+    const char* pattern_name = BRST_Page_PatternName(page, pattern);
+
+    if (!pattern_name)
+        return BRST_Error_Raise(page->error, BRST_PAGE_INVALID_PATTERN, 0);
+
+    if (BRST_Stream_SetRGBPatternFill(attr->stream, r, g, b, pattern_name) != BRST_OK) {
+        BRST_Error_Copy(page->error, attr->stream->error);
+        return BRST_Error_Check(page->error);
+    }
+
+    attr->gstate->rgb_fill.r = r;
+    attr->gstate->rgb_fill.g = g;
+    attr->gstate->rgb_fill.b = b;
+    attr->gstate->cs_fill    = BRST_CS_DEVICE_RGB;
+    attr->gstate->pattern    = pattern;
 
     return ret;
 }

@@ -29,6 +29,8 @@ typedef struct _BRST_GState_Rec {
     BRST_REAL               gray_fill;
     BRST_REAL               gray_stroke;
 
+    BRST_Dict               pattern;
+
     BRST_Font               font;
     BRST_REAL               font_size;
     BRST_WritingMode        writing_mode;

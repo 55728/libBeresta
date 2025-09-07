@@ -22,6 +22,7 @@
 #include "brst_outline.h"
 #include "private/brst_encrypt_dict.h"
 #include "private/brst_doc.h"
+#include "brst_pattern.h"
 #include "private/brst_page.h"
 #include "brst_base.h"
 #include "brst_image.h"
