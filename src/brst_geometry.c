@@ -698,6 +698,7 @@ BRST_Page_SetRGBFill(BRST_Page page,
     attr->gstate->rgb_fill.g = g;
     attr->gstate->rgb_fill.b = b;
     attr->gstate->cs_fill    = BRST_CS_DEVICE_RGB;
+    attr->gstate->pattern     = NULL;
 
     return ret;
 }
@@ -796,6 +797,7 @@ BRST_Page_SetCMYKFill(BRST_Page page,
     attr->gstate->cmyk_fill.y = y;
     attr->gstate->cmyk_fill.k = k;
     attr->gstate->cs_fill     = BRST_CS_DEVICE_CMYK;
+    attr->gstate->pattern     = NULL;
 
     return ret;
 }
