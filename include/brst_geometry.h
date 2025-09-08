@@ -413,6 +413,22 @@ BRST_Page_SetRGBPatternFill(
     BRST_Pattern pattern
 );
 
+BRST_EXPORT(BRST_STATUS)
+BRST_Page_SetRGBPatternFillUint(
+    BRST_Page page,
+    BRST_UINT8 r,
+    BRST_UINT8 g,
+    BRST_UINT8 b,
+    BRST_Pattern pattern
+);
+
+BRST_EXPORT(BRST_STATUS)
+BRST_Page_SetRGBPatternFillHex(
+    BRST_Page page,
+    BRST_UINT32 rgb,
+    BRST_Pattern pattern
+);
+
 /**
 
   \ingroup graphics

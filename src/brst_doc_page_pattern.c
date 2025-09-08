@@ -148,8 +148,6 @@ BRST_Doc_Page_RGBPatternFill_Select(
         
         BRST_CSTR cs_name = BRST_PATTERN_COLORSPACE_NAMES[0];
 
-        printf("HIA: cs_name = %s\n", cs_name);
-
         if (BRST_Stream_WriteEscapeName(attr->stream, cs_name) != BRST_OK) {
             return BRST_Error_Check(page->error);            
         }
@@ -165,3 +163,28 @@ BRST_Doc_Page_RGBPatternFill_Select(
     return ret;
 }
 
+BRST_EXPORT(BRST_STATUS)
+BRST_Doc_Page_RGBPatternFillUint_Select(
+    BRST_Doc     pdf,
+    BRST_Page    page,
+    BRST_UINT8   r,
+    BRST_UINT8   g,
+    BRST_UINT8   b,
+    BRST_Pattern pattern) {
+
+    BRST_REAL rr = (BRST_REAL)r / 255.0;
+    BRST_REAL gg = (BRST_REAL)g / 255.0;
+    BRST_REAL bb = (BRST_REAL)b / 255.0;
+
+    return BRST_Doc_Page_RGBPatternFill_Select(pdf, page, rr, gg, bb, pattern);
+}
+
+BRST_EXPORT(BRST_STATUS)
+BRST_Doc_Page_RGBPatternFillHex_Select(
+    BRST_Doc     pdf,
+    BRST_Page    page,
+    BRST_UINT32  rgb,
+    BRST_Pattern pattern) {
+
+    return BRST_Doc_Page_RGBPatternFill_Select(pdf, page, (rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF, pattern);
+}

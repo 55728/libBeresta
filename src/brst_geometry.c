@@ -673,6 +673,27 @@ BRST_Page_SetRGBPatternFill(BRST_Page page,
     return ret;
 }
 
+BRST_EXPORT(BRST_STATUS)
+BRST_Page_SetRGBPatternFillUint(BRST_Page page,
+    BRST_UINT8 r,
+    BRST_UINT8 g,
+    BRST_UINT8 b,
+    BRST_Pattern pattern)
+{
+    BRST_REAL rr = (BRST_REAL)r / 255.0;
+    BRST_REAL rg = (BRST_REAL)g / 255.0;
+    BRST_REAL rb = (BRST_REAL)b / 255.0;
+
+    return BRST_Page_SetRGBPatternFill(page, rr, rg, rb, pattern);
+}
+
+BRST_EXPORT(BRST_STATUS)
+BRST_Page_SetRGBPatternFillHex(BRST_Page page, BRST_UINT32 rgb, BRST_Pattern pattern)
+{
+    return BRST_Page_SetRGBPatternFillUint(page, (rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF, pattern);
+}
+
+
 /* rg */
 BRST_EXPORT(BRST_STATUS)
 BRST_Page_SetRGBFill(BRST_Page page,
