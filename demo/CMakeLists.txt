@@ -7,6 +7,7 @@ set(
     dates
     properties
     pattern
+    pattern2
     xobject
 )
 
