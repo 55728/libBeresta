@@ -78,16 +78,6 @@ int main(int argc, char** argv)
     BRST_Stream_LineTo(pattern_stream, 11,  6);
     BRST_Stream_Stroke(pattern_stream);
 
-    // Выбор узора для заливки.
-
-    // Отрисовка прямоугольника
-//    BRST_Page_Rectangle (xobj, margin, margin, width - margin*2, height - margin*2);
-    // Поскольку ранее был выбран узор, то заливка
-    // прямоугольника будет произведена при помощи узора.
-//    BRST_Page_Fill(page);
-
-
-
     // Получение и наполнение потока XObject
     BRST_Stream stream = BRST_XObject_Stream(xobj);
 
