@@ -10,7 +10,7 @@
 
     (let ((width (page-width page))
 	  (height (page-height page))
-	  (margin (* 15 2.834646)))
+	  (margin (* 15 MM)))
       (page-rectangle page
 		      margin margin
 		      (- width (* 2 margin))

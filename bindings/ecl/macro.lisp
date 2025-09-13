@@ -137,6 +137,9 @@
   #+ecl
   `(ffi:def-foreign-type ,name :pointer-void))
 
+(defmacro constant (name value)
+  `(defconstant ,name ,value))
+
 (defmacro with-pdf-document ((pdf-var filename) &body body)
   `(let ((,pdf-var (doc-new-empty)))
      (unwind-protect
@@ -149,7 +152,7 @@
   #+ecl
   `(ffi:clines "#include \"brst.h\""))
 
-(defun string-to-cstring (str)
+(defun string-to-cstring (str)  
   #+ecl
   (ext:octets-to-string
    (ext:string-to-octets str :external-format :utf-8)
