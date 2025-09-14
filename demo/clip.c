@@ -1,8 +1,8 @@
 /*
  * `libBeresta`
  *
- * minimal.c - Минимально возможный пример
- * =========
+ * clip.c - Пример использования отсечения
+ * ======
  *
  * Copyright (c) 2025 Dmitry Solomennikov
  *
@@ -10,23 +10,12 @@
  */
 
 /** en
-  \par Minimal BRST program demo
-
-  This is bare minimum program, creating PDF document.
-  It creates \ref BRST_Doc object, adds \ref BRST_Page object into it,
-  sets added page size and orientation and saves document to a file.
-
-  Last action is to clean up everything.
+  \par Clipping demo program
 */
 
 /** ru
-  \par Минимальная демонстрационная программа библиотеки libBeresta.
-
-  Минимально возможная программа для создания PDF-документа.
-  Создается \ref BRST_Doc, в него добавляется объект \ref BRST_Page,
-  устанавливаются размер и ориентация страницы и документ сохраняется.
-
-  Последним действием все очищается.
+  \par Демонстрация отсечения
+  Вызов BRST_Page_EndPath() является обязательным.
 */
 
 #include "brst.h"
@@ -61,6 +50,7 @@ int main(int argc, char** argv)
     BRST_REAL height = BRST_Page_Height(page);
     BRST_REAL margin = BRST_MM * 15;
 
+    // Установка окна отсечения
     BRST_Page_Rectangle(page, 0, height / 2 - (margin / 2), width, margin);
     BRST_Page_Clip(page);
     BRST_Page_EndPath(page);
