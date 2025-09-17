@@ -3,9 +3,6 @@
 
 typedef struct _BRST_PageAttr_Rec {
     BRST_Pages   parent;
-    BRST_Dict    fonts;
-    BRST_Dict    xobjects;
-    BRST_Dict    patterns;
     BRST_Dict    ext_gstates;
     BRST_Dict    shadings;
     BRST_GState  gstate;
