@@ -337,152 +337,74 @@ BRST_Page_MediaBox(BRST_Page page)
     return media_box;
 }
 
-// TODO fontname, patternname, xobjectname можно объединить, вероятнее всего.
+BRST_CSTR
+BRST_Dict_ResourceLocalName(BRST_Dict dict,
+    BRST_Dict resource,
+    BRST_CSTR prefix,
+    BRST_CSTR resourceName
+) {
+    BRST_PTRACE(" BRST_Dict_ResourceLocalName\n");
+
+    BRST_Dict resources = BRST_Page_InheritableItem(dict, "Resources",
+        BRST_OCLASS_DICT);
+
+    if (!resources)
+        return NULL;
+
+    BRST_Dict resourceDict = (BRST_Dict)BRST_Dict_Item(resources, resourceName, BRST_OCLASS_DICT);
+
+    if (!resourceDict) {
+        resourceDict = BRST_Dict_New(BRST_Dict_MMgr(dict));
+
+        if (BRST_Dict_Add(resources, resourceName, resourceDict) != BRST_OK) {
+            return NULL;
+        }
+    }
+
+    /* search font-object from font-resource */
+    BRST_CSTR key = BRST_Dict_KeyByObj(resourceDict, resource);
+    if (!key) {
+        /* if the font is not registered in font-resource, register font to
+         * font-resource.
+         */
+        char localName[BRST_LIMIT_MAX_NAME_LEN + 1];
+        char* ptr;
+        char* end_ptr = localName + BRST_LIMIT_MAX_NAME_LEN;
+
+        ptr = (char*)BRST_StrCpy(localName, prefix, end_ptr);
+        BRST_IToA(ptr, BRST_List_Count(resourceDict->list) + 1, end_ptr);
+
+        if (BRST_Dict_Add(resourceDict, localName, resource) != BRST_OK)
+            return NULL;
+
+        key = BRST_Dict_KeyByObj(resourceDict, resource);
+    }
+
+    return key;
+}
+
 BRST_CSTR
 BRST_Page_XObjectName(BRST_Page page,
     BRST_XObject xobj)
 {
-    BRST_PageAttr attr = (BRST_PageAttr)page->attr;
-    const char* key;
-
     BRST_PTRACE(" BRST_Page_XObjectName\n");
-
-    if (!attr->xobjects) {
-        BRST_Dict resources;
-        BRST_Dict xobjects;
-
-        resources = BRST_Page_InheritableItem(page, "Resources",
-            BRST_OCLASS_DICT);
-        if (!resources)
-            return NULL;
-
-        xobjects = BRST_Dict_New(page->mmgr);
-        if (!xobjects)
-            return NULL;
-
-        if (BRST_Dict_Add(resources, "XObject", xobjects) != BRST_OK)
-            return NULL;
-
-        attr->xobjects = xobjects;
-    }
-
-    /* search xobject-object from xobject-resource */
-    key = BRST_Dict_KeyByObj(attr->xobjects, xobj);
-    if (!key) {
-        /* if the xobject is not registered in xobject-resource, register
-         * xobject to xobject-resource.
-         */
-        char xobj_name[BRST_LIMIT_MAX_NAME_LEN + 1];
-        char* ptr;
-        char* end_ptr = xobj_name + BRST_LIMIT_MAX_NAME_LEN;
-
-        ptr = (char*)BRST_StrCpy(xobj_name, "X", end_ptr);
-        BRST_IToA(ptr, BRST_List_Count(attr->xobjects->list) + 1, end_ptr);
-
-        if (BRST_Dict_Add(attr->xobjects, xobj_name, xobj) != BRST_OK)
-            return NULL;
-
-        key = BRST_Dict_KeyByObj(attr->xobjects, xobj);
-    }
-
-    return key;
+    return BRST_Dict_ResourceLocalName(page, xobj, "X", "XObject");
 }
 
 BRST_CSTR
 BRST_Page_PatternName(BRST_Page page,
     BRST_Pattern pat)
 {
-    const char* key;
-    
     BRST_PTRACE(" BRST_Page_PatternName\n");
-
-    BRST_Dict resources;
-    BRST_Dict patterns;
-
-    resources = BRST_Page_InheritableItem(page, "Resources",
-        BRST_OCLASS_DICT);
-
-    if (!resources)
-        return NULL;
-
-    patterns = (BRST_Dict)BRST_Dict_Item(resources, "Pattern", BRST_OCLASS_DICT);
-
-    if (!patterns) {
-        patterns = BRST_Dict_New(BRST_Page_MMgr(page));
-
-        if (BRST_Dict_Add(resources, "Pattern", patterns) != BRST_OK)
-            return NULL;
-    }
-
-
-    /* search pattern-object from pattern-resource */
-    key = BRST_Dict_KeyByObj(patterns, pat);
-    if (!key) {
-        /* if the pattern is not registered in pattern-resource, register
-         * pattern to pattern-resource.
-         */
-        char pattern_name[BRST_LIMIT_MAX_NAME_LEN + 1];
-        char* ptr;
-        char* end_ptr = pattern_name + BRST_LIMIT_MAX_NAME_LEN;
-
-        ptr = (char*)BRST_StrCpy(pattern_name, "P", end_ptr);
-        BRST_IToA(ptr, BRST_List_Count(patterns->list) + 1, end_ptr);
-
-        if (BRST_Dict_Add(patterns, pattern_name, pat) != BRST_OK)
-            return NULL;
-
-        key = BRST_Dict_KeyByObj(patterns, pat);
-    }
-
-    return key;
+    return BRST_Dict_ResourceLocalName(page, pat, "P", "Pattern");
 }
 
 BRST_CSTR
 BRST_Page_LocalFontName(BRST_Page page,
     BRST_Font font)
 {
-    const char* key;
-
     BRST_PTRACE(" BRST_Page_LocalFontName\n");
-
-    BRST_Dict resources;
-    BRST_Dict fonts;
-
-    resources = BRST_Page_InheritableItem(page, "Resources",
-        BRST_OCLASS_DICT);
-
-    if (!resources)
-        return NULL;
-
-    fonts = (BRST_Dict)BRST_Dict_Item(resources, "Font", BRST_OCLASS_DICT);
-
-    if (!fonts) {
-        fonts = BRST_Dict_New(page->mmgr);
-
-        if (BRST_Dict_Add(resources, "Font", fonts) != BRST_OK)
-            return NULL;
-    }
-
-    /* search font-object from font-resource */
-    key = BRST_Dict_KeyByObj(fonts, font);
-    if (!key) {
-        /* if the font is not registered in font-resource, register font to
-         * font-resource.
-         */
-        char fontName[BRST_LIMIT_MAX_NAME_LEN + 1];
-        char* ptr;
-        char* end_ptr = fontName + BRST_LIMIT_MAX_NAME_LEN;
-
-        ptr = (char*)BRST_StrCpy(fontName, "F", end_ptr);
-        BRST_IToA(ptr, BRST_List_Count(fonts->list) + 1, end_ptr);
-
-        if (BRST_Dict_Add(fonts, fontName, font) != BRST_OK)
-            return NULL;
-
-        key = BRST_Dict_KeyByObj(fonts, font);
-    }
-
-    return key;
+    return BRST_Dict_ResourceLocalName(page, font, "F", "Font");
 }
 
 
