@@ -97,8 +97,6 @@ BRST_Page_SetTextLeading(BRST_Page page,
 
     attr = (BRST_PageAttr)page->attr;
 
-    printf("HIA: value0 = %f\n", value);
-
     if (BRST_Stream_SetTextLeading(attr->stream, value) != BRST_OK) {
         BRST_Error_Copy(page->error, attr->stream->error);
         return BRST_Error_Check(page->error);

@@ -54,7 +54,6 @@ BRST_Stream_SetTextLeading(BRST_Stream stream,
     if (ret != BRST_OK)
         return ret;
 
-    printf("HIA: value = %f\n", value);
     if (BRST_Stream_WriteReal(stream, value) != BRST_OK)
         return BRST_Error_Check(stream->error);
 
