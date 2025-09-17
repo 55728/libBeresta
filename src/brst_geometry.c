@@ -332,8 +332,10 @@ BRST_Page_GSave(BRST_Page page)
     if (!new_gstate)
         return BRST_Error_Check(page->error);
 
-    if (BRST_Stream_WriteStr(attr->stream, "q\012") != BRST_OK)
+    if (BRST_Stream_GSave(attr->stream) != BRST_OK) {
+        BRST_Error_Copy(page->error, attr->stream->error);
         return BRST_Error_Check(page->error);
+    }
 
     attr->gstate = new_gstate;
 
@@ -363,8 +365,10 @@ BRST_Page_GRestore(BRST_Page page)
 
     attr->gstate = new_gstate;
 
-    if (BRST_Stream_WriteStr(attr->stream, "Q\012") != BRST_OK)
+    if (BRST_Stream_GRestore(attr->stream) != BRST_OK){
+        BRST_Error_Copy(page->error, attr->stream->error);
         return BRST_Error_Check(page->error);
+    }
 
     return ret;
 }
