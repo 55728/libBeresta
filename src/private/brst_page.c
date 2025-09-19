@@ -412,50 +412,9 @@ BRST_CSTR
 BRST_Page_ExtGStateName(BRST_Page page,
     BRST_ExtGState state)
 {
-    BRST_PageAttr attr = (BRST_PageAttr)page->attr;
-    const char* key;
-
     BRST_PTRACE(" BRST_Page_ExtGStateName\n");
 
-    if (!attr->ext_gstates) {
-        BRST_Dict resources;
-        BRST_Dict ext_gstates;
-
-        resources = BRST_Page_InheritableItem(page, "Resources",
-            BRST_OCLASS_DICT);
-        if (!resources)
-            return NULL;
-
-        ext_gstates = BRST_Dict_New(page->mmgr);
-        if (!ext_gstates)
-            return NULL;
-
-        if (BRST_Dict_Add(resources, "ExtGState", ext_gstates) != BRST_OK)
-            return NULL;
-
-        attr->ext_gstates = ext_gstates;
-    }
-
-    /* search ext_gstate-object from ext_gstate-resource */
-    key = BRST_Dict_KeyByObj(attr->ext_gstates, state);
-    if (!key) {
-        /* if the ext-gstate is not registered in ext-gstate resource, register
-         *  to ext-gstate resource.
-         */
-        char ext_gstate_name[BRST_LIMIT_MAX_NAME_LEN + 1];
-        char* ptr;
-        char* end_ptr = ext_gstate_name + BRST_LIMIT_MAX_NAME_LEN;
-
-        ptr = (char*)BRST_StrCpy(ext_gstate_name, "E", end_ptr);
-        BRST_IToA(ptr, BRST_List_Count(attr->ext_gstates->list) + 1, end_ptr);
-
-        if (BRST_Dict_Add(attr->ext_gstates, ext_gstate_name, state) != BRST_OK)
-            return NULL;
-
-        key = BRST_Dict_KeyByObj(attr->ext_gstates, state);
-    }
-
-    return key;
+    return BRST_Dict_ResourceLocalName(page, state, "E", "ExtGState");
 }
 
 const char*
