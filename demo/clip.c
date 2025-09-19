@@ -51,7 +51,10 @@ int main(int argc, char** argv)
     BRST_REAL margin = BRST_MM * 15;
 
     // Установка окна отсечения
-    BRST_Page_Rectangle(page, 0, height / 2 - (margin / 2), width, margin);
+    BRST_Page_MoveTo(page, 0, height / 2 - margin);
+    BRST_Page_LineTo(page, width, height / 2);
+    BRST_Page_LineTo(page, width, height / 2 + margin);
+    BRST_Page_LineTo(page, 0, height / 2);
     BRST_Page_Clip(page);
     BRST_Page_EndPath(page);
 
