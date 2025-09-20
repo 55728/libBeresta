@@ -43,7 +43,7 @@
 #define  BRST_OSUBCLASS_NAMETREE      0x0D00
 #define  BRST_OSUBCLASS_SHADING       0x0E00
 #define  BRST_OSUBCLASS_PATTERN       0x0F00
-
+#define  BRST_OSUBCLASS_ANY           0xFF00
 /*
  *  structure of Object-ID
  *

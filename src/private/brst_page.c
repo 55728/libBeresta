@@ -123,7 +123,7 @@ Page_BeforeWrite(BRST_Dict obj)
 BRST_BOOL
 BRST_Dict_IsPage(BRST_Dict dict) {
     if (dict) {
-        return (dict->header.obj_class & BRST_OSUBCLASS_PAGE) != BRST_OSUBCLASS_PAGE;
+        return (dict->header.obj_class & BRST_OSUBCLASS_ANY) == BRST_OSUBCLASS_PAGE;
     }
 
     return BRST_FALSE;
