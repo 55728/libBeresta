@@ -10,11 +10,13 @@ set(
     pattern2
     xobject
     xobject_pattern
+    xobject_text
 )
 
 set(
   demos_NO_HANDLER
     minimal_empty
+    minimal_text
 )
 
 set(
