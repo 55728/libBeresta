@@ -108,7 +108,8 @@ BRST_Page_SetFontAndSize(
 );
 
 BRST_EXPORT(BRST_STATUS)
-BRST_Dict_SetFontAndSize(BRST_Dict dict,
+BRST_Dict_SetFontAndSize(
+    BRST_Dict dict,
     BRST_Font font,
     BRST_REAL size
 );

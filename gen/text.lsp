@@ -77,6 +77,29 @@
                       :en "Font size."))
          :режимы-графики '("Before" . "BRST_GMODE_PAGE_DESCRIPTION") ("After" . "BRST_GMODE_PAGE_DESCRIPTION"))
 
+        ;; BRST_Dict_SetFontAndSize
+        (:название "Dict_SetFontAndSize"
+         :группа "graphics"
+         :ошибки ()
+         :результат (:тип "STATUS"
+                     :ru ":return_ok"
+                     :en ":return_ok")
+         :ru "Устанавливает шрифт и размер шрифта текущего текстового объекта."
+         :en "Set the type of font and its size."
+         :команда "Tf"
+         :параметры ((:тип "Dict"
+                      :имя "dict"
+                      :ru ":param_dict"
+                      :en ":param_dict")
+                     (:тип "Font"
+                      :имя "font"
+                      :ru ":param_font"
+                      :en ":param_font")
+                     (:тип "REAL"
+                      :имя "size"
+                      :ru "Размер шрифта."
+                      :en "Font size.")))
+
         ;; BRST_Page_SetTextRenderingMode
         (:название "Page_SetTextRenderingMode"
          :группа "graphics"

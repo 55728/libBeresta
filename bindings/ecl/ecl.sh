@@ -48,6 +48,7 @@ pushd $RENDER_DIR > /dev/null
 ./render.sh $PREFIX/ecl.dj doc_page_pattern.lsp ru $PREFIX/src/doc_page_pattern.lisp
 ./render.sh $PREFIX/ecl.dj consts.lsp           ru $PREFIX/src/consts.lisp
 ./render.sh $PREFIX/ecl.dj stream_text.lsp      ru $PREFIX/src/stream_text.lisp
+./render.sh $PREFIX/ecl.dj doc_font.lsp         ru $PREFIX/src/doc_font.lisp
 
 ./render.sh $PREFIX/exp-ecl-page-sizes.dj page_sizes.lsp ru $PREFIX/src/exp-page_sizes.lisp
 
@@ -86,6 +87,7 @@ pushd $RENDER_DIR > /dev/null
 ./render.sh $PREFIX/exp-ecl.dj doc_page_pattern.lsp ru $PREFIX/src/exp-doc_page_pattern.lisp
 ./render.sh $PREFIX/exp-ecl.dj consts.lsp           ru $PREFIX/src/exp-consts.lisp
 ./render.sh $PREFIX/exp-ecl.dj stream_text.lsp      ru $PREFIX/src/exp-stream_text.lisp
+./render.sh $PREFIX/exp-ecl.dj doc_font.lsp         ru $PREFIX/src/exp-doc_font.lisp
 
 cp $PREFIX/macro.lisp  $PREFIX/src/
 
