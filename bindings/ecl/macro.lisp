@@ -148,6 +148,27 @@
 	    (doc-savetofile ,pdf-var ,filename))
        (doc-free ,pdf-var))))
 
+(defmacro with-ttf-font ((font-var pdf-var filename
+			  &optional
+			    (embeddable 'TRUE)
+			    (encoding "UTF-8"))
+			 &body body)
+  (when (probe-file `,filename)
+    (let ((f-name0 (gensym))
+	  (f-name (gensym))
+	  (font-name (gensym)))
+      `(let* ((,f-name0 ,filename)
+	      (,f-name (cond ((stringp ,f-name0) ,f-name0)
+			     ((pathnamep ,f-name0) (namestring ,f-name0))))
+	      (,font-name (doc-ttfont-loadfromfile
+			   ,pdf-var
+			   (string-to-cstring ,f-name)
+			   ,embeddable))
+	      (,font-var (doc-font ,pdf-var
+				   (ffi:convert-from-foreign-string ,font-name)
+				   ,encoding)))
+	 ,@body))))
+
 (defmacro include-header ()
   #+ecl
   `(ffi:clines "#include \"brst.h\""))
@@ -166,3 +187,4 @@
 	 (setf (ffi:deref-array c-pattern '(:array :float) i)
 	       (aref pattern1 i)))
        (page-setdash ,page c-pattern ,num ,phase))))
+
