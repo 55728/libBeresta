@@ -61,6 +61,11 @@ BRST_Doc_Page_Pattern_Stream(BRST_Pattern pat) {
     return BRST_Pattern_Stream(pat);
 }
 
+BRST_EXPORT(BRST_Stream)
+BRST_Doc_Dict_Pattern_Stream(BRST_Pattern pat) {
+    return BRST_Doc_Page_Pattern_Stream(pat);
+}
+
 BRST_STATUS
 BRST_Doc_Page_Pattern_EnsureColorSpace(
     BRST_Dict       dict,
@@ -111,8 +116,6 @@ BRST_Doc_Page_Pattern_EnsureColorSpace(
     return BRST_OK;
 }
 
-// TODO Вероятно, надо добавить функции BRST_Doc_Page_*
-// для сохранения единообразия с сотальными функциями Doc_Page_*
 /* scn */
 BRST_EXPORT(BRST_STATUS)
 BRST_Doc_Dict_RGBPatternFill_Select(
@@ -168,6 +171,20 @@ BRST_Doc_Dict_RGBPatternFill_Select(
 }
 
 BRST_EXPORT(BRST_STATUS)
+BRST_Doc_Page_RGBPatternFill_Select(
+    BRST_Doc  pdf,
+    BRST_Page page,
+    BRST_REAL r,
+    BRST_REAL g,
+    BRST_REAL b,
+    BRST_Pattern pattern)
+{
+
+    BRST_PTRACE(" BRST_Doc_Page_RGBPatternFill_Select\n");
+    return BRST_Doc_Dict_RGBPatternFill_Select(pdf, page, r, g, b, pattern);
+}
+
+BRST_EXPORT(BRST_STATUS)
 BRST_Doc_Dict_RGBPatternFillUint_Select(
     BRST_Doc     pdf,
     BRST_Dict    dict,
@@ -184,6 +201,19 @@ BRST_Doc_Dict_RGBPatternFillUint_Select(
 }
 
 BRST_EXPORT(BRST_STATUS)
+BRST_Doc_Page_RGBPatternFillUint_Select(
+    BRST_Doc     pdf,
+    BRST_Page    page,
+    BRST_UINT8   r,
+    BRST_UINT8   g,
+    BRST_UINT8   b,
+    BRST_Pattern pattern) {
+
+    BRST_PTRACE(" BRST_Doc_Page_RGBPatternFillUint_Select\n");
+    return BRST_Doc_Dict_RGBPatternFillUint_Select(pdf, page, r, g, b, pattern);
+}
+
+BRST_EXPORT(BRST_STATUS)
 BRST_Doc_Dict_RGBPatternFillHex_Select(
     BRST_Doc     pdf,
     BRST_Dict    dict,
@@ -191,4 +221,17 @@ BRST_Doc_Dict_RGBPatternFillHex_Select(
     BRST_Pattern pattern) {
 
     return BRST_Doc_Dict_RGBPatternFill_Select(pdf, dict, (rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF, pattern);
+}
+
+BRST_EXPORT(BRST_STATUS)
+BRST_Doc_Page_RGBPatternFillHex_Select(
+    BRST_Doc     pdf,
+    BRST_Dict    dict,
+    BRST_UINT32  rgb,
+    BRST_Pattern pattern) {
+
+    BRST_PTRACE(" BRST_Doc_Page_RGBPatternFillHex_Select\n");
+
+    return BRST_Doc_Dict_RGBPatternFillHex_Select(pdf, dict, rgb, pattern);
+
 }
