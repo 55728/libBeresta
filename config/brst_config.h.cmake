@@ -21,3 +21,6 @@
 
 /* Отладка памяти */
 #cmakedefine LIBBRST_MEM_DEBUG
+
+/* Короткий список размеров бумаги */
+#cmakedefine LIBBRST_ISO_216_ONLY

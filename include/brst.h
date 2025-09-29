@@ -1,6 +1,7 @@
 #ifndef BRST_H
 #define BRST_H
 
+#include "brst_config.h"
 #include "brst_external.h"
 #include "brst_version.h"
 #include "brst_consts.h"

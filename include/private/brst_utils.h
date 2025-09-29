@@ -4,7 +4,12 @@
 #include "brst_config.h"
 #include "brst_c.h"
 #include "brst_types.h"
+
+#ifdef LIBBRST_ISO_216_ONLY
+#include "brst_page_sizes_iso_216.h"
+#else
 #include "brst_page_sizes.h"
+#endif
 
 BRST_INT
 BRST_AToI(

@@ -11,7 +11,8 @@ mkdir $SCRIPT_DIR/src > /dev/null
 
 pushd $RENDER_DIR > /dev/null
 
-./render.sh $PREFIX/ecl-page-sizes.dj page_sizes.lsp ru $PREFIX/src/page_sizes.lisp
+./render.sh $PREFIX/ecl-page-sizes.dj     page_sizes.lsp ru $PREFIX/src/page_sizes.lisp
+./render.sh $PREFIX/ecl-page-sizes-216.dj page_sizes.lsp ru $PREFIX/src/page_sizes_216.lisp
 
 ./render.sh $PREFIX/ecl-types.dj types.lsp      ru $PREFIX/src/types.lisp
 ./render.sh $PREFIX/ecl.dj base.lsp             ru $PREFIX/src/base.lisp
@@ -50,7 +51,8 @@ pushd $RENDER_DIR > /dev/null
 ./render.sh $PREFIX/ecl.dj stream_text.lsp      ru $PREFIX/src/stream_text.lisp
 ./render.sh $PREFIX/ecl.dj doc_font.lsp         ru $PREFIX/src/doc_font.lisp
 
-./render.sh $PREFIX/exp-ecl-page-sizes.dj page_sizes.lsp ru $PREFIX/src/exp-page_sizes.lisp
+./render.sh $PREFIX/exp-ecl-page-sizes.dj     page_sizes.lsp ru $PREFIX/src/exp-page_sizes.lisp
+./render.sh $PREFIX/exp-ecl-page-sizes-216.dj page_sizes.lsp ru $PREFIX/src/exp-page_sizes-216.lisp
 
 ./render.sh $PREFIX/exp-ecl-types.dj types.lsp      ru $PREFIX/src/exp-types.lisp
 ./render.sh $PREFIX/exp-ecl.dj base.lsp             ru $PREFIX/src/exp-base.lisp

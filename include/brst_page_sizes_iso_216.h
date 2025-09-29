@@ -1,5 +1,5 @@
-#ifndef BRST_PAGE_SIZES_H
-#define BRST_PAGE_SIZES_H
+#ifndef BRST_PAGE_SIZES_ISO_216_H
+#define BRST_PAGE_SIZES_ISO_216_H
 
 /**
   \ingroup page
@@ -222,5 +222,5 @@ static const char * const BRST_PREDEFINED_PAGE_SIZE_NAMES[] = {
     "Unknown"
 };
 
-#endif /* BRST_PAGE_SIZES_H */
+#endif /* BRST_PAGE_SIZES_ISO_216_H */
 
