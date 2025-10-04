@@ -1,5 +1,5 @@
 (:файл "doc_page_pattern"
- :функции ((:название "Doc_Page_Pattern_Tiling_Create"
+ :функции ((:название "Doc_Pattern_Tiling_Create"
             :ru ""
             :en ""
             :результат (:тип "Pattern"
@@ -9,10 +9,6 @@
                          :имя "pdf"
                          :ru ":param_pdf"
                          :en ":param_pdf")
-                        (:тип "Page"
-                         :имя "page"
-                         :ru ":param_page"
-                         :en ":param_page")
                         (:тип "REAL"
                          :имя "left"
                          :ru ""
@@ -42,7 +38,7 @@
                          :ru ":param_matrix"
                          :en ":param_matrix")))
 
-           (:название "Doc_Page_Pattern_Stream"
+           (:название "Doc_Pattern_Stream"
             :ru ""
             :en ""
             :результат (:тип "Stream"
@@ -137,17 +133,6 @@
                          :имя "pattern"
                          :ru ":param_pattern"
                          :en ":param_pattern")))
-
-           (:название "Doc_Dict_Pattern_Stream"
-            :ru ""
-            :en ""
-            :результат (:тип "Stream"
-                        :ru ""
-                        :en "")
-            :параметры ((:тип "Pattern"
-                         :имя "pattern"
-                         :ru ""
-                         :en "")))
 
            (:название "Doc_Page_RGBPatternFill_Select"
             :ru ""

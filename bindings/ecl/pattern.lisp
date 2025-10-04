@@ -10,7 +10,6 @@
                   page-size-a4
                   page-orientation-landscape)
     (let* ((pattern (doc-page-pattern-tiling-create pdf
-						    page
 						    0 0
 						    10 10
 						    10 10

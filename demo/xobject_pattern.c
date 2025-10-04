@@ -69,10 +69,10 @@ int main(int argc, char** argv)
     BRST_Matrix matrix = BRST_Doc_Matrix_Scale(pdf, BRST_Doc_Matrix_Identity(pdf), 0.5, 0.5);
 
     // Создание узора
-    BRST_Pattern pattern = BRST_Doc_Page_Pattern_Tiling_Create(pdf, xobj, 0, 0, 10, 10, 10, 10, matrix);
+    BRST_Pattern pattern = BRST_Doc_Pattern_Tiling_Create(pdf, 0, 0, 10, 10, 10, 10, matrix);
 
     // Поток узора (нужен для записи графических команд
-    BRST_Stream pattern_stream = BRST_Doc_Page_Pattern_Stream(pattern);
+    BRST_Stream pattern_stream = BRST_Doc_Pattern_Stream(pattern);
 
     // Графические команды узора
     BRST_Stream_SetLineWidth(pattern_stream, 0.49814);
