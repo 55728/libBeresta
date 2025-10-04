@@ -6,8 +6,7 @@
                   page-size-a4
                   page-orientation-landscape)
 
-    (let* ((xobj (doc-page-xobject-create pdf
-					  page
+    (let* ((xobj (doc-xobject-create pdf
 					  100 100
 					  1 1))
 	   (stream (xobject-stream xobj))
@@ -16,7 +15,6 @@
 				  0.5
 				  0.5))
 	   (pattern (doc-page-pattern-tiling-create pdf
-						    page
 						    0 0
 						    10 10
 						    10 10
