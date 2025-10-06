@@ -38,6 +38,7 @@
 #include "brst_doc_xobject.h"
 #include "brst_page_xobject.h"
 #include "brst_xobject.h"
+#include "brst_doc_pattern.h"
 #include "brst_doc_page_pattern.h"
 #include "brst_stream_text.h"
 

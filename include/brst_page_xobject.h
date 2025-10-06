@@ -32,4 +32,10 @@ BRST_Page_XObject_Execute(
     BRST_XObject obj
 );
 
+BRST_EXPORT(BRST_STATUS)
+BRST_Dict_XObject_Execute(
+    BRST_Dict    dict,
+    BRST_XObject obj
+);
+
 #endif /* BRST_PAGE_XOBJECT_H */

@@ -25,36 +25,51 @@
 
 /* Do */
 BRST_EXPORT(BRST_STATUS)
-BRST_Page_XObject_Execute(BRST_Page page,
+BRST_Dict_XObject_Execute(
+    BRST_Dict dict,
     BRST_XObject obj)
 {
-    BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION);
-    BRST_PageAttr attr;
-    const char* local_name;
-
     BRST_PTRACE(" BRST_Page_XObject_Execute\n");
+
+    BRST_STATUS ret = BRST_OK;
+
+    BRST_BOOL isPage = BRST_Dict_IsPage(dict);
+    BRST_CSTR local_name;
+
+    if (isPage) {
+        ret += BRST_Page_CheckState(dict, BRST_GMODE_PAGE_DESCRIPTION);
+    }
 
     if (ret != BRST_OK)
         return ret;
 
     if (!obj || obj->header.obj_class != (BRST_OSUBCLASS_XOBJECT | BRST_OCLASS_DICT))
-        return BRST_Error_Raise(page->error, BRST_INVALID_OBJECT, 0);
+        return BRST_Error_Raise(dict->error, BRST_INVALID_OBJECT, 0);
 
-    if (page->mmgr != obj->mmgr)
-        return BRST_Error_Raise(page->error, BRST_PAGE_INVALID_XOBJECT, 0);
+    if (dict->mmgr != obj->mmgr)
+        return BRST_Error_Raise(dict->error, BRST_PAGE_INVALID_XOBJECT, 0);
 
-    attr       = (BRST_PageAttr)page->attr;
-    local_name = BRST_Page_XObjectName(page, obj);
+    BRST_PageAttr attr = (BRST_PageAttr)dict->attr;
+
+    BRST_Stream stream = attr ? attr->stream : dict->stream;
+    local_name = BRST_Page_XObjectName(dict, obj);
 
     if (!local_name)
-        return BRST_Error_Raise(page->error, BRST_PAGE_INVALID_XOBJECT, 0);
+        return BRST_Error_Raise(dict->error, BRST_PAGE_INVALID_XOBJECT, 0);
 
-    if (BRST_Stream_WriteEscapeName(attr->stream, local_name) != BRST_OK)
-        return BRST_Error_Check(page->error);
+    if (BRST_Stream_WriteEscapeName(stream, local_name) != BRST_OK)
+        return BRST_Error_Check(dict->error);
 
-    if (BRST_Stream_WriteStr(attr->stream, " Do\012") != BRST_OK)
-        return BRST_Error_Check(page->error);
+    if (BRST_Stream_WriteStr(stream, " Do\012") != BRST_OK)
+        return BRST_Error_Check(dict->error);
 
     return ret;
 }
 
+BRST_EXPORT(BRST_STATUS)
+BRST_Page_XObject_Execute(
+    BRST_Page page,
+    BRST_XObject obj)
+{
+    return BRST_Dict_XObject_Execute(page, obj);
+}
