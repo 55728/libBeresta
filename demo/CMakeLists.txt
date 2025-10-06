@@ -11,6 +11,8 @@ set(
     xobject
     xobject_pattern
     xobject_text
+    xobject_xobject
+    scissors
 )
 
 set(
