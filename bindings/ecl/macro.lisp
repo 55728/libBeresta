@@ -28,6 +28,7 @@
     (TextRenderingMode .   :int32-t)
     (  PageOrientation .   :int32-t)
     (   PageTransition .   :int32-t)
+    (  CompressionMode .  :uint32-t)
     (    PageSizes .       :int32-t)
     ( PageNumStyle .       :int32-t)
     ( PageBoundary .       :int32-t)

@@ -28,6 +28,7 @@
              (:file "doc_save" :depends-on ("package" "types" "mmgr" "doc" "base" "macro"))
              (:file "doc_info" :depends-on ("package" "types" "mmgr" "doc" "base" "macro"))
              (:file "doc_font" :depends-on ("package" "types" "mmgr" "doc" "base" "macro" "font"))
+             (:file "doc_compression" :depends-on ("package" "types" "mmgr" "doc" "base" "macro"))
              (:file "date" :depends-on ("package" "types" "mmgr" "doc" "base" "macro"))
              (:file "doc_encoder" :depends-on ("package" "types" "mmgr" "doc" "base" "macro"))
              (:file "doc_matrix" :depends-on ("package" "types" "mmgr" "doc" "base" "macro" "matrix"))
