@@ -33,7 +33,7 @@
                          :ru ":param_xobject"
                          :en ":param_xobject")))
 
-	   (:название "Page_XObject_Execute"
+	   (:название "Dict_XObject_Execute"
             :группа "page"
             :ru ""
             :en ""
