@@ -11,6 +11,8 @@ mkdir $SCRIPT_DIR/src > /dev/null
 
 pushd $RENDER_DIR > /dev/null
 
+cp $PREFIX/exp-macro.lisp src/
+
 ./render.sh $PREFIX/ecl-page-sizes.dj     page_sizes.lsp ru $PREFIX/src/page_sizes.lisp
 ./render.sh $PREFIX/ecl-page-sizes-216.dj page_sizes.lsp ru $PREFIX/src/page_sizes_216.lisp
 
