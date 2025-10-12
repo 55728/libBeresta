@@ -1,0 +1,11 @@
+$ t002_minimal_empty
+$ ls t002_minimal_empty.pdf
+t002_minimal_empty.pdf
+$ qpdf --show-npages t002_minimal_empty.pdf
+1
+$ qpdf --show-pages t002_minimal_empty.pdf
+page 1: 4 0 R
+  content:
+    5 0 R
+$ qpdf --show-object=4 t002_minimal_empty.pdf | cut -c30-54
+[ 0 0 841.89001 595.276 ]
