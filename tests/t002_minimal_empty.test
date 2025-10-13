@@ -1,3 +1,5 @@
+$ t002_minimal_empty -n
+t002: Create minimal document
 $ t002_minimal_empty
 $ ls t002_minimal_empty.pdf
 t002_minimal_empty.pdf

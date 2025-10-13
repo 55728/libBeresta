@@ -1,2 +1,4 @@
-$ version
+$ t001_version -n
+t001: Library version
+$ t001_version
 1.0.0

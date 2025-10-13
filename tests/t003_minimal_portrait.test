@@ -1,0 +1,13 @@
+$ t003_minimal_portrait -n
+t003: Minimal document with portrait orientation
+$ t003_minimal_portrait
+$ ls t003_minimal_portrait.pdf
+t003_minimal_portrait.pdf
+$ qpdf --show-npages t003_minimal_portrait.pdf
+1
+$ qpdf --show-pages t003_minimal_portrait.pdf
+page 1: 4 0 R
+  content:
+    5 0 R
+$ qpdf --show-object=4 t003_minimal_portrait.pdf | cut -c30-54
+[ 0 0 595.276 841.89001 ]
