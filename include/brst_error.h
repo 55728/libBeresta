@@ -110,6 +110,7 @@
 #define BRST_TTF_INVALID_FORMAT                   0x105F
 #define BRST_TTF_MISSING_TABLE                    0x1060
 #define BRST_UNSUPPORTED_FONT_TYPE                0x1061
+#define BRST_UNSUPPORTED_FUNC                     0x1062
 #define BRST_UNSUPPORTED_JPEG_FORMAT              0x1063
 #define BRST_UNSUPPORTED_TYPE1_FONT               0x1064
 #define BRST_XREF_COUNT_ERR                       0x1065
