@@ -1327,6 +1327,7 @@ BRST_Stream_WriteToStreamWithDeflate(BRST_Stream src,
     deflateEnd(&strm);
     return BRST_OK;
 #else /* LIBBRST_HAVE_ZLIB */
+    // TODO Написать тест на отсутствие ZLIB
     BRST_UNUSED(e);
     BRST_UNUSED(dst);
     BRST_UNUSED(src);
