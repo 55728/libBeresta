@@ -57,91 +57,7 @@ InternalArc(BRST_Page page,
 /* BX --not implemented yet */
 /* EX --not implemented yet */
 
-static const BRST_REAL KAPPA = 0.552F;
-
-static char*
-QuarterCircleA(char* pbuf,
-    char* eptr,
-    BRST_REAL x,
-    BRST_REAL y,
-    BRST_REAL ray)
-{
-    pbuf    = BRST_FToA(pbuf, x - ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y + ray * KAPPA, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, x - ray * KAPPA, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y + ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, x, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y + ray, eptr);
-    return (char*)BRST_StrCpy(pbuf, " c\012", eptr);
-}
-
-static char*
-QuarterCircleB(char* pbuf,
-    char* eptr,
-    BRST_REAL x,
-    BRST_REAL y,
-    BRST_REAL ray)
-{
-    pbuf    = BRST_FToA(pbuf, x + ray * KAPPA, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y + ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, x + ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y + ray * KAPPA, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, x + ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y, eptr);
-    return (char*)BRST_StrCpy(pbuf, " c\012", eptr);
-}
-
-static char*
-QuarterCircleC(char* pbuf,
-    char* eptr,
-    BRST_REAL x,
-    BRST_REAL y,
-    BRST_REAL ray)
-{
-    pbuf    = BRST_FToA(pbuf, x + ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y - ray * KAPPA, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, x + ray * KAPPA, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y - ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, x, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y - ray, eptr);
-    return (char*)BRST_StrCpy(pbuf, " c\012", eptr);
-}
-
-static char*
-QuarterCircleD(char* pbuf,
-    char* eptr,
-    BRST_REAL x,
-    BRST_REAL y,
-    BRST_REAL ray)
-{
-    pbuf    = BRST_FToA(pbuf, x - ray * KAPPA, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y - ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, x - ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y - ray * KAPPA, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, x - ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y, eptr);
-    return (char*)BRST_StrCpy(pbuf, " c\012", eptr);
-}
+static const BRST_REAL KAPPA = 0.552284749830793F;
 
 static char*
 QuarterEllipseA(char* pbuf,
@@ -448,48 +364,6 @@ BRST_Page_Skew(BRST_Page page,
 {
     BRST_PTRACE(" BRST_Page_Skew\n");
     return BRST_Page_Concat(page, 1, tan(a), tan(b), 1, 0, 0);
-}
-
-BRST_EXPORT(BRST_STATUS)
-BRST_Page_Circle(BRST_Page page,
-    BRST_REAL x,
-    BRST_REAL y,
-    BRST_REAL ray)
-{
-    BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_PATH_OBJECT);
-    char buf[BRST_TMP_BUF_SIZE * 2];
-    char* pbuf = buf;
-    char* eptr = buf + BRST_TMP_BUF_SIZE - 1;
-    BRST_PageAttr attr;
-
-    BRST_PTRACE(" BRST_Page_Circle\n");
-
-    if (ret != BRST_OK)
-        return ret;
-
-    attr = (BRST_PageAttr)page->attr;
-
-    BRST_MemSet(buf, 0, BRST_TMP_BUF_SIZE);
-
-    pbuf    = BRST_FToA(pbuf, x - ray, eptr);
-    *pbuf++ = ' ';
-    pbuf    = BRST_FToA(pbuf, y, eptr);
-    pbuf    = (char*)BRST_StrCpy(pbuf, " m\012", eptr);
-
-    pbuf = QuarterCircleA(pbuf, eptr, x, y, ray);
-    pbuf = QuarterCircleB(pbuf, eptr, x, y, ray);
-    pbuf = QuarterCircleC(pbuf, eptr, x, y, ray);
-    QuarterCircleD(pbuf, eptr, x, y, ray);
-
-    if (BRST_Stream_WriteStr(attr->stream, buf) != BRST_OK)
-        return BRST_Error_Check(page->error);
-
-    attr->cur_pos.x = x - ray;
-    attr->cur_pos.y = y;
-    attr->str_pos   = attr->cur_pos;
-    attr->gmode     = BRST_GMODE_PATH_OBJECT;
-
-    return ret;
 }
 
 BRST_EXPORT(BRST_STATUS)
@@ -1709,3 +1583,41 @@ BRST_Page_SetShading(BRST_Page page,
 
     return ret;
 }
+
+BRST_EXPORT(BRST_STATUS)
+BRST_Page_Circle(BRST_Page page,
+    BRST_REAL x,
+    BRST_REAL y,
+    BRST_REAL radius)
+{
+    BRST_PTRACE(" BRST_Page_Circle\n");
+
+    BRST_STATUS ret = BRST_Page_CheckState(page, BRST_GMODE_PAGE_DESCRIPTION | BRST_GMODE_PATH_OBJECT);
+
+    if (ret != BRST_OK)
+        return ret;
+
+    BRST_REAL a = KAPPA * radius;
+
+    BRST_REAL xpr = x + radius;
+    BRST_REAL ypr = y + radius;
+    BRST_REAL xmr = x - radius;
+    BRST_REAL ymr = y - radius;
+
+    BRST_REAL xpa = x + a;
+    BRST_REAL ypa = y + a;
+    BRST_REAL xma = x - a;
+    BRST_REAL yma = y - a;
+
+    ret += BRST_Page_MoveTo(page,  xpr, y);
+    ret += BRST_Page_CurveTo(page, xpr, ypa, xpa, ypr, x, ypr);
+    ret += BRST_Page_CurveTo(page, xma, ypr, xmr, ypa, xmr, y);
+    ret += BRST_Page_CurveTo(page, xmr, yma, xma, ymr, x, ymr);
+    ret += BRST_Page_CurveTo(page, xpa, ymr, xpr, yma, xpr, y);
+    ret += BRST_Page_ClosePath(page);
+
+    ret += BRST_Page_MoveTo(page, x, y);
+
+    return ret;
+}
+

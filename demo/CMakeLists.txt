@@ -1,6 +1,7 @@
 set(
   demos_NAMES
     minimal
+    circle
     line_demo
     attach
     raw_image_demo
