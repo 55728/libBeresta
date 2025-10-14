@@ -1,0 +1,14 @@
+$ t005_xobj_circle -n
+t005: Create circle inside XObject (check stream)
+$ t005_xobj_circle
+$ ls t005_xobj_circle.pdf
+t005_xobj_circle.pdf
+$ qpdf --show-npages t005_xobj_circle.pdf
+1
+$ qpdf --show-object=7 --raw-stream-data t005_xobj_circle.pdf #=> --file t005_xobj_circle.data
+$ qpdf --show-object=7 t005_xobj_circle.pdf | cut -c121-127
+
+XObject
+$ qpdf --show-object=5 --raw-stream-data t005_xobj_circle.pdf
+1 0 0 1 370.945 247.638 cm
+/X1 Do
