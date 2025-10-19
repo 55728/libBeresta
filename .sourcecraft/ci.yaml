@@ -21,7 +21,7 @@ tasks:
     cubes:
       # Установка зависимостей
       - name: install-dependencies
-        image: ubuntu:22.04
+        image: ubuntu:latest
         script:
           - apt-get update
           - apt-get install -y make git clang cmake qpdf clitest zlib1g-dev pkg-config
