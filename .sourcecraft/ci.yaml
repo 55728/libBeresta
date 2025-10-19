@@ -51,5 +51,6 @@ tasks:
       - name: test-project
         needs: ["build-project"]
         script:
+          - apt install -y clitest qpdf
           - cd build/tests
           - ctest -R test_beresta --verbose
