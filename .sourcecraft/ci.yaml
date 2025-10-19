@@ -1,0 +1,52 @@
+# Настройка события-триггера для запуска рабочего процесса
+on:
+  # Запуск рабочего процесса по отправке изменений в ветку main
+  push:
+    - workflows: [cmake-build]
+      filter:
+        branches: ["master"]
+  # Запуск рабочего процесса при создании предложений изменений
+  pull_request:
+    - workflows: [cmake-build]
+      filter:
+        target_branches: ["master"]
+
+workflows:
+  cmake-build:
+    tasks:
+      - cmake-build-task
+
+tasks:
+  - name: cmake-build-task
+    cubes:
+      # Установка зависимостей
+      - name: install-dependencies
+        image: ubuntu:22.04
+        script:
+          - apt-get update
+          - apt-get install -y make git clang cmake qpdf clitest zlib1g-dev pkg-config
+          # Если в вашем проекте используются дополнительные библиотеки, 
+          # добавьте их установку здесь, например:
+          # - apt-get install -y libboost-all-dev
+
+      # Конфигурация проекта с помощью CMake
+      - name: configure-project
+        needs: ["install-dependencies"]
+        script:
+          - mkdir -p build
+          - cd build
+          - cmake .. -DLIBBRST_EXAMPLES=OFF -DLIBBRST_SHARED_LIB=OFF -DLIBBRST_ISO_216_ONLY=ON -DLIBBRST_DEBUG_TRACE=OFF
+
+      # Сборка проекта
+      - name: build-project
+        needs: ["configure-project"]
+        script:
+          - cd build
+          - make
+
+      # Запуск тестов (опционально)
+      - name: test-project
+        needs: ["build-project"]
+        script:
+          - cd build/tests
+          - ctest -R test_beresta --verbose
