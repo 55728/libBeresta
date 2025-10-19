@@ -7,4 +7,4 @@ cd $1
 
 echo [[$PATH]]
 
-PATH=$PATH clitest $2/*.test
+PATH=$PATH /usr/bin/clitest $2/*.test
