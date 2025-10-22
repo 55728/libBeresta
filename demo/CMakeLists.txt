@@ -17,6 +17,8 @@ set(
 
 set(
   demos_NO_HANDLER
+    circle
+    xobject_circle
     minimal_empty
     minimal_text
 )

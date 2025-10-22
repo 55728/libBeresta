@@ -3,6 +3,8 @@ set(
     t001_version
     t002_minimal_empty
     t003_minimal_portrait
+    t004_circle
+    t005_xobj_circle
 )
 
 foreach(test ${TESTS_NAMES})

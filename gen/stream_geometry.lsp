@@ -327,30 +327,30 @@
                       :en "\\c y axis skew value.")))
 
         ;; BRST_Stream_Circle
-;;;        (:название "Stream_Circle"
-;;;         :группа "graphics"
-;;;         :ошибки ()
-;;;	 :результат (:тип "STATUS"
-;;;		     :ru ":return_ok"
-;;;		     :en ":return_ok")
-;;;         :ru "Добавление окружности к пути."
-;;;         :en "Append circle to current path."
-;;;         :параметры ((:тип "Stream"
-;;;                      :имя "page"
-;;;                      :ru ":param_stream"
-;;;                      :en ":param_stream")
-;;;                     (:тип "REAL"
-;;;                      :имя "x"
-;;;                      :ru "Координата \\c x центра окружности."
-;;;                      :en "Circle center \\c x coordinate.")
-;;;                     (:тип "REAL"
-;;;                      :имя "y"
-;;;                      :ru "Координата \\c y центра окружности."
-;;;                      :en "Circle center \\c y coordinate.")
-;;;                     (:тип "REAL"
-;;;                      :имя "radius"
-;;;                      :ru "Радиус окружности."
-;;;                      :en "Circle radius.")))
+        (:название "Stream_Circle"
+         :группа "graphics"
+         :ошибки ()
+         :результат (:тип "STATUS"
+                     :ru ":return_ok"
+                     :en ":return_ok")
+         :ru "Добавление окружности к пути."
+         :en "Append circle to current path."
+         :параметры ((:тип "Stream"
+                      :имя "page"
+                      :ru ":param_stream"
+                      :en ":param_stream")
+                     (:тип "REAL"
+                      :имя "x"
+                      :ru "Координата \\c x центра окружности."
+                      :en "Circle center \\c x coordinate.")
+                     (:тип "REAL"
+                      :имя "y"
+                      :ru "Координата \\c y центра окружности."
+                      :en "Circle center \\c y coordinate.")
+                     (:тип "REAL"
+                      :имя "radius"
+                      :ru "Радиус окружности."
+                      :en "Circle radius.")))
 
 ;;;        ;; BRST_Stream_Ellipse
 ;;;        (:название "Stream_Ellipse"
