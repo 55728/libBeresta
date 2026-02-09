@@ -17,10 +17,10 @@
         (:имя "UT_Relationship"
          :ru "Смещение на восток от UTC"
          :en "UTC east offset"
-         :элементы ((:элемент "UT_RELATIONSHIP_NONE" :ru "Смещение времени от UTC не указано" :en "UTC offset is not set")
-                    (:элемент "UT_RELATIONSHIP_PLUS" :ru "Смещение времени UTC положительное" :en "UTC offset is positive")
-                    (:элемент "UT_RELATIONSHIP_MINUS" :ru "" :en "")
-                    (:элемент "UT_RELATIONSHIP_ZERO" :ru "" :en ""))))
+         :элементы ((:элемент "UT_RELATIONSHIP_NONE"  :ru "Смещение времени от UTC не указано" :en "UTC offset is not set")
+                    (:элемент "UT_RELATIONSHIP_PLUS"  :ru "Время позже UTC" :en "Local time is later than UTC")
+                    (:элемент "UT_RELATIONSHIP_MINUS" :ru "Время раньше UTC" :en "Local time is earlier than UTC")
+                    (:элемент "UT_RELATIONSHIP_ZERO"  :ru "Время соответствует UTC" :en "Local time equal to UTC"))))
 
  :функции (
 

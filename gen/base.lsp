@@ -206,40 +206,40 @@ If this parameter set to non-zero value, memory management will be done as follo
 	 :параметры ((:тип "Doc"
 		      :имя "pdf"
 		      :ru ":param_pdf"
-		      :en ":param_pdf")
-		     )
+		      :en ":param_pdf"))
 	 :результат (:тип "void"
 		     :ru "Нет"
 		     :en "No"))
 
 	(:название "PageSize_Width"
 	 :группа "doc"
-	 :ru ""
-	 :en ""
+	 :ru "Ширина страницы для предопределенного размера. Может использоваться без документа и страницы."
+	 :en "Predefined page size width. May be used without document and page."
 	 :параметры ((:тип "PageSizes"
                   :имя "size"
-                  :ru ""
-                  :en "")
+                  :ru "Предопределённый размер страницы"
+                  :en "Predefined page size")
                  (:тип "PageOrientation"
                   :имя "orientation"
-                  :ru ""
-                  :en ""))
+                  :ru "Ориентация страницы"
+                  :en "Page orientation"))
 	 :результат (:тип "REAL"
-		     :ru ""
-		     :en ""))
+		     :ru "Ширина страницы в точках"
+		     :en "Page size in points"))
 
 	(:название "PageSize_Height"
 	 :группа "doc"
-	 :ru ""
-	 :en ""
+	 :ru "Высота страницы для предопределенного размера. Может использоваться без документа и страницы."
+	 :en "Predefined page size height. May be used without document and page."
 	 :параметры ((:тип "PageSizes"
                   :имя "size"
-                  :ru ""
-                  :en "")
+                  :имя "size"
+                  :ru "Предопределённый размер страницы"
+                  :en "Predefined page size")
                  (:тип "PageOrientation"
                   :имя "orientation"
-                  :ru ""
-                  :en ""))
+                  :ru "Ориентация страницы"
+                  :en "Page orientation"))
 	 :результат (:тип "REAL"
-		     :ru ""
-		     :en ""))))
+		     :ru "Ширина страницы в точках"
+		     :en "Page size in points"))))

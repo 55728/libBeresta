@@ -3,14 +3,15 @@
            (:название "Doc_UseUTFEncodings" 
             :ru "Включение поддержки кодировки UTF-8.
 
-  После этого вызова приложение может использовать тексты в кодировке Unicode."
+  После этого вызова приложение может использовать тексты в кодировке Unicode.
+
+  \\note Кодировка UTF-8 работает только со шрифтами TrueType."
             :en "Enable UTF-8 encoding.
 
   Application can include UTF-8 encoded Unicode text (up to 3-byte UTF-8 sequences).
 
   \\note UTF-8 encoding works only with TrueType fonts."
-            :ошибки (
-                    "INVALID_DOCUMENT"
+            :ошибки ("INVALID_DOCUMENT"
                      "FAILED_TO_ALLOC_MEM"
                      "DUPLICATE_REGISTRATION")
             :параметры ((:тип "Doc"

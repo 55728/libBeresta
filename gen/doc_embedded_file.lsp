@@ -2,6 +2,8 @@
  :функции
        ((:название "Doc_AttachFile"
 	 :группа "doc"
+     :ru "Вкладывает указанный файл в документ."
+     :en "Attaches file given to document."
 	 :ошибки ("FAILED_TO_ALLOC_MEM")
 	 :результат (:тип "EmbeddedFile"
 		     :ru "Описатель объекта вложенного файла при успехе или \\c NULL при возникновении ошибки."
@@ -15,4 +17,4 @@
 		     (:тип "CSTR"
 		      :имя "file"
 		      :ru "Имя файла, вкладываемого в PDF."
-		      :en "Attached file name")))))
+		      :en "Attached file name.")))))

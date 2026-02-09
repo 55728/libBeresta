@@ -5,8 +5,8 @@
                      "PAGE_INVALID_SIZE"
                      "FAILED_TO_ALLOC_MEM")
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -25,8 +25,8 @@
                      "PAGE_INVALID_SIZE"
                      "FAILED_TO_ALLOC_MEM")
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -43,8 +43,8 @@
             :группа "page"
             :ошибки ()
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -80,8 +80,8 @@
                      "PAGE_INVALID_ORIENTATION"
                      "FAILED_TO_ALLOC_MEM")
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -103,8 +103,8 @@
             :ошибки ("INVALID_PAGE"
                      "PAGE_INVALID_ROTATE_VALUE")
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -121,8 +121,8 @@
             :группа "page"
             :ошибки ()
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -147,8 +147,8 @@
             :группа "graphics"
             :ошибки ()
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -193,8 +193,8 @@
             :группа "page"
             :ошибки ()
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -317,8 +317,8 @@
             :группа "page"
             :ошибки ()
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -335,8 +335,8 @@
             :группа "page"
             :ошибки ("INVALID_PAGE")
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""
@@ -353,8 +353,8 @@
             :группа "graphics"
             :ошибки ()
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :ru ""
             :en ""
             :команда ""

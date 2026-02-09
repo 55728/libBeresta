@@ -7,8 +7,8 @@
    :группа "page"
    :ошибки ()
    :результат (:тип "STATUS"
-          :ru ""
-          :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
    :ru ""
    :en ""
    :параметры ((:тип "Doc"
@@ -21,8 +21,8 @@
    :группа "page"
    :ошибки ()
    :результат (:тип "STATUS"
-          :ru ""
-          :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
    :ru ""
    :en "Return page display layout."
    :параметры ((:тип "Doc"

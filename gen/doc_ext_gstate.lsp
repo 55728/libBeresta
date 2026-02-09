@@ -1,6 +1,8 @@
 (:файл "doc_ext_gstate"
  :функции
        ((:название "Doc_Create_ExtGState"
+     :ru "Добавляет в документ словарь расширенного графического состояния ExtGState. (Таблица 58)."
+     :en "Create extended graphical state object descriptor ExtGState. (Table 58)."
 	 :группа "doc"
 	 :параметры ((:тип "Doc"
 		      :имя "pdf"

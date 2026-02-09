@@ -53,8 +53,8 @@
             :ru ""
             :en ""
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :параметры ((:тип "Doc"
                          :имя "pdf"
                          :ru ":param_pdf"
@@ -84,8 +84,8 @@
             :ru ""
             :en ""
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :параметры ((:тип "Doc"
                          :имя "pdf"
                          :ru ":param_pdf"
@@ -115,8 +115,8 @@
             :ru ""
             :en ""
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :параметры ((:тип "Doc"
                          :имя "pdf"
                          :ru ":param_pdf"
@@ -138,8 +138,8 @@
             :ru ""
             :en ""
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :параметры ((:тип "Doc"
                          :имя "pdf"
                          :ru ":param_pdf"
@@ -169,8 +169,8 @@
             :ru ""
             :en ""
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :параметры ((:тип "Doc"
                          :имя "pdf"
                          :ru ":param_pdf"
@@ -200,8 +200,8 @@
             :ru ""
             :en ""
             :результат (:тип "STATUS"
-                        :ru ""
-                        :en "")
+  	           :ru ":return_ok"
+               :en ":return_ok")
             :параметры ((:тип "Doc"
                          :имя "pdf"
                          :ru ":param_pdf"
