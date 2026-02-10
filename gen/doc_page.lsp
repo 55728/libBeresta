@@ -53,12 +53,11 @@
 ;; Функция BRST_Doc_Page_ByIndex
 (:название "Doc_Page_ByIndex"
    :группа "page"
-   :ошибки ()
+   :ru "Возвращает страницу документа, заданную номером."
+   :en "Return document page, denoted by index."
    :результат (:тип "Page"
           :ru ":param_page"
           :en ":param_page")
-          :ru "Возвращает страницу документа, заданную номером."
-          :en "Return document page, denoted by index.")
    :параметры ((:тип "Doc"
             :имя "pdf"
             :ru ":param_pdf"
@@ -71,12 +70,12 @@
 ;; Функция BRST_Doc_Page_Layout
 (:название "Doc_Page_Layout"
    :группа "page"
+   :ru "Возвращает макет страницы. Если макет не задан, возвращает \\ref BRST_PAGE_LAYOUT_LAST."
+   :en "Return page display layout on success. If page layout is not set, returns \\ref BRST_PAGE_LAYOUT_LAST."
    :ошибки ()
    :результат (:тип "PageLayout"
           :ru "Возвращает макет страницы. Если макет не задан, возвращает \\ref BRST_PAGE_LAYOUT_LAST."
           :en "Return page display layout on success. If page layout is not set, returns \\ref BRST_PAGE_LAYOUT_LAST.")
-   :ru "Возвращает макет страницы. Если макет не задан, возвращает \\ref BRST_PAGE_LAYOUT_LAST."
-   :en "Return page display layout on success. If page layout is not set, returns \\ref BRST_PAGE_LAYOUT_LAST."
    :параметры ((:тип "Doc"
             :имя "pdf"
             :ru ":param_pdf"
@@ -85,12 +84,12 @@
 ;; Функция BRST_Doc_Page_SetLayout
 (:название "Doc_Page_SetLayout"
    :группа "page"
+   :ru "Задает макет страницы. Если атрибут не указан, используются настройки программы просмотра."
+   :en "Set page display layout. If attribute is not set, the setting of the viewer application is used."
    :ошибки ("INVALID_DOCUMENT" "FAILED_TO_ALLOC_MEM" "PAGE_LAYOUT_OUT_OF_RANGE")
    :результат (:тип "STATUS"
   	           :ru ":return_ok"
                :en ":return_ok")
-   :ru "Задает макет страницы. Если атрибут не указан, используются настройки программы просмотра."
-   :en "Set page display layout. If attribute is not set, the setting of the viewer application is used."
    :параметры ((:тип "Doc"
             :имя "pdf"
             :ru ":param_pdf"
@@ -123,12 +122,12 @@
 ;; Функция BRST_Doc_Page_Mode
 (:название "Doc_Page_Mode"
    :группа "page"
+   :ru "Возвращает способ демонстранции страниц документа."
+   :en "Return page display mode."
    :ошибки ()
    :результат (:тип "PageMode"
           :ru "Способ демонстрации страниц документа."
           :en "Page display mode.")
-   :ru "Возвращает способ демонстранции страниц документа."
-   :en "Return page display mode."
    :параметры ((:тип "Doc"
             :имя "pdf"
             :ru ":param_pdf"
@@ -141,27 +140,44 @@
    :результат (:тип "STATUS"
   	           :ru ":return_ok"
                :en ":return_ok")
-   :ru ""
-   :en ""
-   :команда ""
+   :ru "Задает способ демонстранции страниц документа."
+   :en "Set page display mode."
    :параметры ((:тип "Doc"
             :имя "pdf"
             :ru ":param_pdf"
             :en ":param_pdf")
            (:тип "PageMode"
             :имя "mode"
-            :ru ""
-            :en "")))
+            :ru "\\parblock Одно из следующих значений:
+    Режим                                | Описание
+    -----                                | --------
+    \\ref BRST_PAGE_MODE_USE_NONE        | Ни структура документа, ни эскизы страниц не показываются
+    \\ref BRST_PAGE_MODE_USE_OUTLINES    | Показывается структура документа
+    \\ref BRST_PAGE_MODE_USE_THUMBS      | Показываются эскиз страниц
+    \\ref BRST_PAGE_MODE_FULL_SCREEN     | Полноэкранный режим: меню, элементы управления и другие части окна скрываются
+    \\ref BRST_PAGE_MODE_USE_OC          | Показывается панель необязательного содержимого
+    \\ref BRST_PAGE_MODE_USE_ATTACHMENTS | Показывается панель вложений
+  \\endparblock"
+            :en "\\parblock One of the following values:
+    Mode                                 | Description
+    ----                                 | -----------
+    \\ref BRST_PAGE_MODE_USE_NONE        | Neither document outline nor thumbnail images visible
+    \\ref BRST_PAGE_MODE_USE_OUTLINES    | Document outline visible
+    \\ref BRST_PAGE_MODE_USE_THUMBS      | Thumbnail images visible
+    \\ref BRST_PAGE_MODE_FULL_SCREEN     | Full-screen mode, with no menu bar, window controls, or any other window visible
+    \\ref BRST_PAGE_MODE_USE_OC          | Optional content group panel visible
+    \\ref BRST_PAGE_MODE_USE_ATTACHMENTS | Attachments panel visible
+  \\endparblock")))
 
 ;; Функция BRST_Doc_Page_Current
 (:название "Doc_Page_Current"
    :группа "page"
    :ошибки ()
    :результат (:тип "Page"
-          :ru ""
-          :en "")
-   :ru ""
-   :en ""
+          :ru ":param_page"
+          :en ":param_page")
+   :ru "Возвращается текущая страница."
+   :en "Return current document page."
    :команда ""
    :параметры ((:тип "Doc"
             :имя "pdf"
@@ -173,10 +189,10 @@
    :группа "page"
    :ошибки ("INVALID_DOCUMENT" "FAILED_TO_ALLOC_MEM")
    :результат (:тип "Page"
-          :ru ""
-          :en "")
-   :ru ""
-   :en ""
+          :ru ":param_page"
+          :en ":param_page")
+   :ru "Создает страницу и добавляет её в конец документа."
+   :en "Create page and add it to document end."
    :команда ""
    :параметры ((:тип "Doc"
             :имя "pdf"
@@ -188,19 +204,18 @@
    :группа "page"
    :ошибки ("INVALID_DOCUMENT" "FAILED_TO_ALLOC_MEM" "INVALID_PAGE")
    :результат (:тип "Page"
-          :ru ""
-          :en "")
-   :ru ""
-   :en ""
-   :команда ""
+          :ru ":param_page"
+          :en ":param_page")
+   :ru "Создает страницу и добавляет её перед страницей \\c page."
+   :en "Create page and insert it before page \\c page."
    :параметры ((:тип "Doc"
             :имя "pdf"
             :ru ":param_pdf"
             :en ":param_pdf")
            (:тип "Page"
             :имя "page"
-            :ru ""
-            :en "")))
+            :ru "Страница, перед которой вставляется вновь создаваемая страница."
+            :en "Created page is inserted before this page.")))
 
 ;; Функция BRST_Doc_Page_AddLabel
 (:название "Doc_Page_AddLabel"
@@ -209,26 +224,27 @@
    :результат (:тип "STATUS"
   	           :ru ":return_ok"
                :en ":return_ok")
-   :ru ""
-   :en ""
-   :команда ""
+   :ru "Указание способа отображения диапазона номеров страниц в программах просмотра."
+   :en "Set labeling style for page number range."
    :параметры ((:тип "Doc"
             :имя "pdf"
             :ru ":param_pdf"
             :en ":param_pdf")
            (:тип "UINT"
             :имя "page_num"
-            :ru ""
-            :en "")
+            :ru "Начальная страница диапазона страниц с собственной нумерацией."
+            :en "Page number range with a style.")
            (:тип "PageNumStyle"
             :имя "style"
-            :ru ""
-            :en "")
+            :ru "Стиль нумерации диапазона страниц."
+            :en "Page numbering style for page number range.")
            (:тип "UINT"
             :имя "first_page"
-            :ru ""
-            :en "")
+            :ru "Номер страницы, с которой может начинаться диапазон. Последовательность страниц будет начинаться с этого номера."
+            :en "The value of the numeric portion for the first page label in the range.
+Subsequent pages shall be numbered sequentially from this value, which shall be
+greater than or equal to 1")
            (:тип "CSTR"
             :имя "prefix"
-            :ru ""
-            :en "")))))
+            :ru "Префикс метки для диапазона страниц."
+            :en "The label prefix for page labels in this range.")))))

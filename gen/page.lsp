@@ -15,10 +15,13 @@
         (:имя "PageMode"
          :ru ""
          :en ""
-         :элементы ((:элемент "PAGE_MODE_USE_NONE"    :en "" :ru "")
-                    (:элемент "PAGE_MODE_USE_OUTLINE" :en "" :ru "")
-                    (:элемент "PAGE_MODE_USE_THUMBS"  :en "" :ru "")
-                    (:элемент "PAGE_MODE_FULL_SCREEN" :en "" :ru "")))
+         :элементы ((:элемент "PAGE_MODE_USE_NONE"        :en "" :ru "")
+                    (:элемент "PAGE_MODE_USE_OUTLINE"     :en "" :ru "")
+                    (:элемент "PAGE_MODE_USE_THUMBS"      :en "" :ru "")
+                    (:элемент "PAGE_MODE_FULL_SCREEN"     :en "" :ru "")
+                    (:элемент "PAGE_MODE_USE_OC"          :en "" :ru "")
+                    (:элемент "PAGE_MODE_USE_ATTACHMENTS" :en "" :ru "")
+                    ))
         (:имя "PageNum"
          :ru ""
          :en ""
