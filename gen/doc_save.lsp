@@ -4,7 +4,7 @@
 
 ;; Функция BRST_Doc_SaveToStream
 (:название "Doc_SaveToStream"
-   :группа "page"
+   :группа "doc"
    :ошибки ()
    :результат (:тип "STATUS"
   	           :ru ":return_ok"
@@ -18,19 +18,19 @@
 
 ;; Функция BRST_Doc_SaveToFile
 (:название "Doc_SaveToFile"
-   :группа "page"
+   :группа "doc"
    :ошибки ()
    :результат (:тип "STATUS"
   	           :ru ":return_ok"
                :en ":return_ok")
-   :ru ""
-   :en "Return page display layout."
+   :ru "Сохраняет документ в файл."
+   :en "Save document to file."
    :параметры ((:тип "Doc"
             :имя "pdf"
             :ru ":param_pdf"
             :en ":param_pdf")
             (:тип "CSTR"
             :имя "filename"
-            :ru ""
-            :en "")
+            :ru "Имя сохраняемого файла."
+            :en "Saved file name.")
             ))))
