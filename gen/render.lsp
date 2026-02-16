@@ -79,6 +79,7 @@
     (         "INT8" .        ":int8-t")
     (        "UINT8" . ":unsigned-byte")
     (         "BYTE" . ":unsigned-byte")
+    (        "BYTE*" . ":pointer-void")
     (         "REAL" .         ":float")
     (        "REAL*" .  ":pointer-void")
     (       "DOUBLE" .        ":double")
