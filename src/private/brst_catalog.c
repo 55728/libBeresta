@@ -309,6 +309,15 @@ BRST_Catalog_SetViewerPreference(BRST_Catalog catalog,
                 return ret;
     }
 
+    if (value & BRST_DISPLAY_DOC_TITLE) {
+        if ((ret = BRST_Dict_AddBoolean(preferences, "DisplayDocTitle", BRST_TRUE)) != BRST_OK)
+            return ret;
+    } else {
+        if ((ret = BRST_Dict_RemoveElement(preferences, "DisplayDocTitle")) != BRST_OK)
+            if (ret != BRST_DICT_ITEM_NOT_FOUND)
+                return ret;
+    }
+
     return BRST_OK;
 }
 
@@ -360,6 +369,13 @@ BRST_Catalog_ViewerPreference(BRST_Catalog catalog)
     if (obj) {
         if (BRST_Boolean_Value(obj))
             value += BRST_CENTER_WINDOW;
+    }
+
+    obj = (BRST_Boolean)BRST_Dict_Item(preferences, "DisplayDocTitle",
+        BRST_OCLASS_BOOLEAN);
+    if (obj) {
+        if (BRST_Boolean_Value(obj))
+            value += BRST_DISPLAY_DOC_TITLE;
     }
 
     return value;
