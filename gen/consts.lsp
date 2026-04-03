@@ -32,6 +32,29 @@
                      :ru "Сжимать всё"
                      :en "Compress everything"
                      :значение "0x0F")))
+        (:имя "Permission"
+         :ru "Разрешения документа."
+         :en "Document permissions."
+         :элементы ((:элемент "ENABLE_READ"
+                     :ru "Пользователь может читать документ."
+                     :en "User can read the document."
+                     :значение 0)
+                    (:элемент "ENABLE_PRINT"
+                     :ru "Пользователь может распечатать документ."
+                     :en "User can print the document."
+                     :значение 4)
+                    (:элемент "ENABLE_EDIT_ALL"
+                     :ru "Пользователь может править содержимое документа (не только примечания и поля форм)."
+                     :en "User can edit the contents of the document other than annotations and form fields."
+                     :значение 8)
+                    (:элемент "ENABLE_COPY"
+                     :ru "Пользователь может компировать текст и изображения документа."
+                     :en "User can copy the text and the graphics of the document."
+                     :значение 16)
+                    (:элемент "ENABLE_EDIT"
+                     :ru "Пользователь может добавлять или изменять примечания и поля форм документа."
+                     :en "User can add or modify the annotations and form fields of the document."
+                     :значение 32)))
         (:имя "ViewerPreference"
          :ru "Настройки программы просмотра"
          :en "Viewer preference values"
