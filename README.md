@@ -1,78 +1,67 @@
 # libBeresta
 
-`libBeresta` – свободная, открытая, кросс-платформенная библиотека для генерации PDF-файлов.
+libBeresta — free, open-source, cross-platform library for generating PDF files.
 
-![Береста](img/beresta.png)
+![Beresta](img/beresta.png)
 
-For international introduction see [`README_en.md`](README_en.md).
+Русскоязычное описание содержится в [`README_ru.md`](README_ru.md)
 
-Возможности библиотеки:
+Library Capabilities:
 
-* создание PDF-файлов при помощи линий, текста и изображений;
-* в файлы можно добавлять аннотации разных типов;
-* поддерживается сжатие документов;
-* в документы можно вставлять изображения форматов PNG, JPEG и TIFF (Raw);
-* создание шифрованных файлов;
-* использование различных кодировок, включая UTF-8 и азиатские:
-  * китайская традиционная
-  * китайская упрощенная
-  * корейская
-  * японская
+* Creation of PDF files using lines, text and images;
+* Ability to add various types of annotations into the documents;
+* Support for document compression;
+* Insertion of PNG, JPEG, and TIFF (Raw) format images into documents;
+* Creation of encrypted files;
+* Use of different encodings including UTF-8 and Asian ones such as:
+  * Traditional Chinese
+  * Simplified Chinese
+  * Korean
+  * Japanese
 
-Библиотека позволяет создавать PDF-документы без необходимости глубокого понимания внутреннего устройства Portable Document Format.
+The library allows creating PDF documents without requiring an understanding of the internal structure of the Portable Document Format.
 
-Язык программирования библиотеки - ANSI C.
+Programming Language: ANSI C
 
-## Название и история
 
-Береста – материал, отсылающий нас к письменам Древней Руси.
+## Name and History
 
-[Берестяные грамоты](https://www.culture.ru/s/slovo-dnya/berestyanye-gramoty/) – это памятники древнерусской письменности,
-записи на коре деревьев. Один из самых популярных материалов для
-письма в XI–XV веках.
+Beresta is a material that refers us back to ancient Russian writings.
 
-Слово «береста» образовано от того же корня, что и «береза». Буквально
-оно означает «белое дерево». «Берестяными» грамоты стали называть
-из-за того, что именно кора березы использовалась для их изготовления
-чаще всего.
+Birchbark letters are monuments of Old Russian writing, records made on tree bark. 
+One of the most popular materials used for writing in the 11th–15th centuries.
 
-## Принципы разработки библиотеки
+The word “beresta” comes from the same root as “birch.” Literally it means “white tree.” 
+The term “birchbark” was coined because birch bark was most commonly used for their creation.
 
-- язык разработки – ANSI C;
-- использование русского язык в документации, коде и коммуникации (английский, впрочем, тоже можно использовать);
-- документирование публичного кода библиотеки;
-- четкое разделение на экспортируемую и приватную части, как в заголовках, так и в исходном коде;
-- модульность библиотеки как по стандартам PDF, так и по поддерживаемым функциям;
-- проверка орфографии для кода и документации;
-- unit-тестирование функций библиотеки;
-- тестирование задокументированных ошибок состояния (вроде `BRST_INVALID_DOCUMENT`);
-- в перспективе подготовка библиотеки к генерации языковых привязок;
-- примеры на все функции библиотеки;
-- примеры на все разделы поддерживаемых стандартов PDF.
+## Development Principles
 
-## О разработке отдельно
+* Development language: ANSI C;
+* Documentation, code, and communication in Russian (English is welcome as well);
+* Public API documentation;
+* Clear separation between exported and private parts both in headers and source code;
+* Modularity according to PDF standards and supported features;
+* Spelling checks for code and documentation;
+* Unit testing of library functions;
+* Testing documented error states (such as `BRST_INVALID_DOCUMENT`);
+* Preparation of the library for future generation of bindings;
+* Examples covering all library functions;
+* Examples illustrating each section of supported PDF standards. 
 
-[`ПЛАНЫ.md`](doc/ПЛАНЫ.md)
+This library is a deep rework of the `libHaru` project.
 
-[`РАЗРАБОТКА.md`](doc/РАЗРАБОТКА.md)
+Several reasons motivated this development effort:
 
-## Предыдущие наработки
+* Practically stalled development of the libHaru library (patch responses could take several months);
+* Inability to use the library piecemeal (difficulties excluding annotations, text generation, image embedding or PDF/A support);
+* Mixed-up functions in libHaru—exported and non-exported functions appear intermingled in both header files and implementation;
+* Lack of any form of documentation;
+* Unclear compliance with PDF standards by libHaru;
+* Absence of tests;
+* Limited number of examples;
+* Inconsistencies and errors in function names. 
 
-**Библиотека является глубокой переработкой проекта `libHaru`.**
+## License 
+The library is developed and distributed under the MIT license. The full text of the license can be found in the file [`LICENSE`](LICENSE).
 
-К разработке этой библиотеке подтолкнуло несколько причин:
-
-- практически остановившееся развитие библиотеки libHaru (ответа на исправления могло не быть несколько месяцев);
-- невозможность использования библиотеки по частям, например, сложно исключить аннотации, генерацию текстов, вложение картинок или PDF/A;
-- функции в библиотеке libHaru идут вперемешку, публичные и не публичные, причем, как в заголовках, так и в реализации;
-- отсутствие документации как явления;
-- неясность статуса соответствия библиотеки libHaru стандартам PDF;
-- отсутствие тестов;
-- малое количество примеров;
-- несогласованность и ошибки в именах функций.
-
-## Лицензия
-
-Библиотека разрабатывается и распространяется под лицензией MIT. Текст лицензии находится в файле [`ЛИЦЕНЗИЯ`](%D0%9B%D0%98%D0%A6%D0%95%D0%9D%D0%97%D0%98%D0%AF).
-
-Текст лицензии оригинальной библиотеки libHaru находится в файле [`LICENSE.libHaru`](LICENSE.libHaru).
+The original libHaru library's license text is located in the [`LICENSE.libHaru`](LICENSE.libHaru) file.
