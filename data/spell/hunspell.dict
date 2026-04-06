@@ -23,7 +23,6 @@ AnnotType
 APDF
 AppendOutputIntents
 arg
-args
 ARTBOX
 asian
 ASIS
@@ -60,7 +59,6 @@ CALRGB
 CARRE
 Carré
 Carta
-cddddr
 cdr
 CharBBox
 CharSpace
@@ -139,7 +137,6 @@ disp
 djula
 DL
 docf
-dolist
 Dotum
 DotumChe
 downcase
@@ -176,7 +173,6 @@ Eoclip
 EOF
 Eofill
 EofillStroke
-eql
 ErrorKind
 ETen
 EUC
@@ -313,7 +309,6 @@ PaintType
 param
 params
 parblock
-pathnames
 PatternType
 pdf
 pdfa
