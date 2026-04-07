@@ -1,4 +1,4 @@
-# libBeresta
+# libBeresta [![Build Status](https://github.com/libBeresta/libBeresta/actions/workflows/cmake.yml/badge.svg)](https://github.com/libBeresta/libBeresta/actions/workflows/cmake.yml)
 
 libBeresta — free, open-source, cross-platform library for generating PDF files.
 
