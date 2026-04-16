@@ -37,6 +37,14 @@
   #:IN
 
   ;;; consts: enums
+  ;; GMode
+  #:GMODE-PAGE-DESCRIPTION
+  #:GMODE-PATH-OBJECT
+  #:GMODE-TEXT-OBJECT
+  #:GMODE-CLIPPING-PATH
+  #:GMODE-SHADING
+  #:GMODE-INLINE-IMAGE
+  #:GMODE-EXTERNAL-OBJECT
   ;; CompressionMode
   #:COMP-MODE-NONE
   #:COMP-MODE-TEXT
@@ -428,14 +436,21 @@
   #:Page-MiterLimit
   #:Page-Flat
   #:Page-Matrix
-  #:string-to-cstring
+;; Exports from macro.lisp
+
+  #:func
+  #:pointer
+  #:struct
+  #:synonym
+  #:constant 
   #:with-pdf-document
-  #:with-ttf-font
+  #:with-ttf-font 
+  #:include-header
+  #:string-to-cstring 
   #:page-set-dash-pattern
   #:stream-set-dash-pattern
   #:with-page-gsave
-  #:with-stream-gsave
-  ;; matrix: pointers
+  #:with-stream-gsave  ;; matrix: pointers
   #:Matrix
 
   ;; mmgr: pointers
@@ -514,6 +529,51 @@
   #:Page-SetExtGState
   #:Page-CreateDestination
 
+  ;; Размеры страниц
+  #:PAGE-SIZE-4A0
+  #:PAGE-SIZE-2A0
+  #:PAGE-SIZE-A0
+  #:PAGE-SIZE-A0-PLUS
+  #:PAGE-SIZE-A1
+  #:PAGE-SIZE-A1-PLUS
+  #:PAGE-SIZE-A2
+  #:PAGE-SIZE-A3
+  #:PAGE-SIZE-A3-PLUS
+  #:PAGE-SIZE-A4
+  #:PAGE-SIZE-A5
+  #:PAGE-SIZE-A6
+  #:PAGE-SIZE-A7
+  #:PAGE-SIZE-A8
+  #:PAGE-SIZE-A9
+  #:PAGE-SIZE-A10
+  #:PAGE-SIZE-B0
+  #:PAGE-SIZE-B0-PLUS
+  #:PAGE-SIZE-B1
+  #:PAGE-SIZE-B1-PLUS
+  #:PAGE-SIZE-B2
+  #:PAGE-SIZE-B2-PLUS
+  #:PAGE-SIZE-B3
+  #:PAGE-SIZE-B4
+  #:PAGE-SIZE-B5
+  #:PAGE-SIZE-B6
+  #:PAGE-SIZE-B7
+  #:PAGE-SIZE-B8
+  #:PAGE-SIZE-B9
+  #:PAGE-SIZE-B10
+  #:PAGE-SIZE-B11
+  #:PAGE-SIZE-B12
+  #:PAGE-SIZE-B13
+  #:PAGE-SIZE-C0
+  #:PAGE-SIZE-C1
+  #:PAGE-SIZE-C2
+  #:PAGE-SIZE-C3
+  #:PAGE-SIZE-C4
+  #:PAGE-SIZE-C5
+  #:PAGE-SIZE-C6
+  #:PAGE-SIZE-C7
+  #:PAGE-SIZE-C8
+  #:PAGE-SIZE-C9
+  #:PAGE-SIZE-C10
 
   ;; page_xobject: functions
   #:Page-XObject-Execute

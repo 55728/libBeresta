@@ -4,8 +4,8 @@
 
 SCRIPT_DIR=$( cd "$( dirname "$0" )" && pwd -P )
 
-RENDER_DIR=$SCRIPT_DIR/../../gen/
-PREFIX=../bindings/ecl
+RENDER_DIR=$SCRIPT_DIR/../../gen/scripts/
+PREFIX=../../bindings/ecl
 
 mkdir $SCRIPT_DIR/src 2> /dev/null
 
@@ -13,88 +13,90 @@ pushd $RENDER_DIR > /dev/null
 
 cp $PREFIX/macro.exp $PREFIX/src/
 
-./render.sh `realpath $PREFIX/ecl-page-sizes.dj`     ru lisp     `realpath $PREFIX/src/` page_sizes.lsp       
-./render.sh `realpath $PREFIX/ecl-page-sizes-216.dj` ru lisp_216 `realpath $PREFIX/src/` page_sizes.lsp
+./render.sh `realpath $PREFIX/ecl-page-sizes.dj`     ru lisp     `realpath $PREFIX/src/` ../data/page_sizes.lsp
+./render.sh `realpath $PREFIX/ecl-page-sizes-216.dj` ru lisp_216 `realpath $PREFIX/src/` ../data/page_sizes.lsp
 
-./render.sh `realpath $PREFIX/ecl-types.dj` ru lisp `realpath $PREFIX/src/` types.lsp
+./render.sh `realpath $PREFIX/ecl-types.dj` ru lisp `realpath $PREFIX/src/` ../data/types.lsp
+
+./render.sh `realpath $PREFIX/exp-ecl-page-sizes-216.dj` ru exp `realpath $PREFIX/src/` ../data/page_sizes.lsp
 
 ./render.sh `realpath $PREFIX/ecl.dj` ru lisp `realpath $PREFIX/src/` \
-            base.lsp             \
-            error.lsp            \
-            destination.lsp      \
-            array.lsp            \
-            mmgr.lsp             \
-            dict.lsp             \
-            font.lsp             \
-            page.lsp             \
-            page_routines.lsp    \
-            text.lsp             \
-            geometry.lsp         \
-            doc.lsp              \
-            doc_ext_gstate.lsp   \
-            doc_page.lsp         \
-            doc_save.lsp         \
-            mmgr.lsp             \
-            geometry_defines.lsp \
-            structs.lsp          \
-            ext_gstate.lsp       \
-            text_defines.lsp     \
-            doc_info.lsp         \
-            date.lsp             \
-            doc_encoding_utf.lsp \
-            doc_encoder.lsp      \
-            doc_xobject.lsp      \
-            page_xobject.lsp     \
-            xobject.lsp          \
-            stream_geometry.lsp  \
-            stream.lsp           \
-            pattern.lsp          \
-            matrix.lsp           \
-            doc_matrix.lsp       \
-            doc_page_pattern.lsp \
-            consts.lsp           \
-            stream_text.lsp      \
-            doc_font.lsp         \
-            doc_compression.lsp
+            ../data/base.lsp             \
+            ../data/error.lsp            \
+            ../data/destination.lsp      \
+            ../data/array.lsp            \
+            ../data/mmgr.lsp             \
+            ../data/dict.lsp             \
+            ../data/font.lsp             \
+            ../data/page.lsp             \
+            ../data/page_routines.lsp    \
+            ../data/text.lsp             \
+            ../data/geometry.lsp         \
+            ../data/doc.lsp              \
+            ../data/doc_ext_gstate.lsp   \
+            ../data/doc_page.lsp         \
+            ../data/doc_save.lsp         \
+            ../data/mmgr.lsp             \
+            ../data/geometry_defines.lsp \
+            ../data/structs.lsp          \
+            ../data/ext_gstate.lsp       \
+            ../data/text_defines.lsp     \
+            ../data/doc_info.lsp         \
+            ../data/date.lsp             \
+            ../data/doc_encoding_utf.lsp \
+            ../data/doc_encoder.lsp      \
+            ../data/doc_xobject.lsp      \
+            ../data/page_xobject.lsp     \
+            ../data/xobject.lsp          \
+            ../data/stream_geometry.lsp  \
+            ../data/stream.lsp           \
+            ../data/pattern.lsp          \
+            ../data/matrix.lsp           \
+            ../data/doc_matrix.lsp       \
+            ../data/doc_page_pattern.lsp \
+            ../data/consts.lsp           \
+            ../data/stream_text.lsp      \
+            ../data/doc_font.lsp         \
+            ../data/doc_compression.lsp
 
 ./render.sh `realpath $PREFIX/exp-ecl.dj` ru exp `realpath $PREFIX/src/` \
-            base.lsp             \
-            error.lsp            \
-            destination.lsp      \
-            array.lsp            \
-            mmgr.lsp             \
-            page.lsp             \
-            dict.lsp             \
-            font.lsp             \
-            page_routines.lsp    \
-            text.lsp             \
-            geometry.lsp         \
-            doc.lsp              \
-            doc_ext_gstate.lsp   \
-            doc_page.lsp         \
-            doc_save.lsp         \
-            mmgr.lsp             \
-            geometry_defines.lsp \
-            structs.lsp          \
-            ext_gstate.lsp       \
-            text_defines.lsp     \
-            doc_info.lsp         \
-            date.lsp             \
-            doc_encoding_utf.lsp \
-            doc_encoder.lsp      \
-            doc_xobject.lsp      \
-            page_xobject.lsp     \
-            xobject.lsp          \
-            stream_geometry.lsp  \
-            stream.lsp           \
-            pattern.lsp          \
-            matrix.lsp           \
-            doc_matrix.lsp       \
-            doc_page_pattern.lsp \
-            consts.lsp           \
-            stream_text.lsp      \
-            doc_font.lsp         \
-            doc_compression.lsp  
+            ../data/base.lsp             \
+            ../data/error.lsp            \
+            ../data/destination.lsp      \
+            ../data/array.lsp            \
+            ../data/mmgr.lsp             \
+            ../data/page.lsp             \
+            ../data/dict.lsp             \
+            ../data/font.lsp             \
+            ../data/page_routines.lsp    \
+            ../data/text.lsp             \
+            ../data/geometry.lsp         \
+            ../data/doc.lsp              \
+            ../data/doc_ext_gstate.lsp   \
+            ../data/doc_page.lsp         \
+            ../data/doc_save.lsp         \
+            ../data/mmgr.lsp             \
+            ../data/geometry_defines.lsp \
+            ../data/structs.lsp          \
+            ../data/ext_gstate.lsp       \
+            ../data/text_defines.lsp     \
+            ../data/doc_info.lsp         \
+            ../data/date.lsp             \
+            ../data/doc_encoding_utf.lsp \
+            ../data/doc_encoder.lsp      \
+            ../data/doc_xobject.lsp      \
+            ../data/page_xobject.lsp     \
+            ../data/xobject.lsp          \
+            ../data/stream_geometry.lsp  \
+            ../data/stream.lsp           \
+            ../data/pattern.lsp          \
+            ../data/matrix.lsp           \
+            ../data/doc_matrix.lsp       \
+            ../data/doc_page_pattern.lsp \
+            ../data/consts.lsp           \
+            ../data/stream_text.lsp      \
+            ../data/doc_font.lsp         \
+            ../data/doc_compression.lsp  
 
 cp $PREFIX/macro.lisp  $PREFIX/src/
 
