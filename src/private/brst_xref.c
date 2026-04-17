@@ -274,7 +274,7 @@ BRST_Xref_WriteToStream(BRST_Xref xref,
         tmp_xref->addr = stream->size;
 
         pbuf    = buf;
-        pbuf    = (char*)BRST_StrCopy(pbuf, "xref\012", eptr);
+        pbuf    = BRST_StrCopy(pbuf, "xref\012", eptr);
         pbuf    = BRST_IToA(pbuf, tmp_xref->start_offset, eptr);
         *pbuf++ = ' ';
         pbuf    = BRST_IToA(pbuf, BRST_List_Count(tmp_xref->entries), eptr);

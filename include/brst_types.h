@@ -10,6 +10,7 @@
 typedef void*              BRST_RAW_POINTER;
 
 typedef const char*        BRST_CSTR;
+typedef char*              BRST_STR;
 
 /*  native OS integer types */
 typedef signed int         BRST_INT;
