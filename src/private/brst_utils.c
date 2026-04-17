@@ -243,7 +243,7 @@ BRST_MemCopy(BRST_BYTE* out,
     return out;
 }
 
-BRST_BYTE*
+BRST_STR
 BRST_StrCopy(char* out,
     const char* in,
     char* eptr)
@@ -255,7 +255,7 @@ BRST_StrCopy(char* out,
 
     *out = 0;
 
-    return (BRST_BYTE*)out;
+    return out;
 }
 
 BRST_INT

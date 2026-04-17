@@ -183,7 +183,7 @@ BRST_BasicEncoder_Write(BRST_Encoder encoder,
                 ptmp    = BRST_IToA(ptmp, i, tmp + BRST_TEXT_DEFAULT_LEN - 1);
                 *ptmp++ = ' ';
                 *ptmp++ = '/';
-                ptmp    = (char*)BRST_StrCopy(ptmp, char_name, tmp + BRST_TEXT_DEFAULT_LEN - 1);
+                ptmp    = BRST_StrCopy(ptmp, char_name, tmp + BRST_TEXT_DEFAULT_LEN - 1);
                 *ptmp++ = ' ';
                 *ptmp   = 0;
 

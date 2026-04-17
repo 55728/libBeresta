@@ -895,17 +895,17 @@ CreateCMap(BRST_Encoder encoder,
     ret += BRST_Stream_WriteStr(cmap->stream,
         "%%IncludeResource: ProcSet (CIDInit)\r\n");
 
-    pbuf = (char*)BRST_StrCopy(buf, "%%BeginResource: CMap (", eptr);
-    pbuf = (char*)BRST_StrCopy(pbuf, encoder->name, eptr);
+    pbuf = BRST_StrCopy(buf, "%%BeginResource: CMap (", eptr);
+    pbuf = BRST_StrCopy(pbuf, encoder->name, eptr);
     BRST_StrCopy(pbuf, ")\r\n", eptr);
     ret += BRST_Stream_WriteStr(cmap->stream, buf);
 
-    pbuf    = (char*)BRST_StrCopy(buf, "%%Title: (", eptr);
-    pbuf    = (char*)BRST_StrCopy(pbuf, encoder->name, eptr);
+    pbuf    = BRST_StrCopy(buf, "%%Title: (", eptr);
+    pbuf    = BRST_StrCopy(pbuf, encoder->name, eptr);
     *pbuf++ = ' ';
-    pbuf    = (char*)BRST_StrCopy(pbuf, attr->registry, eptr);
+    pbuf    = BRST_StrCopy(pbuf, attr->registry, eptr);
     *pbuf++ = ' ';
-    pbuf    = (char*)BRST_StrCopy(pbuf, attr->ordering, eptr);
+    pbuf    = BRST_StrCopy(pbuf, attr->ordering, eptr);
     *pbuf++ = ' ';
     pbuf    = BRST_IToA(pbuf, attr->supplement, eptr);
     BRST_StrCopy(pbuf, ")\r\n", eptr);
@@ -926,24 +926,24 @@ CreateCMap(BRST_Encoder encoder,
     ret += BRST_Stream_WriteStr(cmap->stream,
         "/CIDSystemInfo 3 dict dup begin\r\n");
 
-    pbuf = (char*)BRST_StrCopy(buf, "  /Registry (", eptr);
-    pbuf = (char*)BRST_StrCopy(pbuf, attr->registry, eptr);
+    pbuf = BRST_StrCopy(buf, "  /Registry (", eptr);
+    pbuf = BRST_StrCopy(pbuf, attr->registry, eptr);
     BRST_StrCopy(pbuf, ") def\r\n", eptr);
     ret += BRST_Stream_WriteStr(cmap->stream, buf);
 
-    pbuf = (char*)BRST_StrCopy(buf, "  /Ordering (", eptr);
-    pbuf = (char*)BRST_StrCopy(pbuf, attr->ordering, eptr);
+    pbuf = BRST_StrCopy(buf, "  /Ordering (", eptr);
+    pbuf = BRST_StrCopy(pbuf, attr->ordering, eptr);
     BRST_StrCopy(pbuf, ") def\r\n", eptr);
     ret += BRST_Stream_WriteStr(cmap->stream, buf);
 
-    pbuf = (char*)BRST_StrCopy(buf, "  /Supplement ", eptr);
+    pbuf = BRST_StrCopy(buf, "  /Supplement ", eptr);
     pbuf = BRST_IToA(pbuf, attr->supplement, eptr);
-    pbuf = (char*)BRST_StrCopy(pbuf, " def\r\n", eptr);
+    pbuf = BRST_StrCopy(pbuf, " def\r\n", eptr);
     BRST_StrCopy(pbuf, "end def\r\n\r\n", eptr);
     ret += BRST_Stream_WriteStr(cmap->stream, buf);
 
-    pbuf = (char*)BRST_StrCopy(buf, "/CMapName /", eptr);
-    pbuf = (char*)BRST_StrCopy(pbuf, encoder->name, eptr);
+    pbuf = BRST_StrCopy(buf, "/CMapName /", eptr);
+    pbuf = BRST_StrCopy(pbuf, encoder->name, eptr);
     BRST_StrCopy(pbuf, " def\r\n", eptr);
     ret += BRST_Stream_WriteStr(cmap->stream, buf);
 
@@ -951,13 +951,13 @@ CreateCMap(BRST_Encoder encoder,
     ret += BRST_Stream_WriteStr(cmap->stream, "/CMapType 1 def\r\n\r\n");
 
     if (attr->uid_offset >= 0) {
-        pbuf = (char*)BRST_StrCopy(buf, "/UIDOffset ", eptr);
+        pbuf = BRST_StrCopy(buf, "/UIDOffset ", eptr);
         pbuf = BRST_IToA(pbuf, attr->uid_offset, eptr);
         BRST_StrCopy(pbuf, " def\r\n\r\n", eptr);
         ret += BRST_Stream_WriteStr(cmap->stream, buf);
     }
 
-    pbuf    = (char*)BRST_StrCopy(buf, "/XUID [", eptr);
+    pbuf    = BRST_StrCopy(buf, "/XUID [", eptr);
     pbuf    = BRST_IToA(pbuf, attr->xuid[0], eptr);
     *pbuf++ = ' ';
     pbuf    = BRST_IToA(pbuf, attr->xuid[1], eptr);
@@ -966,7 +966,7 @@ CreateCMap(BRST_Encoder encoder,
     BRST_StrCopy(pbuf, "] def\r\n\r\n", eptr);
     ret += BRST_Stream_WriteStr(cmap->stream, buf);
 
-    pbuf = (char*)BRST_StrCopy(buf, "/WMode ", eptr);
+    pbuf = BRST_StrCopy(buf, "/WMode ", eptr);
     pbuf = BRST_IToA(pbuf, (BRST_UINT32)attr->writing_mode, eptr);
     BRST_StrCopy(pbuf, " def\r\n\r\n", eptr);
     ret += BRST_Stream_WriteStr(cmap->stream, buf);
@@ -1041,7 +1041,7 @@ CreateCMap(BRST_Encoder encoder,
 
         if ((i + 1) % 100 == 0) {
             phase--;
-            pbuf = (char*)BRST_StrCopy(buf, "endcidrange\r\n\r\n", eptr);
+            pbuf = BRST_StrCopy(buf, "endcidrange\r\n\r\n", eptr);
 
             if (phase > 0)
                 pbuf = BRST_IToA(pbuf, 100, eptr);
@@ -1058,15 +1058,15 @@ CreateCMap(BRST_Encoder encoder,
     }
 
     if (odd > 0)
-        pbuf = (char*)BRST_StrCopy(buf, "endcidrange\r\n", eptr);
+        pbuf = BRST_StrCopy(buf, "endcidrange\r\n", eptr);
 
-    pbuf = (char*)BRST_StrCopy(pbuf, "endcmap\r\n", eptr);
-    pbuf = (char*)BRST_StrCopy(pbuf, "CMapName currentdict /CMap "
+    pbuf = BRST_StrCopy(pbuf, "endcmap\r\n", eptr);
+    pbuf = BRST_StrCopy(pbuf, "CMapName currentdict /CMap "
                                     "defineresource pop\r\n",
         eptr);
-    pbuf = (char*)BRST_StrCopy(pbuf, "end\r\n", eptr);
-    pbuf = (char*)BRST_StrCopy(pbuf, "end\r\n\r\n", eptr);
-    pbuf = (char*)BRST_StrCopy(pbuf, "%%EndResource\r\n", eptr);
+    pbuf = BRST_StrCopy(pbuf, "end\r\n", eptr);
+    pbuf = BRST_StrCopy(pbuf, "end\r\n\r\n", eptr);
+    pbuf = BRST_StrCopy(pbuf, "%%EndResource\r\n", eptr);
     BRST_StrCopy(pbuf, "%%EOF\r\n", eptr);
     ret += BRST_Stream_WriteStr(cmap->stream, buf);
 

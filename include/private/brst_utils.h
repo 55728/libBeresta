@@ -23,21 +23,21 @@ BRST_AToF(
 );
 
 
-char*
+BRST_STR
 BRST_IToA(
     char*      s,
     BRST_INT32 val,
     char*      eptr
 );
 
-char*
+BRST_STR
 BRST_IToA2(
     char*       s,
     BRST_UINT32 val,
     BRST_UINT   len
 );
 
-char*
+BRST_STR
 BRST_FToA(
     char*     s,
     BRST_REAL val,
@@ -51,7 +51,7 @@ BRST_MemCopy(
     BRST_UINT        n
 );
 
-BRST_BYTE*
+BRST_STR
 BRST_StrCopy(
     char*       out,
     const char* in,
@@ -71,7 +71,7 @@ BRST_StrCmp(
     const char* s2
 );
 
-const char*
+BRST_CSTR
 BRST_StrStr(
     const char* s1,
     const char* s2,

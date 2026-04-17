@@ -202,7 +202,7 @@ BRST_Doc_Initialize(BRST_Doc pdf)
 
     pdf->cur_pages = pdf->root_pages;
 
-    ptr     = (char*)BRST_StrCopy(ptr, (const char*)"Beresta Free PDF Library ", eptr);
+    ptr     = BRST_StrCopy(ptr, (const char*)"Beresta Free PDF Library ", eptr);
     version = BRST_Version();
     BRST_StrCopy(ptr, version, eptr);
 
