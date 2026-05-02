@@ -19,7 +19,7 @@
                          :en "Source image")
 			(:type "BOOL"
                          :name "zoom"
-                         :ру "Флаг масштабирования"
+                         :ru "Флаг масштабирования"
                          :en "Zoom flag"))
             :result (:type "XObject"
                         :ru ":param_xobject"
