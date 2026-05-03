@@ -15,7 +15,7 @@ Your contribution is welcome in any area that interests you:
 * Translate the library
 * Document the library
 
-A list of known tasks can be found on the [milestones](https://github.com/libBeresta/libBeresta/milestones) and [issues](https://github.com/libBeresta/libBeresta/milestones) pages.
+A list of known tasks can be found on the [milestones](https://github.com/libBeresta/libBeresta/milestones) and [issues](https://github.com/libBeresta/libBeresta/issues) pages.
 
 ## Extended version
 
@@ -40,7 +40,7 @@ Creating language bindings is a challenging task, and many libraries do nothing 
 
 We have created «generator data files» that can be used as a basis for generating language bindings. For more details, please refer to
 
-[gen/README.md](gen/README.md).
+[gen/README.md](../gen/README.md).
 
 We are very much looking forward to language bindings for `libBeresta` in your programming languages, especially since you know your own languages much better than we do.
 

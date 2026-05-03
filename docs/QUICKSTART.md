@@ -82,6 +82,6 @@ LD_LIBRARY_PATH=$LIBBRST_PATH/build/src/ ./bare_minimum
 
 The file `bare_minimum.pdf` should be generated.
 
-The resulting file is an A4-sized, portrait-oriented PDF with a rectangle covering the almost entire page.
+The resulting file is an A4-sized, landscape-oriented PDF with a rectangle covering the almost entire page.
 
 The creation of `bare_minimum.pdf` is a sign that the library has been successfully built and can be used in your work.
