@@ -1,4 +1,5 @@
 ABCDE
+ABug
 AddLabel
 AddXmpExtension
 AES
@@ -6,6 +7,7 @@ afm
 AFM
 AFRelationship
 Aigle
+Aissue
 alexandria
 alloc
 Alloc
@@ -20,6 +22,7 @@ AnnotLineCapPosition
 AnnotLineEnd
 AnnotStampStyle
 AnnotType
+Aopen
 APDF
 AppendOutputIntents
 arg
@@ -123,6 +126,7 @@ CurrentTextPos
 curveto
 CurveTo
 DashMode
+DataMatrix
 defparameter
 defun
 defvar
@@ -191,6 +195,7 @@ fontdef
 FontDef
 FORCOMMENT
 FORPUBLICRELEASE
+FreeBSD
 Func
 GBK
 getf
@@ -235,8 +240,10 @@ Kiku
 KSC
 KSCms
 LAH
+lbrst
 len
 libBeresta
+libbrst
 LIBBRST
 libHaru
 LIBPNG
@@ -253,6 +260,8 @@ LinkAnnot
 LoadFromFile
 LoadFromMemory
 lsb
+lsp
+lz
 malloc
 mapcar
 maxMemType
@@ -269,6 +278,7 @@ MingLiU
 minMemType
 MiterLimit
 MITERLIMIT
+mkdir
 mmgr
 MMgr
 MoveTextPos
@@ -277,6 +287,7 @@ MoveToNextLine
 msb
 msg
 msp
+nbsp
 ndash
 NewEx
 NewParagraph
@@ -288,6 +299,7 @@ NOTFORPUBLICRELEASE
 Noto
 NoView
 NOZOOM
+nuget
 num
 numchars
 numspace
@@ -322,6 +334,7 @@ PDFX
 PFA
 PFB
 PGothic
+pkg
 pliego
 PMincyo
 png
@@ -432,6 +445,7 @@ ShowTextNextLineEx
 SimHei
 SimSun
 Soleil
+SourceCraft
 src
 StampAnnotName
 StrCopy
@@ -552,9 +566,11 @@ ZLIB
 подпуть
 Полноэкранный
 рендеринга
+репозитории
 ру
 субтрактивного
 т
 таб
 треппинге
+уязвимостей
 фотодиапозитивов
