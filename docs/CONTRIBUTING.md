@@ -88,6 +88,7 @@ We want the library to be convenient to use, so we welcome any improvements rela
 - Creating a logging mechanism and outputting statistical information about generation
 - Creating large files
 - Creating file groups
+- Creating OS packages (Linux `deb`, FreeBSD `pgk`, Windows `nuget` etc.)
 - Perhaps something has been missed...
 
 Any enhancements are welcome! You are also invited to join the [discussions](https://github.com/libBeresta/libBeresta/discussions) to talk about improvements from the list above.
