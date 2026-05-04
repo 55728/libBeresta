@@ -40,4 +40,4 @@ For the mechanism to work correctly, it is necessary to install the utility [`yq
 
 # Coverage statistics
 
-See [stats.md](../doc/STATS.md).
+See [STATS.md](../docs/STATS.md).
